@@ -1,0 +1,154 @@
+<?php
+
+namespace Shop\ProductBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Product
+ *
+ * @ORM\Table()
+ * @ORM\Entity
+ */
+class Product
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="product_name", type="string", length=255)
+     */
+    private $productName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="product_description", type="string", length=255)
+     */
+    private $productDescription;
+
+    /**
+     * @var string
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
+    private $category;
+
+    /**
+     * @var string
+     * @ORM\ManyToOne(targetEntity="Brand", inversedBy="products")
+     * @ORM\JoinColumn(name="brand_id", referencedColumnName="id")
+     */
+    private $brand;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set productName
+     *
+     * @param string $productName
+     * @return Product
+     */
+    public function setProductName($productName)
+    {
+        $this->productName = $productName;
+    
+        return $this;
+    }
+
+    /**
+     * Get productName
+     *
+     * @return string 
+     */
+    public function getProductName()
+    {
+        return $this->productName;
+    }
+
+    /**
+     * Set productDescription
+     *
+     * @param string $productDescription
+     * @return Product
+     */
+    public function setProductDescription($productDescription)
+    {
+        $this->productDescription = $productDescription;
+    
+        return $this;
+    }
+
+    /**
+     * Get productDescription
+     *
+     * @return string 
+     */
+    public function getProductDescription()
+    {
+        return $this->productDescription;
+    }
+
+    /**
+     * Set category
+     *
+     * @param string $category
+     * @return Product
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+    
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return string 
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * Set brand
+     *
+     * @param string $brand
+     * @return Product
+     */
+    public function setBrand($brand)
+    {
+        $this->brand = $brand;
+    
+        return $this;
+    }
+
+    /**
+     * Get brand
+     *
+     * @return string 
+     */
+    public function getBrand()
+    {
+        return $this->brand;
+    }
+}

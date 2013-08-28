@@ -1,0 +1,49 @@
+{% extends 'ProductBundle::layout.html.twig' %}
+
+{% block content -%}
+
+<div id="products">
+<div id="product">
+
+    <div id="images">
+
+        <img src="{{ asset ('uploads/documents/') }}{{ product.path }}" />
+
+
+    </div>
+
+    <div id="info">
+
+
+        {{ product.brand.brandDescription }}
+        {{ product.brand.brandName }}
+
+        <br/><br/><br/><br/>
+
+
+
+        {{ product.productName }}
+        {{ product.productSize }}<br/>
+        {{ product.productPrice }} {{ product.productRabat }} {{ product.productSalePrice }}
+
+
+        <img class="brand_logo" src="{{ asset ('uploads/documents/') }}{{ product.brand.path1 }}" />
+    </div>
+
+
+    <div id="description">
+        {{ product.productDescription }}
+    </div>
+
+</div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+

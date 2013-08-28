@@ -1,0 +1,33 @@
+{% extends 'ProductBundle::layout.html.twig' %}
+
+{% block content -%}
+
+    <div id="products">
+        {% for product in products %}
+            <div class="product">
+                <a href="{{ path('selected_product', { 'categoryName': product.category|lower, 'id': product.id }) }}"><img src="{{ asset ('uploads/documents/') }}{{ product.path }}" /></a>
+
+                <div class="product_info">{{ product.brand.brandName }} {{ product.productName }}</div>
+                <div class="product_info">velicina {{ product.productSize }}</div>
+
+                {% if product.productRabat > 0 %}
+                    <div class="rabat">{{ product.productRabat }}</div>
+                    <div class="product_info old_price">{{ product.productPrice }}</div>
+                    <div class="product_info">{{ product.productSalePrice }}</div>
+                {% else %}
+                    <div class="product_info">{{ product.productPrice }}</div>
+                {% endif %}
+
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
+
+
+
+
+
+
+
+

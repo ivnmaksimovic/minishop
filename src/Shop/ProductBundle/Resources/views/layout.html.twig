@@ -1,0 +1,45 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+<div id="header">
+    <div id="logo"></div>
+    <div id="scroll_text"></div>
+</div>
+
+<div id="all">
+
+    <div id="navigation">
+            <ul>
+                {% for category in categories %}
+                <li><a href="{{ path('category_products', {'categoryName': category.categoryName|lower}) }}">{{ category.categoryName }}</a></li>
+                {% endfor %}
+            </ul>
+
+    </div>
+
+    {% block content -%}
+    {% endblock %}
+
+    <div id="recomended_products">
+    <p>Možda će Vas interesovati sledeći proizvodi</p>
+            {% for recomendedProduct in recomendedProducts|slice(0, 5) %}
+                <div class="product">
+                    <a href="{{ path('selected_product', { 'categoryName': recomendedProduct.category|lower, 'id': recomendedProduct.id }) }}"><img src="{{ asset ('uploads/documents/') }}{{ recomendedProduct.path }}" /></a>
+
+                    <p>{{ recomendedProduct.brand }}
+                        {{ recomendedProduct.productName }}</p>
+                    {{ recomendedProduct.productSize }}
+                    <p>{{ recomendedProduct.productPrice }}</p>
+                    <div class="rabat">{{ recomendedProduct.productRabat }}</div>
+                    {{ recomendedProduct.productSalePrice }}
+                </div>
+            {% endfor %}
+
+    </div>
+    <div id="footer">
+        <a href="{{ path('product') }}">magacin</a>
+        <p>copyrights skateshop stance 2013.</p>
+    </div>
+</div>
+{% endblock %}
+

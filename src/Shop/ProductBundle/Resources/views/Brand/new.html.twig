@@ -1,0 +1,22 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+<div id="magacin">
+    <h1>Unos novog artikla</h1>
+
+    <form action="{{ path('brand_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <p>
+            <button type="submit">Unesi</button>
+        </p>
+    </form>
+
+        <ul class="record_actions">
+    <li class="admin_button">
+        <a href="{{ path('brand') }}">
+            Povratak na listu
+        </a>
+    </li>
+</ul>
+</div>
+{% endblock %}

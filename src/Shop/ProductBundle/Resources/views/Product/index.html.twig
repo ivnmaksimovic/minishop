@@ -1,0 +1,60 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+<div id="magacin">
+    <a href="{{ path('homepage') }}">Povratak na naslovnu stranu</a>
+    <h1>Lista artikala</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Akcije</th>
+                <th>Kategorija</th>
+                <th>Brend</th>
+                <th>Naziv modela</th>
+                <th>Velicina</th>
+                <th>Opis</th>
+                <th>Cena</th>
+                <th>Popust u %</th>
+                <th>Cena sa popustom</th>
+                <th>Slika</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('product_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('product_show', { 'id': entity.id }) }}">prikazi</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('product_edit', { 'id': entity.id }) }}">izmeni</a>
+                        </li>
+                    </ul>
+                </td>
+                <td>{{ entity.category }}</td>
+                <td>{{ entity.brand }}</td>
+                <td>{{ entity.productName }}</td>
+                <td>{{ entity.productSize }}</td>
+                <td>{{ entity.productDescription }}</td>
+                <td>{{ entity.productPrice }}</td>
+                <td>{{ entity.productRabat }}</td>
+                <td>{{ entity.productSalePrice }}</td>
+                <td><a href="{{ asset ('uploads/documents/') }}{{ entity.path }}" target="_blank">{{ entity.path }}</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li class="admin_button">
+            <a href="{{ path('product_new') }}">
+                Dodaj novi artikal
+            </a>
+        </li>
+    </ul>
+    </div>
+    {% endblock %}

@@ -1,0 +1,9 @@
+
+    <div id="navigation">
+        {% for category in categories %}
+        <ul>
+            <li><a href="{{ path('category_products', {'categoryName': category.categoryName|lower}) }}">{{ category.categoryName }}</a></li>
+        </ul>
+        {% endfor %}
+    </div>
+
