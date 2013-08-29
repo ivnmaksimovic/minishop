@@ -50,7 +50,7 @@ img {
 }
 #navigation {
     width: 14.58333333333333%;/* 140/960 */
-    height: 600px;
+    height: 800px;
     margin: 1.041666666666667%;/* 10/960 */
     background-color: #3C3C3B;
     position: relative;
@@ -68,10 +68,15 @@ img {
 
 }
 #slide {
-    width: 81.25%;/* 780/960 */
-    height: 200px;
-    background-color: #999966;
-    margin: 1.041666666666667%;/* 10/960 */
+    width: 83.33333333333333%;/* 800/960 */
+    background-color: #ffffff;
+    position: relative;
+    float: left;
+}
+#slide img {
+    width: 97.5%;/* 780/800 */
+    background-color: #ffffff;
+    margin: 1.25%;/* 10/800 */
     position: relative;
     float: left;
 }
@@ -105,6 +110,7 @@ img {
     float: left;
 }
 #info {
+    position: relative;
     width: 57.5%;/* 460/800 */
     height: 380px;
     margin: 1.25%;/* 10/800 */
@@ -162,7 +168,13 @@ img {
 }
 .brand_logo {
     width: 60px;
-    float: right;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+}
+.hor_separator {
+    height: 100px;
 }
 .rabat {
     background-color: red;
@@ -178,6 +190,10 @@ img {
 }
 .product_info {
 
+}
+.product_property {
+    font-size: 0.6em;
+    margin-left: 2em;
 }
 .old_price {
     text-decoration: line-through;

@@ -24,7 +24,7 @@
     <p>Možda će Vas interesovati sledeći proizvodi</p>
             {% for recomendedProduct in recomendedProducts|slice(0, 5) %}
                 <div class="product">
-                    <a href="{{ path('selected_product', { 'categoryName': recomendedProduct.category|lower, 'id': recomendedProduct.id }) }}"><img src="{{ asset ('uploads/documents/') }}{{ recomendedProduct.path }}" /></a>
+                    <a href="{{ path('selected_product', { 'categoryName': recomendedProduct.category|lower, 'id': recomendedProduct.id }) }}"><img src="{{ asset ('uploads/documents/') }}{{ recomendedProduct.img_path }}" /></a>
 
                     <p>{{ recomendedProduct.brand }}
                         {{ recomendedProduct.productName }}</p>

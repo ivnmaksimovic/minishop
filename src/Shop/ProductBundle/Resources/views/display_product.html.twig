@@ -6,33 +6,28 @@
 <div id="product">
 
     <div id="images">
-
-        <img src="{{ asset ('uploads/documents/') }}{{ product.path }}" />
-
-
+        <img src="{{ asset ('uploads/documents/') }}{{ product.img_path }}" />
     </div>
 
     <div id="info">
+        <div class="hor_separator"></div>
+        <div class="product_info">{{ product.brand.brandName }} {{ product.productName }}</div>
+        <div class="product_property">velicina {{ product.productSize }}</div>
 
+        {% if product.productRabat > 0 %}
+            <div class="rabat">{{ product.productRabat }}</div>
+            <div class="product_info old_price">{{ product.productPrice }}</div>
+            <div class="product_info">{{ product.productSalePrice }}</div>
+        {% else %}
+            <div class="product_info">{{ product.productPrice }}</div>
+        {% endif %}
 
-        {{ product.brand.brandDescription }}
-        {{ product.brand.brandName }}
-
-        <br/><br/><br/><br/>
-
-
-
-        {{ product.productName }}
-        {{ product.productSize }}<br/>
-        {{ product.productPrice }} {{ product.productRabat }} {{ product.productSalePrice }}
-
-
-        <img class="brand_logo" src="{{ asset ('uploads/documents/') }}{{ product.brand.path1 }}" />
+        <img class="brand_logo" src="{{ asset ('uploads/documents/') }}{{ product.brand.img_path }}" />
     </div>
 
-
     <div id="description">
-        {{ product.productDescription }}
+        <div class="product_info">{{ product.productDescription }}</div>
+        <div class="product_info">{{ product.brand.brandDescription }}</div>
     </div>
 
 </div>
