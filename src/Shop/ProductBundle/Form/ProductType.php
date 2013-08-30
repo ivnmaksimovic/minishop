@@ -15,7 +15,9 @@ class ProductType extends AbstractType
             ->add('brand')
             ->add('productName')
             ->add('productSize')
-            ->add('productDescription')
+            ->add('productDescription', 'textarea', array(
+                'attr' => array('class' => 'tinymce'),
+            ))
             ->add('productPrice')
             ->add('productRabat')
             ->add('image', 'file')

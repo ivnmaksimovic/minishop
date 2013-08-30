@@ -34,7 +34,7 @@ class Brand
     /**
      * @var string
      *
-     * @ORM\Column(name="brand_description", type="string", length=255)
+     * @ORM\Column(name="brand_description", type="text")
      */
     private $brandDescription;
 

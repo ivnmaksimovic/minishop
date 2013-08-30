@@ -26,12 +26,17 @@
                 <div class="product">
                     <a href="{{ path('selected_product', { 'categoryName': recomendedProduct.category|lower, 'id': recomendedProduct.id }) }}"><img src="{{ asset ('uploads/documents/') }}{{ recomendedProduct.img_path }}" /></a>
 
-                    <p>{{ recomendedProduct.brand }}
-                        {{ recomendedProduct.productName }}</p>
-                    {{ recomendedProduct.productSize }}
-                    <p>{{ recomendedProduct.productPrice }}</p>
-                    <div class="rabat">{{ recomendedProduct.productRabat }}</div>
-                    {{ recomendedProduct.productSalePrice }}
+                    <div class="product_info">{{ recomendedProduct.brand.brandName }} {{ recomendedProduct.productName }}</div>
+                    <div class="product_property">velicina {{ recomendedProduct.productSize }}</div>
+
+                    {% if recomendedProduct.productRabat > 0 %}
+                        <div class="rabat">{{ recomendedProduct.productRabat }}</div>
+                        <div class="product_info old_price">{{ recomendedProduct.productPrice }}</div>
+                        <div class="product_info">{{ recomendedProduct.productSalePrice }}</div>
+                    {% else %}
+                        <div class="product_info">{{ recomendedProduct.productPrice }}</div>
+                    {% endif %}
+
                 </div>
             {% endfor %}
 

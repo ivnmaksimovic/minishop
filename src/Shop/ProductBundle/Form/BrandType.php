@@ -12,7 +12,9 @@ class BrandType extends AbstractType
     {
         $builder
             ->add('brandName')
-            ->add('brandDescription')
+            ->add('brandDescription', 'textarea', array(
+                'attr' => array('class' => 'tinymce'),
+            ))
             ->add('image', 'file')
         ;
     }
