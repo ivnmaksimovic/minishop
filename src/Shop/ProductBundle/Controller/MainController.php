@@ -43,6 +43,18 @@ class MainController extends Controller
     }
 
     /**
+     * Displays Administration page with Admin Menu. Superuser permission required.
+     *
+     * @Route("/admin/", name="admin_home")
+     * @Method("GET")
+     * @Template("ProductBundle::admin_home.html.twig")
+     */
+    public function adminAction()
+    {
+        return array();
+    }
+
+    /**
      * Finds and display all products from selected category
      *
      * @Route("/products/{categoryName}/", name="category_products")

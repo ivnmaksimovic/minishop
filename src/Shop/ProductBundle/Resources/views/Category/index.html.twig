@@ -1,6 +1,7 @@
-{% extends '::base.html.twig' %}
+{% extends 'ProductBundle::admin_layout.html.twig' %}
 
-{% block body -%}
+{% block content -%}
+<div id="magacin">
     <h1>Category list</h1>
 
     <table class="records_list">
@@ -38,4 +39,5 @@
             </a>
         </li>
     </ul>
+    </div>
     {% endblock %}

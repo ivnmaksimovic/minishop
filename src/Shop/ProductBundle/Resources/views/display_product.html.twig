@@ -26,8 +26,9 @@
     </div>
 
     <div id="description">
-        <div class="product_info">{{ product.productDescription }}</div>
-        <div class="product_info">{{ product.brand.brandDescription }}</div>
+        <div class="product_info">{{ product.productDescription | raw }}</div>
+        <div class="content_line"></div>
+        <div class="product_info">{{ product.brand.brandDescription | raw }}</div>
     </div>
 
 </div>

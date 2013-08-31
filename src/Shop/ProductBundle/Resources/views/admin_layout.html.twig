@@ -1,0 +1,31 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+<div id="header">
+    <div id="logo"></div>
+    <div id="scroll_text"></div>
+</div>
+
+<div id="all">
+    <div id="admin_menu">
+        <ul>
+            <li><a href="{{ path('homepage') }}">Shop</a></li>
+            <li><a href="{{ path('admin_home') }}">Magacin</a></li>
+            <li><a href="{{ path('product') }}">Artikli</a></li>
+            <li><a href="{{ path('category') }}">Kategorije</a></li>
+            <li><a href="{{ path('brand') }}">Brendovi</a></li>
+        </ul>
+    </div>
+
+    <div class="content_line"></div>
+
+    {% block content -%}
+
+    {% endblock %}
+
+    <div id="footer">
+        <p>copyrights skateshop stance 2013.</p>
+    </div>
+</div>
+{% endblock %}
+

@@ -20,12 +20,16 @@
     {% block content -%}
     {% endblock %}
 
+    <div id="left_bottom"></div>
+
     <div id="recomended_products">
-    <p>Možda će Vas interesovati sledeći proizvodi</p>
+    <div class="content_line"></div>
+    <h2>Možda će Vas interesovati sledeći proizvodi</h2>
             {% for recomendedProduct in recomendedProducts|slice(0, 5) %}
                 <div class="product">
+                    <div class="small_img">
                     <a href="{{ path('selected_product', { 'categoryName': recomendedProduct.category|lower, 'id': recomendedProduct.id }) }}"><img src="{{ asset ('uploads/documents/') }}{{ recomendedProduct.img_path }}" /></a>
-
+                    </div>
                     <div class="product_info">{{ recomendedProduct.brand.brandName }} {{ recomendedProduct.productName }}</div>
                     <div class="product_property">velicina {{ recomendedProduct.productSize }}</div>
 
@@ -42,7 +46,7 @@
 
     </div>
     <div id="footer">
-        <a href="{{ path('product') }}">magacin</a>
+        <p><a href="{{ path('admin_home') }}">magacin</a></p>
         <p>copyrights skateshop stance 2013.</p>
     </div>
 </div>

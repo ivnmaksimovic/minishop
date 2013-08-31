@@ -17,7 +17,17 @@ img {
     url('../font/archive-webfont.svg#archiveregular') format('svg');
     font-weight: normal;
     font-style: normal;
-
+}
+h1 {
+    font-size: 1.5em;
+}
+h2 {
+    font-size: 1.4em;
+    line-height: 2em;
+}
+h3 {
+    font-size: 1.2em;
+    line-height: 2em;
 }
 #header {
     position: relative;
@@ -50,9 +60,8 @@ img {
 }
 #navigation {
     width: 14.58333333333333%;/* 140/960 */
-    height: 800px;
+
     margin: 1.041666666666667%;/* 10/960 */
-    background-color: #3C3C3B;
     position: relative;
     float: left;
 }
@@ -65,7 +74,6 @@ img {
     color: #FFDD00;
     text-decoration: none;
     text-transform: uppercase;
-
 }
 #slide {
     width: 83.33333333333333%;/* 800/960 */
@@ -86,12 +94,33 @@ img {
     position: relative;
     float: left;
 }
+#left_bottom {
+    width: 14.58333333333333%;/* 140/960 */
+    margin: 1.041666666666667%;/* 10/960 */
+    background-color: cadetblue;
+    position: relative;
+    float: left;
+}
 #recomended_products {
     width: 83.33333333333333%;/* 800/960 */
     background-color: #ffffff;
     position: relative;
     float: left;
-    border-top: 1px solid #888;
+}
+#recomended_products h2 {
+    margin: 1.04166666666667%;
+}
+#footer {
+    position: relative;
+    float: left;
+    width: 100%;
+}
+#footer p {
+    text-align: center;
+    color: #cccccc;
+}
+#footer a {
+    color: #FFDD00;
 }
 .product {
     position: relative;
@@ -104,6 +133,11 @@ img {
     -webkit-box-shadow: 5px 5px 5px #888;
     box-shadow: 5px 5px 25px #888;
 }
+.small_img {
+    height: 160px;
+    width: auto;
+    overflow: hidden;
+}
 #images {
     width: 37.5%;/* 300/800 */
     margin: 1.25%;/* 10/960 */
@@ -114,14 +148,11 @@ img {
     width: 57.5%;/* 460/800 */
     height: 380px;
     margin: 1.25%;/* 10/800 */
-    background-color: #f4f4f4;
     float: left;
 }
 #description {
     width: 97.5%;/* 780/800 */
-    height: 140px;
     margin: 1.25%;/* 10/800 */
-    background-color: #cccccc;
     float: left;
 }
 
@@ -159,12 +190,27 @@ img {
 #magacin a, #magacin p {
     color: #FFDD00;
 }
+#shop_productbundle_producttype>div,
+#shop_productbundle_brandtype>div,
+#shop_productbundle_categorytype>div{
+    max-width: 960px;
+}
+#shop_productbundle_producttype input,
+#shop_productbundle_brandtype input,
+#shop_productbundle_categorytype input {
+    width: 487px;
+}
 #shop_productbundle_producttype label,
 #shop_productbundle_brandtype label,
 #shop_productbundle_categorytype label {
     display: inline-block;
-    min-width: 160px;
+    width: 160px;
     color: #FFDD00;
+}
+#shop_productbundle_producttype .mce-tinymce,
+#shop_productbundle_brandtype .mce-tinymce,
+#shop_productbundle_categorytype .mce-tinymce {
+    display: inline-block;
 }
 .brand_logo {
     width: 60px;
@@ -175,6 +221,22 @@ img {
 }
 .hor_separator {
     height: 100px;
+}
+.hor_line {
+    position: relative;
+    float: left;
+    width: 81.25%;
+    height: 1px;
+    margin: 0 1.04166666666667%;
+    background-color: red;
+}
+.content_line {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 1px;
+    background-color: black;
+    margin: 10px 0;
 }
 .rabat {
     background-color: red;
@@ -188,8 +250,8 @@ img {
     transform: rotate(7.5deg);
     filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=-0.70710678, M21=0.70710678, M22=0.70710678,sizingMethod='auto expand');
 }
-.product_info {
-
+.product_info ul {
+    list-style: square inside;
 }
 .product_property {
     font-size: 0.6em;
@@ -197,4 +259,33 @@ img {
 }
 .old_price {
     text-decoration: line-through;
+}
+/* ADMIN */
+#footer {
+    color: #FFDD00;
+    font-size: 0.7em;
+}
+#admin_menu {
+    margin: auto;
+    position: relative;
+    width: 100%;
+    float: left;
+}
+#admin_menu li {
+    float: left;
+}
+#admin_menu a {
+    font-family: archiveregular;
+    color: #FFDD00;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 1em 2em;
+    display: block;
+}
+#admin_text {
+    position: relative;
+    float: left;
+    width: 50%;
+    margin: 1.04166666666667%;
+    color: #FFDD00;
 }

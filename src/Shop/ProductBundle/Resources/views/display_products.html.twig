@@ -5,8 +5,9 @@
     <div id="products">
         {% for product in products %}
             <div class="product">
+                <div class="small_img">
                 <a href="{{ path('selected_product', { 'categoryName': product.category|lower, 'id': product.id }) }}"><img src="{{ asset ('uploads/documents/') }}{{ product.img_path }}" /></a>
-
+                </div>
                 <div class="product_info">{{ product.brand.brandName }} {{ product.productName }}</div>
                 <div class="product_property">velicina {{ product.productSize }}</div>
 
