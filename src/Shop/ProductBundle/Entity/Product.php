@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 /**
  * Product
  *
- * @ORM\Table()
+ * @ORM\Table(name="product")
  * @ORM\Entity(repositoryClass="Shop\ProductBundle\Entity\ProductRepository")
  * @ORM\HasLifecycleCallbacks
  */
