@@ -104,7 +104,20 @@ class MainController extends Controller
         );
     }
 
+    /**
+     * Add selected product to cart
+     *
+     * @Route("/cart/add/{id}", name="add_to_cart")
+     * @Method("GET")
+     * @Template("ProductBundle::display_product.html.twig")
+     */
+    public function addToCartAction($id)
+    {
+        $url = $this->generateUrl('category_products');
+        return $this->redirect($url);
 
+
+    }
 
 
 }

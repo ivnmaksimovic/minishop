@@ -19,6 +19,10 @@
                     <div class="product_info">{{ product.productPrice }}</div>
                 {% endif %}
 
+                <div class="cart_button">
+                    <a href="{{ path('add_to_cart', { 'id': product.id }) }}">Dodaj u korpu</a>
+                </div>
+
             </div>
         {% endfor %}
     </div>

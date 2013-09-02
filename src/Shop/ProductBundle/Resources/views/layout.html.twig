@@ -9,12 +9,14 @@
 <div id="all">
 
     <div id="navigation">
-            <ul>
-                {% for category in categories %}
-                <li><a href="{{ path('category_products', {'categoryName': category.categoryName|lower}) }}">{{ category.categoryName }}</a></li>
-                {% endfor %}
-            </ul>
-
+        <ul>
+            {% for category in categories %}
+            <li><a href="{{ path('category_products', {'categoryName': category.categoryName|lower}) }}">{{ category.categoryName }}</a></li>
+            {% endfor %}
+            <div class="content_line"></div>
+            <li><a href="{{ path('homepage') }}">Naslovna</a></li>
+            <li><a href="{{ path('admin_home') }}">Korpa</a></li>
+        </ul>
     </div>
 
     {% block content -%}
