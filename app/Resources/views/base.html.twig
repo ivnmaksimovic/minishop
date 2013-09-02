@@ -20,6 +20,27 @@
                 theme_advanced_resize_horizontal : false
             });
         </script>
+        <script>
+            function addToCart(id)
+            {
+                var xmlhttp,
+                    productId;
+
+                productId = id;
+                xmlhttp = new XMLHttpRequest();
+
+                xmlhttp.onreadystatechange=function()
+                {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                    {
+                        document.getElementById("cart_product").innerHTML=xmlhttp.responseText;
+                        document.getElementById("cart_product_qty").innerHTML=productId;
+                    }
+                }
+                xmlhttp.open("GET","{{ asset('bundles/product/ajax/ajax_info.txt') }}?q="+id,true);
+                xmlhttp.send();
+            }
+        </script>
     </head>
     <body>
         {% block body %}{% endblock %}

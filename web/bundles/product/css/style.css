@@ -258,6 +258,9 @@ h3 {
     transform: rotate(7.5deg);
     filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=-0.70710678, M21=0.70710678, M22=0.70710678,sizingMethod='auto expand');
 }
+.product_info {
+    font-size: 0.8em;
+}
 .product_info ul {
     list-style: square inside;
 }
