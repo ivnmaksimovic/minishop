@@ -7,6 +7,7 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <link href="{{ asset('bundles/product/css/style.css') }}" type="text/css" rel="stylesheet" />
         <script type="text/javascript" src="{{ asset('bundles/product/js/tinymce/tinymce.min.js') }}"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
         <script type="text/javascript">
             tinymce.init({
                 selector: "textarea.tinymce",
@@ -20,27 +21,24 @@
                 theme_advanced_resize_horizontal : false
             });
         </script>
-        <script>
-            function addToCart(id)
+<script>
+    function addToCart(id)
+    {
+        var xmlhttp;
+
+        xmlhttp = new XMLHttpRequest();
+
+        xmlhttp.onreadystatechange = function()
+        {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
             {
-                var xmlhttp,
-                    productId;
-
-                productId = id;
-                xmlhttp = new XMLHttpRequest();
-
-                xmlhttp.onreadystatechange=function()
-                {
-                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-                    {
-                        document.getElementById("cart_product").innerHTML=xmlhttp.responseText;
-                        document.getElementById("cart_product_qty").innerHTML=productId;
-                    }
-                }
-                xmlhttp.open("GET","{{ asset('bundles/product/ajax/ajax_info.txt') }}?q="+id,true);
-                xmlhttp.send();
+                document.getElementById("cart_product").innerHTML = xmlhttp.responseText;
             }
-        </script>
+        }
+        xmlhttp.open("GET","{{ path('cart_add') }}?productId="+id,true);
+        xmlhttp.send();
+    }
+</script>
     </head>
     <body>
         {% block body %}{% endblock %}

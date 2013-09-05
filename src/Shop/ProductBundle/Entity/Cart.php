@@ -3,6 +3,7 @@
 namespace Shop\ProductBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 /**
  * Cart
@@ -20,6 +21,15 @@ class Cart
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+    /**
+     * User from session
+     *
+     * @var string
+     *
+     * @ORM\Column(name="session_user", type="string")     *
+     */
+    private $session_user;
 
     /**
      * @var integer
@@ -90,5 +100,21 @@ class Cart
     public function getQuantity()
     {
         return $this->quantity;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSessionUser()
+    {
+        return $this->session_user;
+    }
+
+    /**
+     * @param string $session_user
+     */
+    public function setSessionUser($session_user)
+    {
+        $this->session_user = $session_user;
     }
 }
