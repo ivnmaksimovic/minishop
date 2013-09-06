@@ -24,15 +24,15 @@ class CartController extends Controller
      *
      * @Route("/add", name="cart_add")
      * @MEthod("GET")
-     * @Template("ProductBundle:Cart:my_cart.html.twig")
+     * @Template("ProductBundle:Cart:add.html.twig")
      */
     public function addAction(Request $request)
     {
         $productId = $request->get('productId');
-        $sessionUser = $request->getSession()->getId();
+        $sessionId = $request->getSession()->getId();
 
         $cart = new Cart();
-        $cart->setSessionUser($sessionUser);
+        $cart->setSessionId($sessionId);
         $cart->setProduct($productId);
         $cart->setQuantity(1);
 
@@ -40,9 +40,8 @@ class CartController extends Controller
         $em->persist($cart);
         $em->flush();
 
-
         return array(
-            'cart' => $cart,
+            'productId' => $productId,
         );
     }
 
@@ -73,21 +72,18 @@ class CartController extends Controller
      * @Method("GET")
      * @Template("ProductBundle:Cart:my_cart.html.twig")
      */
-    public function myCartAction()
+    public function myCartAction(Request $request)
     {
-        $session = $this->getRequest()->getSession();
-        $cart = $session->get('cart');
+        $sessionId = $request->getSession()->getId();
 
-        foreach($cart as $product)
-        {
-            $productId = $product->getProduct();
-            $productQty = $product->getQuantity();
-        }
-
+        $criteria = array(
+            'sessionId' => $sessionId,
+        );
+        $em = $this->getDoctrine()->getManager();
+        $userCart = $em->getRepository('ProductBundle:Cart')->findBy($criteria);
 
         return array(
-            'productId' => $productId,
-            'productQty' => $productQty,
+            'userCart' => $userCart,
         );
     }
 

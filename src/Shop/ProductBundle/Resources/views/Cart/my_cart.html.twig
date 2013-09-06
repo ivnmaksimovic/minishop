@@ -1,6 +1,10 @@
+{% for cart in userCart %}
+    <div class="cart">
+        moja korpa ima artikal: {{ cart.product }}, <br/>
+        kolicinu: {{ cart.quantity }}
+    </div>
+{% endfor %}
 
 
 
-moja korpa ima artikal: {{ cart.product }}, <br/>
-kolicinu: {{ cart.quantity }}
 

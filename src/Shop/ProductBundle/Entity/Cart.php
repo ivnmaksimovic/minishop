@@ -23,13 +23,13 @@ class Cart
     private $id;
 
     /**
-     * User from session
+     * ID of current session
      *
      * @var string
      *
-     * @ORM\Column(name="session_user", type="string")     *
+     * @ORM\Column(name="session_id", type="string")     *
      */
-    private $session_user;
+    private $sessionId;
 
     /**
      * @var integer
@@ -105,16 +105,17 @@ class Cart
     /**
      * @return string
      */
-    public function getSessionUser()
+    public function getSessionId()
     {
-        return $this->session_user;
+        return $this->sessionId;
     }
 
     /**
-     * @param string $session_user
+     * @param string $sessionId
      */
-    public function setSessionUser($session_user)
+    public function setSessionId($sessionId)
     {
-        $this->session_user = $session_user;
+        $this->sessionId = $sessionId;
     }
+
 }
