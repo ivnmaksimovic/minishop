@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.2.2
+-- version 4.0.4.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 02, 2013 at 06:51 PM
--- Server version: 5.5.27
--- PHP Version: 5.4.7
+-- Generation Time: Sep 06, 2013 at 10:57 PM
+-- Server version: 5.6.11
+-- PHP Version: 5.5.3
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `shop`
 --
+CREATE DATABASE IF NOT EXISTS `shop` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `shop`;
 
 -- --------------------------------------------------------
 
@@ -47,6 +49,29 @@ INSERT INTO `brand` (`id`, `brand_name`, `brand_description`, `img_path`) VALUES
 (6, 'Rope', 'Domaci brand', 'brand_7ec97f5f01134448567782462fd2fc2a40205ef6.jpg'),
 (7, 'O''Neill', 'Stari brand, izmislili neopren', 'brand_a81faafc7c208af3fb8e93c5867b7c1aa8b121d0.jpg'),
 (8, 'ES', 'Fensi skate brand', 'brand_4c530529a51eb4b761a69028fd133a529ad0cda2.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE IF NOT EXISTS `cart` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `session_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `product` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `session_id`, `product`, `quantity`) VALUES
+(1, '7ip5ju4q8ub6ulk5mdh64r71v6', 4, 1),
+(2, '7ip5ju4q8ub6ulk5mdh64r71v6', 5, 1),
+(3, '7ip5ju4q8ub6ulk5mdh64r71v6', 17, 1);
 
 -- --------------------------------------------------------
 
