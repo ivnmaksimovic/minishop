@@ -81,9 +81,13 @@ class CartController extends Controller
         );
         $em = $this->getDoctrine()->getManager();
         $userCart = $em->getRepository('ProductBundle:Cart')->findBy($criteria);
+        $categories = $em->getRepository('ProductBundle:Category')->findAll();
+        $recomendedProducts = $em->getRepository('ProductBundle:Product')->findAll();
 
         return array(
             'userCart' => $userCart,
+            'categories' => $categories,
+            'recomendedProducts' => $recomendedProducts,
         );
     }
 

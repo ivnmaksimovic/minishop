@@ -1,10 +1,24 @@
-{% for cart in userCart %}
-    <div class="cart">
-        moja korpa ima artikal: {{ cart.product }}, <br/>
-        kolicinu: {{ cart.quantity }}
-    </div>
-{% endfor %}
+{% extends 'ProductBundle::layout.html.twig' %}
 
+{% block content -%}
+
+    <div class="cart">
+        <table class="record_properties">
+            <tr>
+                <th>artikal ID:</th>
+                <th>kolicina:</th>
+            </tr>
+            {% for cart in userCart %}
+            <tr>
+                <td>{{ cart.product }}</td>
+                <td>{{ cart.quantity }}</td>
+                <td></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+{% endblock %}
 
 
 
