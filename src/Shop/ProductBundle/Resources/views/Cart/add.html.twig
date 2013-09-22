@@ -1,1 +1,29 @@
-dodali ste u korpu {{ productId }}
+
+<table class="records_list">
+    <thead>
+    <tr>
+        <th>Artikal</th>
+        <th>Kolicina</th>
+        <th>Akcije</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td>{{ entity.product }}</td>
+            <td>{{ entity.quantity }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a onclick="addToCart({{ entity.product }})">Dodaj jos jedan</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('cart_delete', { 'id': entity.id }) }}">oduzmi jedan</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
