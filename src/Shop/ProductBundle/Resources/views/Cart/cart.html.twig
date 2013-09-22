@@ -18,7 +18,10 @@
                         <a onclick="addToCart({{ entity.product }})">Dodaj jos jedan</a>
                     </li>
                     <li>
-                        <a href="{{ path('cart_delete', { 'id': entity.id }) }}">oduzmi jedan</a>
+                        <a onclick="removeFromCart({{ entity.product }})">Oduzmi jedan</a>
+                    </li>
+                    <li>
+                        <a onclick="deleteFromCart({{ entity.product }})">Ukloni proizvod</a>
                     </li>
                 </ul>
             </td>

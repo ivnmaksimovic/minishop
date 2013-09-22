@@ -38,6 +38,40 @@
         xmlhttp.open("GET","{{ path('cart_add') }}?productId="+id,true);
         xmlhttp.send();
     }
+
+    function removeFromCart(id)
+    {
+        var xmlhttp;
+
+        xmlhttp = new XMLHttpRequest();
+
+        xmlhttp.onreadystatechange = function()
+        {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+            {
+                document.getElementById("cart_product").innerHTML = xmlhttp.response;
+            }
+        }
+        xmlhttp.open("GET","{{ path('cart_remove') }}?productId="+id,true);
+        xmlhttp.send();
+    }
+
+    function deleteFromCart(id)
+    {
+        var xmlhttp;
+
+        xmlhttp = new XMLHttpRequest();
+
+        xmlhttp.onreadystatechange = function()
+        {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+            {
+                document.getElementById("cart_product").innerHTML = xmlhttp.response;
+            }
+        }
+        xmlhttp.open("GET","{{ path('cart_delete') }}?productId="+id,true);
+        xmlhttp.send();
+    }
 </script>
     </head>
     <body>
