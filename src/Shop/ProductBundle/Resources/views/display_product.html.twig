@@ -12,6 +12,8 @@
     <div id="info">
         <div class="hor_separator"></div>
         <div class="product_info">{{ product.brand.brandName }} {{ product.productName }}</div>
+        <div class="product_property">sifra artikla {{ product.productCode }}</div>
+        <div class="product_property">boja {{ product.productColor }}</div>
         <div class="product_property">velicina {{ product.productSize }}</div>
 
         {% if product.productRabat > 0 %}

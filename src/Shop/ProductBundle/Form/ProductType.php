@@ -11,9 +11,14 @@ class ProductType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('productCode')
+            ->add('active', 'checkbox', array(
+                'label' => 'Artikal aktivan?',
+            ))
             ->add('category')
             ->add('brand')
             ->add('productName')
+            ->add('productColor')
             ->add('productSize')
             ->add('productDescription', 'textarea', array(
                 'attr' => array('class' => 'tinymce'),

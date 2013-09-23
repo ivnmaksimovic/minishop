@@ -27,7 +27,7 @@ class Cart
      *
      * @var string
      *
-     * @ORM\Column(name="session_id", type="string")     *
+     * @ORM\Column(name="session_id", type="string")
      */
     private $sessionId;
 

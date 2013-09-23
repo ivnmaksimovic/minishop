@@ -12,6 +12,14 @@
                 <td>{{ entity.id }}</td>
             </tr>
             <tr>
+                <th>Sifra artikla</th>
+                <td>{{ entity.productCode }}</td>
+            </tr>
+            <tr>
+                <th>Aktivan</th>
+                <td>{{ entity.active }}</td>
+            </tr>
+            <tr>
                 <th>Kategorija</th>
                 <td>{{ entity.category }}</td>
             </tr>
@@ -24,12 +32,16 @@
                 <td>{{ entity.productName }}</td>
             </tr>
             <tr>
+                <th>Boja</th>
+                <td>{{ entity.productColor }}</td>
+            </tr>
+            <tr>
                 <th>Velicina</th>
                 <td>{{ entity.productSize }}</td>
             </tr>
             <tr>
                 <th>Opis</th>
-                <td>{{ entity.productDescription }}</td>
+                <td>{{ entity.productDescription | raw }}</td>
             </tr>
             <tr>
                 <th>Cena</th>

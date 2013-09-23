@@ -10,9 +10,12 @@
             <tr>
                 <th>Id</th>
                 <th>Akcije</th>
+                <th>Sifra artikla</th>
+                <th>Aktivan</th>
                 <th>Kategorija</th>
                 <th>Brend</th>
                 <th>Naziv modela</th>
+                <th>Boja</th>
                 <th>Velicina</th>
                 <th>Opis</th>
                 <th>Cena</th>
@@ -35,9 +38,12 @@
                         </li>
                     </ul>
                 </td>
+                <td>{{ entity.productCode }}</td>
+                <td>{{ entity.active }}</td>
                 <td>{{ entity.category }}</td>
                 <td>{{ entity.brand }}</td>
                 <td>{{ entity.productName }}</td>
+                <td>{{ entity.productColor }}</td>
                 <td>{{ entity.productSize }}</td>
                 <td>{{ entity.productDescription }}</td>
                 <td>{{ entity.productPrice }}</td>

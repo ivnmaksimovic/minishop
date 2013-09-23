@@ -24,6 +24,18 @@ class Product
     private $id;
 
     /**
+     * @ORM\Column(name="active", type="boolean")
+     */
+    private $active;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="product_code")
+     */
+    private $productCode;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="product_name", type="string", length=255)
@@ -71,6 +83,13 @@ class Product
      * @ORM\JoinColumn(name="brand_id", referencedColumnName="id")
      */
     private $brand;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="product_color", type="string")
+     */
+    private $productColor;
 
     /**
      * Uploaded image
@@ -363,6 +382,54 @@ class Product
         {
             unlink($image);
         }
+    }
+
+    /**
+     * @return string
+     */
+    public function getProductColor()
+    {
+        return $this->productColor;
+    }
+
+    /**
+     * @param string $productColor
+     */
+    public function setProductColor($productColor)
+    {
+        $this->productColor = $productColor;
+    }
+
+    /**
+     * @return int
+     */
+    public function getProductCode()
+    {
+        return $this->productCode;
+    }
+
+    /**
+     * @param int $productCode
+     */
+    public function setProductCode($productCode)
+    {
+        $this->productCode = $productCode;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * @param mixed $active
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
     }
 
 }
