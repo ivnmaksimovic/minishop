@@ -19,6 +19,8 @@ class AppKernel extends Kernel
             new Shop\ProductBundle\ProductBundle(),
             new Shop\UserBundle\UserBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Shop\CommonBundle\CommonBundle(),
+            new Bc\Bundle\BootstrapBundle\BcBootstrapBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

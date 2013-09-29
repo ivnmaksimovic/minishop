@@ -3,8 +3,66 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "748428f48ab1f8282f60039e3cd7ed3d",
+    "hash": "4997edf1699b3ee03612a93e8a4b5bba",
     "packages": [
+        {
+            "name": "braincrafted/bootstrap-bundle",
+            "version": "dev-master",
+            "target-dir": "Bc/Bundle/BootstrapBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/braincrafted/bootstrap-bundle.git",
+                "reference": "c086ff70f6746ae4290ba50a68b6ab159925ceaa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/braincrafted/bootstrap-bundle/zipball/c086ff70f6746ae4290ba50a68b6ab159925ceaa",
+                "reference": "c086ff70f6746ae4290ba50a68b6ab159925ceaa",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "instaclick/php-code-sniffer": "dev-master",
+                "instaclick/symfony2-coding-standard": "dev-master",
+                "knplabs/knp-markdown-bundle": "dev-master",
+                "knplabs/knp-menu": "dev-master",
+                "knplabs/knp-menu-bundle": "dev-master",
+                "knplabs/knp-paginator-bundle": "dev-master",
+                "nikic/php-parser": "dev-master",
+                "phpmd/phpmd": "1.4.*"
+            },
+            "suggest": {
+                "knplabs/knp-menu": "Required to use KnpMenuBundle.",
+                "knplabs/knp-menu-bundle": "BraincraftedBootstrapBundle styles the menus provided by KnpMenuBundle.",
+                "knplabs/knp-paginator-bundle": "BraincraftedBootstrapBundle styles the pagination provided by KnpPaginatorBundle.",
+                "twbs/bootstrap": "Twitter Bootstrap provides the assets (images, CSS and JS)"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Bc\\Bundle\\BootstrapBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Florian Eckerstorfer",
+                    "email": "florian@eckerstorfer.co",
+                    "homepage": "http://florianeckerstorfer.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Twitter Bootstrap for Symfony2",
+            "keywords": [
+                "bootstrap"
+            ],
+            "time": "2013-07-28 21:51:00"
+        },
         {
             "name": "doctrine/annotations",
             "version": "v1.1.2",
@@ -611,12 +669,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "85ef11b6d68e640d306574b87302c9f335b80ef2"
+                "reference": "b4840d8b3293386dba685d91169559eb20f2d767"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/85ef11b6d68e640d306574b87302c9f335b80ef2",
-                "reference": "85ef11b6d68e640d306574b87302c9f335b80ef2",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/b4840d8b3293386dba685d91169559eb20f2d767",
+                "reference": "b4840d8b3293386dba685d91169559eb20f2d767",
                 "shasum": ""
             },
             "require": {
@@ -671,7 +729,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2013-09-19 10:03:47"
+            "time": "2013-09-23 12:09:51"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1560,6 +1618,33 @@
                 "templating"
             ],
             "time": "2013-08-03 15:35:31"
+        },
+        {
+            "name": "twitter/bootstrap",
+            "version": "v2.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twbs/bootstrap.git",
+                "reference": "b4c4072679943773a7582daa63f545ba818fa627"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/b4c4072679943773a7582daa63f545ba818fa627",
+                "reference": "b4c4072679943773a7582daa63f545ba818fa627",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "description": "Sleek, intuitive, and powerful front-end framework for faster and easier web development.",
+            "homepage": "http://twbs.github.com/bootstrap/",
+            "keywords": [
+                "bootstrap",
+                "css"
+            ],
+            "time": "2013-07-27 06:36:38"
         }
     ],
     "packages-dev": [
@@ -1570,7 +1655,8 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "friendsofsymfony/user-bundle": 20
+        "friendsofsymfony/user-bundle": 20,
+        "braincrafted/bootstrap-bundle": 20
     },
     "platform": {
         "php": ">=5.3.3"

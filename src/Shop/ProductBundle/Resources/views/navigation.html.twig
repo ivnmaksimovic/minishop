@@ -1,9 +1,8 @@
-
-    <div id="navigation">
+<div id="navigation">
+    <ul class="list-unstyled">
         {% for category in categories %}
-        <ul>
-            <li><a href="{{ path('category_products', {'categoryName': category.categoryName|lower}) }}">{{ category.categoryName }}</a></li>
-        </ul>
+        <li><a href="{{ path('category_products', {'categoryName': category.categoryName|lower}) }}">{{ category.categoryName }}</a></li>
         {% endfor %}
-    </div>
+    </ul>
+</div>
 

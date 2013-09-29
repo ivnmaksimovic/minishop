@@ -1,26 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="sr">
     <head>
         <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}Skate shop STANCE{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        <link href="{{ asset('bundles/product/css/style.css') }}" type="text/css" rel="stylesheet" />
-        <script type="text/javascript" src="{{ asset('bundles/product/js/tinymce/tinymce.min.js') }}"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-        <script type="text/javascript">
-            tinymce.init({
-                selector: "textarea.tinymce",
-                menubar : false,
-                statusbar : false,
-                plugins: "link paste media",
-                toolbar: "paste undo redo | bold italic | link media  | alignleft aligncenter alignright alignjustify | bullist numlist",
-                custom_undo_redo_levels: 10,
-                statusbar: true,
-                theme_advanced_resizing : true,
-                theme_advanced_resize_horizontal : false
-            });
-        </script>
+        <link rel="stylesheet" href="{{ asset('bundles/common/bootstrap/css/bootstrap.css') }}">
+        <link rel="stylesheet" href="{{ asset('bundles/common/css/style.css') }}">
+        {% block stylesheets %}{% endblock %}
+
+        <script type="text/javascript" src="{{ asset('bundles/common/js/tinymce/tinymce.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/common/js/jquery-1.10.2.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/common/bootstrap/js/bootstrap.js') }}"></script>
+
+
+<script type="text/javascript">
+    tinymce.init({
+        selector: "textarea.tinymce",
+        menubar : false,
+        statusbar : false,
+        plugins: "link paste media",
+        toolbar: "paste undo redo | bold italic | link media  | alignleft aligncenter alignright alignjustify | bullist numlist",
+        custom_undo_redo_levels: 10,
+        statusbar: true,
+        theme_advanced_resizing : true,
+        theme_advanced_resize_horizontal : false
+    });
+</script>
+
 <script>
     function addToCart(id)
     {
@@ -32,11 +39,12 @@
         {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
             {
-                document.getElementById("cart_product").innerHTML = xmlhttp.response;
+                document.getElementById("cart-product").innerHTML = xmlhttp.response;
             }
         }
         xmlhttp.open("GET","{{ path('cart_add') }}?productId="+id,true);
         xmlhttp.send();
+
     }
 
     function removeFromCart(id)
@@ -49,7 +57,7 @@
         {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
             {
-                document.getElementById("cart_product").innerHTML = xmlhttp.response;
+                document.getElementById("cart-product").innerHTML = xmlhttp.response;
             }
         }
         xmlhttp.open("GET","{{ path('cart_remove') }}?productId="+id,true);
@@ -66,7 +74,7 @@
         {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
             {
-                document.getElementById("cart_product").innerHTML = xmlhttp.response;
+                document.getElementById("cart-product").innerHTML = xmlhttp.response;
             }
         }
         xmlhttp.open("GET","{{ path('cart_delete') }}?productId="+id,true);

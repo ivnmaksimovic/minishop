@@ -1,33 +1,43 @@
-{% extends 'ProductBundle::layout.html.twig' %}
+{% extends 'CommonBundle::layout.html.twig' %}
 
 {% block content -%}
 
-    <div id="products">
+        <div class="row">
         {% for product in products %}
-            <div class="product">
-                <div class="small_img">
-                <a href="{{ path('selected_product', { 'categoryName': product.category|lower, 'id': product.id }) }}"><img src="{{ asset ('uploads/documents/') }}{{ product.img_path }}" /></a>
+            <div class="product col-md-3 col-sm-4 col-sm-6">
+                <div class="row">
+                <div class="image_small col-md-12 col-xs-3">
+                    <a href="{{ path('selected_product', { 'categoryName': product.category|lower, 'id': product.id }) }}"><img src="{{ asset ('uploads/documents/') }}{{ product.img_path }}" /></a>
                 </div>
-                <div class="product_info">{{ product.brand.brandName }} {{ product.productName }}</div>
-                <div class="product_property">sifra artikla {{ product.productCode }}</div>
-                <div class="product_property">boja {{ product.productColor }}</div>
-                <div class="product_property">velicina {{ product.productSize }}</div>
 
-                {% if product.productRabat > 0 %}
-                    <div class="rabat">{{ product.productRabat }}</div>
-                    <div class="product_info old_price">{{ product.productPrice }}</div>
-                    <div class="product_info">{{ product.productSalePrice }}</div>
-                {% else %}
-                    <div class="product_info">{{ product.productPrice }}</div>
-                {% endif %}
+                <div class="product-properties col-md-12 col-xs-9">
+                    <ul class="list-unstyled">
+                        <li class="product-info product-title"><a href="{{ path('selected_product', { 'categoryName': product.category|lower, 'id': product.id }) }}">{{ product.brand.brandName }} {{ product.productName }}</a></li>
+                        <li class="product-info">velicina {{ product.productSize }}</li>
+                        {% if product.productRabat > 0 %}
+                            <li class="product-info price-old">{{ product.productPrice }},00 din</li>
+                            <li class="product-info product-price">{{ product.productSalePrice }},00 din</li>
+                        {% else %}
+                            <li class="product-info">cena</li>
+                            <li class="product-info product-price">{{ product.productPrice }},00 din</li>
+                        {% endif %}
+                    </ul>
 
-                <div class="cart_button">
-                    <a onclick="addToCart({{ product.id }})">Dodaj u korpu</a>
+                    {% if product.productRabat > 0 %}
+                        <div class="product-rabat">{{ product.productRabat }}%</div>
+                    {% endif %}
+                </div>
+                </div>
+
+                <div class="cart-button">
+                    <a class="text-center" onclick="addToCart({{ product.id }})">Dodaj u korpu</a>
                 </div>
 
             </div>
+
         {% endfor %}
-    </div>
+        </div>
+
 
 {% endblock %}
 
