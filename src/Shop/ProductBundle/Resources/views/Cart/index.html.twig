@@ -1,9 +1,10 @@
-{% extends '::base.html.twig' %}
+{% extends 'CommonBundle::layout.html.twig' %}
 
-{% block body -%}
+{% block content -%}
 
-    <div id="cart-product">
-        {% include 'ProductBundle:Cart:cart.html.twig' %}
-    </div>
+<div id="cart-product">
+    {% include 'ProductBundle:Cart:cart.html.twig' %}
+
+</div>
 
 {% endblock %}

@@ -38,15 +38,17 @@ class CartController extends Controller
         );
         $em = $this->getDoctrine()->getManager();
         $existingProduct = $em->getRepository('ProductBundle:Cart')->findOneBy($criteria);
+        $selectedProduct = $em->getRepository('ProductBundle:Product')->findOneBy(array(
+            'id' => $selectedProductId,
+        ));
 
         if(!$existingProduct)
         {
-            $productId = $selectedProductId;
             $qty = 1;
 
             $cart = new Cart();
             $cart->setSessionId($sessionId);
-            $cart->setProduct($productId);
+            $cart->setProduct($selectedProduct);
             $cart->setQuantity($qty);
 
             $em->persist($cart);
@@ -67,9 +69,14 @@ class CartController extends Controller
             'sessionId' => $sessionId,
         ));
 
+        $categories = $em->getRepository('ProductBundle:Category')->findAll();
+        $recomendedProducts = $em->getRepository('ProductBundle:Product')->findAll();
+        shuffle($recomendedProducts);
 
         return array(
             'entities' => $userCart,
+            'categories' => $categories,
+            'recomendedProducts' => $recomendedProducts,
         );
 
     }
@@ -112,9 +119,14 @@ class CartController extends Controller
             'sessionId' => $sessionId,
         ));
 
+        $categories = $em->getRepository('ProductBundle:Category')->findAll();
+        $recomendedProducts = $em->getRepository('ProductBundle:Product')->findAll();
+        shuffle($recomendedProducts);
 
         return array(
             'entities' => $userCart,
+            'categories' => $categories,
+            'recomendedProducts' => $recomendedProducts,
         );
 
     }
@@ -146,9 +158,14 @@ class CartController extends Controller
             'sessionId' => $sessionId,
         ));
 
+        $categories = $em->getRepository('ProductBundle:Category')->findAll();
+        $recomendedProducts = $em->getRepository('ProductBundle:Product')->findAll();
+        shuffle($recomendedProducts);
 
         return array(
             'entities' => $userCart,
+            'categories' => $categories,
+            'recomendedProducts' => $recomendedProducts,
         );
     }
 
@@ -169,31 +186,37 @@ class CartController extends Controller
         $em = $this->getDoctrine()->getManager();
         $userCart = $em->getRepository('ProductBundle:Cart')->findBy($criteria);
 
+        $categories = $em->getRepository('ProductBundle:Category')->findAll();
+        $recomendedProducts = $em->getRepository('ProductBundle:Product')->findAll();
+        shuffle($recomendedProducts);
 
         return array(
             'entities' => $userCart,
+            'categories' => $categories,
+            'recomendedProducts' => $recomendedProducts,
         );
     }
 
+    /**
+     * Go to checkout page to enter delivery address...
+     *
+     * @Route("/checkout", name="cart_checkout")
+     * @Method("GET")
+     * @Template("ProductBundle:Cart:checkout.html.twig")
+     */
+    public function checkoutAction()
+    {
+        $em = $this->getDoctrine()->getManager();
 
+        $categories = $em->getRepository('ProductBundle:Category')->findAll();
+        $recomendedProducts = $em->getRepository('ProductBundle:Product')->findAll();
+        shuffle($recomendedProducts);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        return array(
+            'categories' => $categories,
+            'recomendedProducts' => $recomendedProducts,
+        );
+    }
 
 
 

@@ -19,7 +19,6 @@
                 <li><a href="{{ path('homepage') }}">Naslovna</a></li>
                 <li><a href="{{ path('cart') }}">Korpa</a></li>
             </ul>
-            <div id="cart-product"></div>
         </div>
 
         <div id="content" class="col-md-9">
@@ -32,7 +31,7 @@
             <h2>Možda će Vas interesovati sledeći proizvodi</h2>
 
             <div class="row">
-                {% for recomendedProduct in recomendedProducts|slice(0, 5) %}
+                {% for recomendedProduct in recomendedProducts|slice(0, 4) %}
                     <div class="product col-md-3 col-sm-4 col-sm-6">
                         <div class="row">
                             <div class="image_small col-md-12 col-xs-3">
@@ -59,7 +58,7 @@
                         </div>
 
                         <div class="cart-button">
-                            <a class="text-center" onclick="addToCart({{ recomendedProduct.id }})">Dodaj u korpu</a>
+                            <a class="text-center" onclick="cart.addToCart({{ recomendedProduct.id }})">Dodaj u korpu</a>
                         </div>
 
                     </div>

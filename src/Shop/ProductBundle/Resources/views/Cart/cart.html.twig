@@ -1,27 +1,42 @@
 
-<table class="records_list">
+<table class="table-striped">
     <thead>
     <tr>
+        <th>Slika</th>
         <th>Artikal</th>
         <th>Kolicina</th>
+        <th>Cena</th>
         <th>Akcije</th>
     </tr>
     </thead>
     <tbody>
     {% for entity in entities %}
         <tr>
-            <td>{{ entity.product }}</td>
+            <td><img class="image-cart" src="{{ asset ('uploads/documents/') }}{{ entity.product.img_path }}" /></td>
+            <td>{{ entity.product.productName }} {{ entity.product.brand }}</td>
             <td>{{ entity.quantity }}</td>
             <td>
-                <ul>
+                <ul class="list-unstyled">
+                    {% if entity.product.productRabat > 0 %}
+                        <li class="product-info price-old">{{ entity.product.productPrice }},00 din</li>
+                        <li class="product-info">popust {{ entity.product.productRabat }}%</li>
+                        <li class="product-info product-price">{{ entity.product.productSalePrice }},00 din</li>
+                    {% else %}
+                        <li class="product-info product-price">{{ entity.product.productPrice }},00 din</li>
+                    {% endif %}
+                </ul>
+
+            </td>
+            <td>
+                <ul class="list-unstyled">
                     <li>
-                        <a onclick="addToCart({{ entity.product }})">Dodaj jos jedan</a>
+                        <a onclick="cart.addToCart({{ entity.product.id }})">Dodaj jos jedan</a>
                     </li>
                     <li>
-                        <a onclick="removeFromCart({{ entity.product }})">Oduzmi jedan</a>
+                        <a onclick="cart.removeFromCart({{ entity.product.id }})">Oduzmi jedan</a>
                     </li>
                     <li>
-                        <a onclick="deleteFromCart({{ entity.product }})">Ukloni proizvod</a>
+                        <a onclick="cart.deleteFromCart({{ entity.product.id }})">Ukloni proizvod</a>
                     </li>
                 </ul>
             </td>
@@ -30,3 +45,8 @@
     </tbody>
 </table>
 
+<div class="cart-button">
+    <a href="{{ path('cart_checkout') }}" class="text-center">Zavrsi kupovinu</a>
+</div>
+
+<p>Klik ce vas odvesti na stranicu gde cete uneti zeljeni metod slanja, adresu...</p>

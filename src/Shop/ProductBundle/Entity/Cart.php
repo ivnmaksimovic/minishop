@@ -32,9 +32,10 @@ class Cart
     private $sessionId;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="product", type="integer")
+     * @ORM\OneToOne(targetEntity="Product")
+     * @ORM\JoinColumn(name="product", referencedColumnName="id")
      */
     private $product;
 

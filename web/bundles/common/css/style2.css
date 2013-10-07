@@ -1,0 +1,67 @@
+@font-face {
+    font-family: 'archiveregular';
+    src: url('../font/archive-webfont.eot');
+    src: url('../font/archive-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../font/archive-webfont.woff') format('woff'),
+    url('../font/archive-webfont.ttf') format('truetype'),
+    url('../font/archive-webfont.svg#archiveregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+#header_image {
+    background-image: url(../img/header-bg.jpg);
+    height: 93px;
+    z-index: 1;
+}
+#scroll_text {
+    background-image: url(../img/scroll-bg.jpg);
+    height: 37px;
+}
+#logo {
+    position: relative;
+    width: 262px;
+    height: 69px;
+    background-image: url(../img/logo.png);
+    margin-left: 20%;
+    margin-bottom: -100px;
+    z-index: 2;
+}
+#all{
+    background-color: #cccccc;
+}
+#navigation {
+    background-color: #3C3C3B;
+    height: 700px;
+}
+#footer p {
+    text-align: center;
+}
+#recomended_products .col-md-2:nth-child(2), #recomended_products h2 {
+    margin-left: 16.666666666666664%;
+}
+
+/* PRODUCTS */
+.small_img img {
+    height: 165px;
+}
+.product_property {
+    font-size: 11px;
+}
+.rabat {
+    background-color: red;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    -webkit-transform: rotate(45deg);  /* Saf3.1+, Chrome */
+    -moz-transform: rotate(45deg);  /* FF3.5+ */
+    -ms-transform: rotate(45deg);  /* IE9 */
+    -o-transform: rotate(45deg);  /* Opera 10.5 */
+    transform: rotate(7.5deg);
+    filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=-0.70710678, M21=0.70710678, M22=0.70710678,sizingMethod='auto expand');
+}
+

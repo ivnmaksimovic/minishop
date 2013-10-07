@@ -12,8 +12,10 @@
         <script type="text/javascript" src="{{ asset('bundles/common/js/tinymce/tinymce.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bundles/common/js/jquery-1.10.2.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bundles/common/bootstrap/js/bootstrap.js') }}"></script>
-
-
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+{% block javascripts %}
 <script type="text/javascript">
     tinymce.init({
         selector: "textarea.tinymce",
@@ -27,10 +29,10 @@
         theme_advanced_resize_horizontal : false
     });
 </script>
-
 <script>
-    function addToCart(id)
-    {
+
+var cart = {
+    addToCart: function(id){
         var xmlhttp;
 
         xmlhttp = new XMLHttpRequest();
@@ -44,11 +46,8 @@
         }
         xmlhttp.open("GET","{{ path('cart_add') }}?productId="+id,true);
         xmlhttp.send();
-
-    }
-
-    function removeFromCart(id)
-    {
+    },
+    removeFromCart: function(id){
         var xmlhttp;
 
         xmlhttp = new XMLHttpRequest();
@@ -62,10 +61,8 @@
         }
         xmlhttp.open("GET","{{ path('cart_remove') }}?productId="+id,true);
         xmlhttp.send();
-    }
-
-    function deleteFromCart(id)
-    {
+    },
+    deleteFromCart: function(id){
         var xmlhttp;
 
         xmlhttp = new XMLHttpRequest();
@@ -80,10 +77,9 @@
         xmlhttp.open("GET","{{ path('cart_delete') }}?productId="+id,true);
         xmlhttp.send();
     }
+};
 </script>
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+
+{% endblock %}
     </body>
 </html>
