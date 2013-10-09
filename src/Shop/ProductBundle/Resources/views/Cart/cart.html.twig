@@ -1,14 +1,14 @@
 
 <table class="table-striped">
     <thead>
-    <tr>
-        <th>Slika</th>
-        <th>Artikal</th>
-        <th>Kolicina</th>
-        <th>Cena</th>
-        <th>Akcije</th>
-    </tr>
-    </thead>
+    {#<tr>#}
+        {#<th>Slika</th>#}
+        {#<th>Artikal</th>#}
+        {#<th>Kolicina</th>#}
+        {#<th>Cena</th>#}
+        {#<th>Akcije</th>#}
+    {#</tr>#}
+    {#</thead>#}
     <tbody>
     {% for entity in entities %}
         <tr>
@@ -22,26 +22,38 @@
                         <li class="product-info">popust {{ entity.product.productRabat }}%</li>
                         <li class="product-info product-price">{{ entity.product.productSalePrice }},00 din</li>
                     {% else %}
-                        <li class="product-info product-price">{{ entity.product.productPrice }},00 din</li>
+                        <li class="product-info product-price">{{ entity.product.productSalePrice }},00 din</li>
                     {% endif %}
                 </ul>
 
             </td>
+            {% set productSuma = entity.product.productSalePrice * entity.quantity %}
+            <td>{{ productSuma }}</td>
             <td>
                 <ul class="list-unstyled">
                     <li>
-                        <a onclick="cart.addToCart({{ entity.product.id }})">Dodaj jos jedan</a>
+                        <a onclick="cart.addToCart({{ entity.product.id }})"><span class="glyphicon glyphicon-plus-sign"></span></a>
                     </li>
                     <li>
-                        <a onclick="cart.removeFromCart({{ entity.product.id }})">Oduzmi jedan</a>
+                        <a onclick="cart.removeFromCart({{ entity.product.id }})"><span class="glyphicon glyphicon-minus-sign"></span></a>
                     </li>
                     <li>
-                        <a onclick="cart.deleteFromCart({{ entity.product.id }})">Ukloni proizvod</a>
+                        <a onclick="cart.deleteFromCart({{ entity.product.id }})"><span class="glyphicon glyphicon-remove-sign"></span></a>
                     </li>
                 </ul>
             </td>
         </tr>
     {% endfor %}
+    <tr>
+        <td>Ukupno za placanje:</td>
+        <td>
+
+            {% for entity in entities %}
+                {{ entity | length }}
+            {% endfor %}
+
+        </td>
+    </tr>
     </tbody>
 </table>
 

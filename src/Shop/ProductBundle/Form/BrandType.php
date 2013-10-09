@@ -14,6 +14,7 @@ class BrandType extends AbstractType
             ->add('brandName')
             ->add('brandDescription', 'textarea', array(
                 'attr' => array('class' => 'tinymce'),
+                'required' => false,
             ))
             ->add('image', 'file')
         ;

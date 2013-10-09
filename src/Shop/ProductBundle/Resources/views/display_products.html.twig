@@ -6,11 +6,11 @@
         {% for product in products %}
             <div class="product col-md-3 col-sm-4 col-sm-6">
                 <div class="row">
-                <div class="image_small col-md-12 col-xs-3">
+                <div class="image_small col-md-12 col-xs-5">
                     <a href="{{ path('selected_product', { 'categoryName': product.category|lower, 'id': product.id }) }}"><img src="{{ asset ('uploads/documents/') }}{{ product.img_path }}" /></a>
                 </div>
 
-                <div class="product-properties col-md-12 col-xs-9">
+                <div class="product-properties col-md-12 col-xs-7">
                     <ul class="list-unstyled">
                         <li class="product-info product-title"><a href="{{ path('selected_product', { 'categoryName': product.category|lower, 'id': product.id }) }}">{{ product.brand.brandName }} {{ product.productName }}</a></li>
                         <li class="product-info">velicina {{ product.productSize }}</li>

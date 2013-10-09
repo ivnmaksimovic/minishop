@@ -243,6 +243,9 @@ class Product
         return $this;
     }
 
+    /**
+     * Calculates final price that customer pays
+     */
     public function productSalePrice()
     {
         $productSalePrice = ($this->productPrice - ($this->productPrice * $this->productRabat * 0.01));

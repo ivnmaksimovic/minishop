@@ -219,35 +219,4 @@ class CartController extends Controller
     }
 
 
-
-
-
-
-
-
-    /**
-     * Finds and displays a Cart entity.
-     *
-     * @Route("/{id}", name="cart_show")
-     * @Method("GET")
-     * @Template()
-     */
-    public function showAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('ProductBundle:Cart')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Cart entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($id);
-
-        return array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
-        );
-    }
-
 }

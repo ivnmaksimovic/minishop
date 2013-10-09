@@ -20,7 +20,6 @@ img {
 }
 
 .image_small img {
-    height: 145px;
     -moz-box-shadow: 3px 3px 15px #888;
     -webkit-box-shadow: 3px 3px 15px #888;
     box-shadow: 3px 3px 15px #888;
@@ -131,6 +130,22 @@ img {
 
 #cart-product > table {
     width: 100%;
+}
+
+#cart-product .glyphicon {
+    cursor: pointer;
+}
+
+.glyphicon-plus-sign {
+    color: #8dbf1b;
+}
+
+.glyphicon-minus-sign {
+    color: #ffa500;
+}
+
+.glyphicon-remove-sign {
+    color: #c40000;
 }
 
 .table-striped > tbody > tr:nth-child(odd) > td, .table-striped > tbody > tr:nth-child(odd) > th {
