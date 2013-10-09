@@ -2,6 +2,7 @@
 
 namespace Shop\ProductBundle\Controller;
 
+use Shop\ProductBundle\Form\ShippingType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -9,6 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Shop\ProductBundle\Entity\Cart;
+use Shop\ProductBundle\Entity\Shipping;
 use Shop\ProductBundle\Form\CartType;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Security\Core\SecurityContext;
@@ -206,6 +208,9 @@ class CartController extends Controller
      */
     public function checkoutAction()
     {
+        $shipping = new Shipping();
+        $form = $this->createForm(new ShippingType(), $shipping);
+
         $em = $this->getDoctrine()->getManager();
 
         $categories = $em->getRepository('ProductBundle:Category')->findAll();
@@ -215,6 +220,7 @@ class CartController extends Controller
         return array(
             'categories' => $categories,
             'recomendedProducts' => $recomendedProducts,
+            'form' => $form->createView(),
         );
     }
 

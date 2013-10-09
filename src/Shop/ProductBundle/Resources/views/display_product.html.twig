@@ -29,9 +29,8 @@
             <p class="product-info">{{ product.brand.brandDescription | raw }}</p>
         </div>
 
-        <div class="cart-button">
-            <a onclick="cart.addToCart({{ product.id }})">Dodaj u korpu</a>
-        </div>
+            <a class="btn btn-yellow" onclick="cart.addToCart({{ product.id }})">Dodaj u korpu</a>
+
     </div>
 
 {% endblock %}
