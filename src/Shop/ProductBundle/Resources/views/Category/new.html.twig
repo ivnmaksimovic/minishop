@@ -1,7 +1,7 @@
-{% extends 'ProductBundle::admin_layout.html.twig' %}
+{% extends 'CommonBundle::admin_layout.html.twig' %}
 
 {% block content -%}
-<div id="magacin">
+
     <h1>Category creation</h1>
 
     <form action="{{ path('category_create') }}" method="post" {{ form_enctype(form) }}>
@@ -18,5 +18,5 @@
         </a>
     </li>
 </ul>
-</div>
+
 {% endblock %}

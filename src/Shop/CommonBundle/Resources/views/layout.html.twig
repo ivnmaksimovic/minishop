@@ -11,7 +11,14 @@
 <div id="all" class="container">
 
     <div class="row">
-        <div id="nav" class="col-md-3">
+
+            <button id="mobile-menu" type="button" class="btn btn-default btn-block btn-custom hidden-md hidden-lg">
+                <span class="glyphicon glyphicon-th-list"></span>
+            </button>
+
+
+
+        <div id="nav" class="col-md-2">
             <ul class="list-unstyled">
                 {% for category in categories %}
                 <li><a href="{{ path('category_products', {'categoryName': category.categoryName|lower}) }}">{{ category.categoryName }}</a></li>
@@ -21,13 +28,13 @@
             </ul>
         </div>
 
-        <div id="content" class="col-md-9">
+        <div id="content" class="col-md-10">
             {% block content -%}
             {% endblock %}
         </div>
         </div>
         <div class="row">
-        <div id="content-extra" class="col-md-9 col-md-offset-3">
+        <div id="content-extra" class="col-md-10 col-md-offset-2">
             <h2>Možda će Vas interesovati sledeći proizvodi</h2>
 
             <div class="row">

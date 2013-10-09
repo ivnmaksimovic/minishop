@@ -29,8 +29,23 @@
         theme_advanced_resize_horizontal : false
     });
 </script>
+
 <script>
 
+//var menu = {
+//    toggleMenu: function(){
+//            $('#nav').collapse('toggle');
+//    }
+//};
+
+$('#mobile-menu').on('click', function(){
+    $('#nav').slideToggle();
+})
+
+
+</script>
+
+<script>
 var cart = {
     addToCart: function(id){
         var xmlhttp;
