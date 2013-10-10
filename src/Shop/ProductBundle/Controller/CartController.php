@@ -204,14 +204,51 @@ class CartController extends Controller
      *
      * @Route("/checkout", name="cart_checkout")
      * @Method("GET")
-     * @Template("ProductBundle:Cart:checkout.html.twig")
+     * @Template()
      */
     public function checkoutAction()
     {
+        $em = $this->getDoctrine()->getManager();
+
         $shipping = new Shipping();
         $form = $this->createForm(new ShippingType(), $shipping);
 
+        $categories = $em->getRepository('ProductBundle:Category')->findAll();
+        $recomendedProducts = $em->getRepository('ProductBundle:Product')->findAll();
+        shuffle($recomendedProducts);
+
+        return array(
+            'categories' => $categories,
+            'recomendedProducts' => $recomendedProducts,
+            'shipping' => $shipping,
+            'form' => $form->createView(),
+        );
+    }
+
+    /**
+     * Finish the order by submiting delivery details
+     *
+     * @Route("/", name="cart_finish")
+     * @Method("POST")
+     * @Template("ProductBundle:Cart:checkout.html.twig")
+     */
+    public function finishAction(Request $request)
+    {
         $em = $this->getDoctrine()->getManager();
+
+        $shipping = new Shipping();
+        $form = $this->createForm(new ShippingType(), $shipping);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em->persist($shipping);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('homepage'));
+        }
+
+
+
 
         $categories = $em->getRepository('ProductBundle:Category')->findAll();
         $recomendedProducts = $em->getRepository('ProductBundle:Product')->findAll();

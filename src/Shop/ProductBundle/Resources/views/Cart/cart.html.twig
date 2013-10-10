@@ -12,7 +12,7 @@
     <tbody>
     {% for entity in entities %}
         <tr>
-            <td><img class="image-cart" src="{{ asset ('uploads/documents/') }}{{ entity.product.img_path }}" /></td>
+            <td><img class="image-cart" src="{{ asset ('uploads/documents/') }}{{ entity.product.imgPath }}" /></td>
             <td>{{ entity.product.productName }} {{ entity.product.brand }}</td>
             <td>{{ entity.quantity }}</td>
             <td>
@@ -57,8 +57,8 @@
     </tbody>
 </table>
 
-<div class="cart-button">
-    <a href="{{ path('cart_checkout') }}" class="text-center">Zavrsi kupovinu</a>
-</div>
+
+    <a href="{{ path('cart_checkout') }}" class="btn btn-yellow">Zavrsi kupovinu</a>
+
 
 <p>Klik ce vas odvesti na stranicu gde cete uneti zeljeni metod slanja, adresu...</p>

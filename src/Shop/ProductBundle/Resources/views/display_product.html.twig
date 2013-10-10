@@ -5,31 +5,43 @@
     <div class="product col-md-12">
         <div class="row">
         <div class="images col-md-6 col-xs-6">
-            <img src="{{ asset ('uploads/documents/') }}{{ product.img_path }}" />
+            <img src="{{ asset ('uploads/documents/') }}{{ product.imgPath }}" />
         </div>
 
         <div class="product-properties col-md-6 col-xs-6">
-            <p class="product-info">{{ product.brand.brandName }} {{ product.productName }}</p>
-            <p class="product-property">sifra artikla {{ product.productCode }}</p>
-            <p class="product-property">boja {{ product.productColor }}</p>
-            <p class="product-property">velicina {{ product.productSize }}</p>
+            <ul class="list-unstyled">
+                <li class="product-property product-title"><h3>{{ product.brand.brandName }} {{ product.productName }}</h3></li>
+                <li class="product-property">sifra artikla {{ product.productCode }}</li>
+                <li class="product-property">boja {{ product.productColor }}</li>
+                <li class="product-property">velicina {{ product.productSize }}</li>
+                <li class="product-property product-title"><img class="brand-logo" src="{{ asset ('uploads/documents/') }}{{ product.brand.imgPath }}" /></li>
+                {% if product.productRabat > 0 %}
+                    <li class="product-property product-title price-old">{{ product.productPrice }},00 din</li>
+                    <li class="product-property product-price">{{ product.productSalePrice }},00 din</li>
+                {% else %}
+                    <li class="product-property product-price">{{ product.productSalePrice }},00 din</li>
+                {% endif %}
+            </ul>
+
             {% if product.productRabat > 0 %}
-                <div class="product-rabat">{{ product.productRabat }}</div>
-                <p class="product-info old-price">{{ product.productPrice }}</p>
-                <p class="product-info">{{ product.productSalePrice }}</p>
-            {% else %}
-                <p class="product-info">{{ product.productPrice }}</p>
+                <div class="product-rabat">{{ product.productRabat }}%</div>
             {% endif %}
-            <img class="brand-logo" src="{{ asset ('uploads/documents/') }}{{ product.brand.img_path }}" />
+
+
+
+
+            <a class="btn btn-yellow" onclick="cart.addToCart({{ product.id }})">Dodaj u korpu</a>
         </div>
         </div>
 
         <div class="product-description">
-            <p class="product-info">{{ product.productDescription | raw }}</p>
-            <p class="product-info">{{ product.brand.brandDescription | raw }}</p>
+            <h4>Detaljniji opis proizvoda:</h4>
+            <p class="product-property">{{ product.productDescription | raw }}</p>
+            <h4>Vise o brendu {{ product.brand.brandName }}:</h4>
+            <p class="product-property">{{ product.brand.brandDescription | raw }}</p>
         </div>
 
-            <a class="btn btn-yellow" onclick="cart.addToCart({{ product.id }})">Dodaj u korpu</a>
+
 
     </div>
 

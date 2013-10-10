@@ -9,6 +9,18 @@
     font-style: normal;
 }
 
+h3,h4 {
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 22px;
+}
+
+#carousel-generic {
+    margin-top: 15px;
+}
+
 .glyphicon {
     color: white;
 }
@@ -113,25 +125,6 @@ img {
 
 /* CART */
 
-.cart-button {
-    background-color: #ffdd00;
-}
-
-.cart-button a {
-    color: #3c3c3c;
-    display: block;
-    font-family: archiveregular;
-    padding: 5px 0;
-    cursor: pointer;
-}
-
-.cart-button a:hover {
-    text-decoration: none;
-}
-
-.cart-button a:hover {
-    margin-left: 1em;
-}
 
 #cart-product > table {
     width: 100%;

@@ -4,15 +4,16 @@
 
 <p>Popunite adresu isporuke i nacin placanja</p>
 
-    <form action="{{ path('cart') }}" method="post" {{ form_enctype(form) }} novalidate>
+    <form action="{{ path('cart_finish') }}" method="post" {{ form_enctype(form) }} novalidate>
         <div class="form-group">{{ form_row(form.name, {'label': 'Ime i Prezime', 'attr': {'class': 'form-control'}}) }}</div>
         <div class="form-group">{{ form_row(form.address, {'label': 'Adresa', 'attr': {'class': 'form-control'}}) }}</div>
         <div class="form-group">{{ form_row(form.zip, {'label': 'Postanski broj', 'attr': {'class': 'form-control'}}) }}</div>
         <div class="form-group">{{ form_row(form.city, {'label': 'Grad', 'attr': {'class': 'form-control'}}) }}</div>
+        <div class="form-group">{{ form_row(form.date, {'label': 'Datum', 'attr': {'class': 'form-control'}}) }}</div>
+        {{ form_row(form._token) }}
 
-        <p>
-            <button class="btn btn-yellow" type="submit">Potvrdi</button>
-        </p>
+        <button class="btn btn-yellow" type="submit">Potvrdi</button>
+
     </form>
 
 {% endblock %}

@@ -103,7 +103,7 @@ class Product
      *
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    public $img_path;
+    public $imgPath;
 
     /**
      * Get id
@@ -274,21 +274,21 @@ class Product
      */
     public function getAbsolutePath()
     {
-        return null === $this->img_path
+        return null === $this->imgPath
             ? null
-            : $this->getUploadRootDir().'/'.$this->img_path;
+            : $this->getUploadRootDir().'/'.$this->imgPath;
     }
 
     public function getWebPath()
     {
-        return null === $this->img_path
+        return null === $this->imgPath
             ? null
-            : $this->getUploadDir().'/'.$this->img_path;
+            : $this->getUploadDir().'/'.$this->imgPath;
     }
 
     protected function getUploadRootDir()
     {
-        // the absolute directory img_path where uploaded
+        // the absolute directory imgPath where uploaded
         // documents should be saved
         return __DIR__.'/../../../../web/'.$this->getUploadDir();
     }
@@ -309,17 +309,17 @@ class Product
     {
         $this->image = $image;
 
-        // check if we have an old image img_path
-        if (isset($this->img_path))
+        // check if we have an old image imgPath
+        if (isset($this->imgPath))
         {
             // store the old name to delete after the update
-            $this->temp = $this->img_path;
-            $this->img_path = null;
+            $this->temp = $this->imgPath;
+            $this->imgPath = null;
 
         }
         else
         {
-            $this->img_path = 'initial';
+            $this->imgPath = 'initial';
         }
     }
 
@@ -333,7 +333,7 @@ class Product
         {
             // do whatever you want to generate a unique name
             $imagename = 'product_'.sha1(uniqid(mt_rand(), true));
-            $this->img_path = $imagename.'.jpg';
+            $this->imgPath = $imagename.'.jpg';
         }
     }
 
@@ -361,14 +361,14 @@ class Product
         // if there is an error when moving the file, an exception will
         // be automatically thrown by move(). This will properly prevent
         // the entity from being persisted to the database on error
-        $this->getImage()->move($this->getUploadRootDir(), $this->img_path);
+        $this->getImage()->move($this->getUploadRootDir(), $this->imgPath);
 
         // check if we have an old image
         if (isset($this->temp))
         {
             // delete the old image
             unlink($this->getUploadRootDir().'/'.$this->temp);
-            // clear the temp image img_path
+            // clear the temp image imgPath
             $this->temp = null;
         }
         // clean up the file property as you won't need it anymore

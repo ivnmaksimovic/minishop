@@ -3,11 +3,12 @@
 namespace Shop\ProductBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Shipping
  *
- * @ORM\Table()
+ * @ORM\Table(name="shipping")
  * @ORM\Entity(repositoryClass="Shop\ProductBundle\Entity\ShippingRepository")
  */
 class Shipping
@@ -22,6 +23,7 @@ class Shipping
     private $id;
 
     /**
+     * @Assert\NotBlank(message="Obavezno polje")
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
@@ -29,6 +31,7 @@ class Shipping
     private $name;
 
     /**
+     * @Assert\NotBlank(message="Obavezno polje")
      * @var string
      *
      * @ORM\Column(name="address", type="string", length=255)
@@ -36,6 +39,13 @@ class Shipping
     private $address;
 
     /**
+     * @Assert\NotBlank(message="Obavezno polje")
+     * @Assert\Type(type="integer", message="Postanski broj moze sadrzati samo brojeve npr. 36000")
+     * @Assert\Length(
+     *      min = "5",
+     *      max = "5",
+     *      exactMessage = "Postanski broj mora imati {{ limit }} cifara"
+     * )
      * @var integer
      *
      * @ORM\Column(name="zip", type="integer")
@@ -43,6 +53,7 @@ class Shipping
     private $zip;
 
     /**
+     * @Assert\NotBlank(message="Obavezno polje")
      * @var string
      *
      * @ORM\Column(name="city", type="string", length=255)
