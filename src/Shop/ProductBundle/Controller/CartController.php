@@ -251,13 +251,14 @@ class CartController extends Controller
 
             foreach ($cartProducts as $cartProduct)
             {
-                $productId = $cartProduct->getProduct()->getId();
+                $productId = $cartProduct->getProduct();
                 $productQty = $cartProduct->getQuantity();
+                $price = $cartProduct->getProduct()->getProductPrice();
 
 
                 $shippingDetail = new ShippingDetail();
                 $shippingDetail->setProductId($productId);
-                $shippingDetail->setPrice(2000);
+                $shippingDetail->setPrice($price);
                 $shippingDetail->setQty($productQty);
                 $shippingDetail->setShippingId($shipping);
 

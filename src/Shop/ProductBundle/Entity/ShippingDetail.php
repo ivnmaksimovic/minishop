@@ -29,9 +29,10 @@ class ShippingDetail
     private $shippingId;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="product_id", type="integer")
+     * @ORM\OneToOne(targetEntity="Product")
+     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
      */
     private $productId;
 
