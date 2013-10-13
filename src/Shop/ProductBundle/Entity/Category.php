@@ -67,6 +67,7 @@ class Category
     {
         return $this->categoryName;
     }
+
     /**
      * Constructor
      */

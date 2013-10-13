@@ -2,6 +2,7 @@
 
 namespace Shop\ProductBundle\Controller;
 
+use Shop\ProductBundle\Entity\ShippingDetail;
 use Shop\ProductBundle\Form\ShippingType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -220,7 +221,6 @@ class CartController extends Controller
         return array(
             'categories' => $categories,
             'recomendedProducts' => $recomendedProducts,
-            'shipping' => $shipping,
             'form' => $form->createView(),
         );
     }
@@ -228,27 +228,47 @@ class CartController extends Controller
     /**
      * Finish the order by submiting delivery details
      *
-     * @Route("/", name="cart_finish")
+     * @Route("/checkout", name="cart_finish")
      * @Method("POST")
      * @Template("ProductBundle:Cart:checkout.html.twig")
      */
     public function finishAction(Request $request)
     {
+        $sessionId = $request->getSession()->getId();
         $em = $this->getDoctrine()->getManager();
 
+        $criteria = array(
+            'sessionId' => $sessionId,
+        );
+        $cartProducts = $em->getRepository('ProductBundle:Cart')->findBy($criteria);
+
         $shipping = new Shipping();
+
         $form = $this->createForm(new ShippingType(), $shipping);
         $form->handleRequest($request);
-
+        $shipping->setShippingNumber(006);
         if ($form->isValid()) {
+
+            foreach ($cartProducts as $cartProduct)
+            {
+                $productId = $cartProduct->getProduct()->getId();
+                $productQty = $cartProduct->getQuantity();
+
+
+                $shippingDetail = new ShippingDetail();
+                $shippingDetail->setProductId($productId);
+                $shippingDetail->setPrice(2000);
+                $shippingDetail->setQty($productQty);
+                $shippingDetail->setShippingId($shipping);
+
+                $em->persist($shippingDetail);
+            }
+
             $em->persist($shipping);
             $em->flush();
 
             return $this->redirect($this->generateUrl('homepage'));
         }
-
-
-
 
         $categories = $em->getRepository('ProductBundle:Category')->findAll();
         $recomendedProducts = $em->getRepository('ProductBundle:Product')->findAll();

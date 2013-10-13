@@ -4,6 +4,7 @@ namespace Shop\ProductBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Shipping
@@ -21,6 +22,13 @@ class Shipping
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="shipping_number", type="integer")
+     */
+    private $shippingNumber;
 
     /**
      * @Assert\NotBlank(message="Obavezno polje")
@@ -67,6 +75,11 @@ class Shipping
      */
     private $date;
 
+    /**
+     *
+     * @ORM\OneToMany(targetEntity="ShippingDetail", mappedBy="shippingId")
+     */
+    private $details;
 
     /**
      * Get id
@@ -76,6 +89,29 @@ class Shipping
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set shippingNumber
+     *
+     * @param integer $shippingNumber
+     * @return Shipping
+     */
+    public function setShippingNumber($shippingNumber)
+    {
+        $this->shippingNumber = $shippingNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get shippingNumber
+     *
+     * @return integer
+     */
+    public function getShippingNumber()
+    {
+        return $this->shippingNumber;
     }
 
     /**
@@ -191,5 +227,47 @@ class Shipping
     public function getDate()
     {
         return $this->date;
+    }
+
+    public function __construct()
+    {
+        $this->details = new ArrayCollection();
+    }
+    public function __toString()
+    {
+        return $this->shippingNumber;
+    }
+
+    /**
+     * Add details
+     *
+     * @param \Shop\ProductBundle\Entity\ShippingDetail $products
+     * @return Shipping
+     */
+    public function addDetail(\Shop\ProductBundle\Entity\ShippingDetail $details)
+    {
+        $this->details[] = $details;
+
+        return $this;
+    }
+
+    /**
+     * Remove details
+     *
+     * @param \Shop\ProductBundle\Entity\ShippingDetail $details
+     */
+    public function removeDetail(\Shop\ProductBundle\Entity\ShippingDetail $details)
+    {
+        $this->details->removeElement($details);
+    }
+
+    /**
+     * Get details
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getDetails()
+    {
+        return $this->details;
     }
 }
