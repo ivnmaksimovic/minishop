@@ -268,7 +268,7 @@ class CartController extends Controller
             $em->persist($shipping);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('homepage'));
+            return $this->redirect($this->generateUrl('cart_message'));
         }
 
         $categories = $em->getRepository('ProductBundle:Category')->findAll();
@@ -279,6 +279,30 @@ class CartController extends Controller
             'categories' => $categories,
             'recomendedProducts' => $recomendedProducts,
             'form' => $form->createView(),
+        );
+    }
+
+    /**
+     * Displays message after order is confirmed
+     *
+     * @Route("/message", name="cart_message")
+     * @Method("GET")
+     * @Template("ProductBundle:Cart:cart_message.html.twig")
+     */
+    public function messageAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $categories = $em->getRepository('ProductBundle:Category')->findAll();
+        $recomendedProducts = $em->getRepository('ProductBundle:Product')->findAll();
+        shuffle($recomendedProducts);
+
+        $kategorije = $this->get('menu_creator')->createCategoryMenu();
+
+
+        return array(
+            'categories' => $categories,
+            'recomendedProducts' => $recomendedProducts,
+            'kategorije' => $kategorije['patike'],
         );
     }
 

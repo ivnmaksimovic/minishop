@@ -5,4 +5,12 @@
 <p>Uspesno ste zavrsili kupovinu</p>
 <p>Bicete kontaktirani u roku od jednog radnog dana</p>
 
+{#{% for menu_item in menu %}#}
+    {#{{ menu_item }}#}
+{#{% endfor %}#}
+
+{% for kategorija in kategorije %}
+    {{ kategorija.categoryName }}
+{% endfor %}
+
 {% endblock %}

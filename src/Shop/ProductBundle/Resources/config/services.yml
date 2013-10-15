@@ -1,0 +1,6 @@
+# Services
+services:
+    menu_creator:
+        class:      Shop\ProductBundle\Service\CategoryMenu
+        arguments:
+                entityManager: "@doctrine.orm.entity_manager"

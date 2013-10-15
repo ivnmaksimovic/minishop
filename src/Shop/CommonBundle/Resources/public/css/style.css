@@ -48,11 +48,22 @@ img {
 
 #header {
     background-image: url(../img/header-bg.jpg);
+    height: 93px;
+}
+
+#header img {
+    margin-top: 20px;
 }
 
 #scroll {
     background-image: url(../img/scroll-bg.jpg);
     height: 37px;
+}
+
+@media (min-width: 992px) {
+    #content {
+        min-height: 220px;
+    }
 }
 
 #content,
