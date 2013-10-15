@@ -20,11 +20,16 @@ class CategoryMenu
     public function createCategoryMenu()
     {
         $categories = $this->em->getRepository('ProductBundle:Category')->findAll();
-        //$menu = 'menu_item1';
+
+        $menuItems = array();
+
+        foreach ($categories as $category)
+        {
+            $menuItems[] = $category->getCategoryName();
+        }
 
         return array(
-            //'menu' => $menu,
-            'categories' => $categories,
+            'menuItems' => $menuItems,
         );
     }
 }

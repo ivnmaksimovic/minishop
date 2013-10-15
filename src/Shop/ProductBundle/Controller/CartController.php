@@ -296,13 +296,12 @@ class CartController extends Controller
         $recomendedProducts = $em->getRepository('ProductBundle:Product')->findAll();
         shuffle($recomendedProducts);
 
-        $kategorije = $this->get('menu_creator')->createCategoryMenu();
-
+        $menuItems = $this->get('menu_creator')->createCategoryMenu();
 
         return array(
             'categories' => $categories,
             'recomendedProducts' => $recomendedProducts,
-            'kategorije' => $kategorije['patike'],
+            'menuItems' => $menuItems['menuItems'],
         );
     }
 
