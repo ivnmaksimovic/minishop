@@ -72,9 +72,8 @@ class CartController extends Controller
             'sessionId' => $sessionId,
         ));
 
-        $categories = $em->getRepository('ProductBundle:Category')->findAll();
-        $recomendedProducts = $em->getRepository('ProductBundle:Product')->findAll();
-        shuffle($recomendedProducts);
+        $categories = $this->get('menu_creator')->createCategoryMenu();
+        $recomendedProducts = $this->get('menu_creator')->selectRandomProducts();
 
         return array(
             'entities' => $userCart,
@@ -122,9 +121,8 @@ class CartController extends Controller
             'sessionId' => $sessionId,
         ));
 
-        $categories = $em->getRepository('ProductBundle:Category')->findAll();
-        $recomendedProducts = $em->getRepository('ProductBundle:Product')->findAll();
-        shuffle($recomendedProducts);
+        $categories = $this->get('menu_creator')->createCategoryMenu();
+        $recomendedProducts = $this->get('menu_creator')->selectRandomProducts();
 
         return array(
             'entities' => $userCart,
@@ -161,9 +159,8 @@ class CartController extends Controller
             'sessionId' => $sessionId,
         ));
 
-        $categories = $em->getRepository('ProductBundle:Category')->findAll();
-        $recomendedProducts = $em->getRepository('ProductBundle:Product')->findAll();
-        shuffle($recomendedProducts);
+        $categories = $this->get('menu_creator')->createCategoryMenu();
+        $recomendedProducts = $this->get('menu_creator')->selectRandomProducts();
 
         return array(
             'entities' => $userCart,
@@ -189,9 +186,8 @@ class CartController extends Controller
         $em = $this->getDoctrine()->getManager();
         $userCart = $em->getRepository('ProductBundle:Cart')->findBy($criteria);
 
-        $categories = $em->getRepository('ProductBundle:Category')->findAll();
-        $recomendedProducts = $em->getRepository('ProductBundle:Product')->findAll();
-        shuffle($recomendedProducts);
+        $categories = $this->get('menu_creator')->createCategoryMenu();
+        $recomendedProducts = $this->get('menu_creator')->selectRandomProducts();
 
         return array(
             'entities' => $userCart,
@@ -209,14 +205,12 @@ class CartController extends Controller
      */
     public function checkoutAction()
     {
-        $em = $this->getDoctrine()->getManager();
 
         $shipping = new Shipping();
         $form = $this->createForm(new ShippingType(), $shipping);
 
-        $categories = $em->getRepository('ProductBundle:Category')->findAll();
-        $recomendedProducts = $em->getRepository('ProductBundle:Product')->findAll();
-        shuffle($recomendedProducts);
+        $categories = $this->get('menu_creator')->createCategoryMenu();
+        $recomendedProducts = $this->get('menu_creator')->selectRandomProducts();
 
         return array(
             'categories' => $categories,
@@ -271,9 +265,8 @@ class CartController extends Controller
             return $this->redirect($this->generateUrl('cart_message'));
         }
 
-        $categories = $em->getRepository('ProductBundle:Category')->findAll();
-        $recomendedProducts = $em->getRepository('ProductBundle:Product')->findAll();
-        shuffle($recomendedProducts);
+        $categories = $this->get('menu_creator')->createCategoryMenu();
+        $recomendedProducts = $this->get('menu_creator')->selectRandomProducts();
 
         return array(
             'categories' => $categories,
@@ -291,17 +284,12 @@ class CartController extends Controller
      */
     public function messageAction()
     {
-        $em = $this->getDoctrine()->getManager();
-        $categories = $em->getRepository('ProductBundle:Category')->findAll();
-        $recomendedProducts = $em->getRepository('ProductBundle:Product')->findAll();
-        shuffle($recomendedProducts);
-
-        $menuItems = $this->get('menu_creator')->createCategoryMenu();
+        $categories = $this->get('menu_creator')->createCategoryMenu();
+        $recomendedProducts = $this->get('menu_creator')->selectRandomProducts();
 
         return array(
-            'categories' => $categories,
             'recomendedProducts' => $recomendedProducts,
-            'menuItems' => $menuItems['menuItems'],
+            'categories' => $categories,
         );
     }
 

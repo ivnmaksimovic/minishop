@@ -53,6 +53,10 @@ class CategoryController extends Controller
             $em->persist($entity);
             $em->flush();
 
+            //Updates global menu vars
+//            $menuItems = $this->em->getRepository('ProductBundle:Category')->findAll();
+//            $this->get('menu_setter')->updateMenuItems($menuItems);
+
             return $this->redirect($this->generateUrl('category_show', array('id' => $entity->getId())));
         }
 

@@ -77,4 +77,3 @@ fos_user:
     registration:
         form:
             type: shop_user_registration
-

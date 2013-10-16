@@ -21,15 +21,21 @@ class CategoryMenu
     {
         $categories = $this->em->getRepository('ProductBundle:Category')->findAll();
 
-        $menuItems = array();
+        return $categories;
+    }
 
-        foreach ($categories as $category)
-        {
-            $menuItems[] = $category->getCategoryName();
-        }
+    public function selectRandomProducts()
+    {
+        $recomendedProducts = $this->em->getRepository('ProductBundle:Product')->findAll();
+        shuffle($recomendedProducts);
 
-        return array(
-            'menuItems' => $menuItems,
-        );
+        return $recomendedProducts;
+    }
+
+    public function updateMenuItems($menuItems)
+    {
+        $categories = 'kategorije';
+
+        return $categories;
     }
 }

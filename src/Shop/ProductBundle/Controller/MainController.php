@@ -30,11 +30,8 @@ class MainController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
-        $categories = $em->getRepository('ProductBundle:Category')->findAll();
-        $recomendedProducts = $em->getRepository('ProductBundle:Product')->findAll();
-        shuffle($recomendedProducts);
-
+        $categories = $this->get('menu_creator')->createCategoryMenu();
+        $recomendedProducts = $this->get('menu_creator')->selectRandomProducts();
 
         return array(
             'categories' => $categories,
@@ -66,12 +63,11 @@ class MainController extends Controller
         $criteria = array('categoryName' => $categoryName);
         $em = $this->getDoctrine()->getManager();
 
-        $categories = $em->getRepository('ProductBundle:Category')->findAll();
         $selectedCategory = $em->getRepository('ProductBundle:Category')->findOneBy($criteria);
-        $recomendedProducts = $em->getRepository('ProductBundle:Product')->findAll();
-        shuffle($recomendedProducts);
-
         $products = $selectedCategory->getProducts();
+
+        $categories = $this->get('menu_creator')->createCategoryMenu();
+        $recomendedProducts = $this->get('menu_creator')->selectRandomProducts();
 
         return array(
             'categories' => $categories,
@@ -91,11 +87,10 @@ class MainController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $categories = $em->getRepository('ProductBundle:Category')->findAll();
         $product = $em->getRepository('ProductBundle:Product')->find($id);
-        $recomendedProducts = $em->getRepository('ProductBundle:Product')->findAll();
-        shuffle($recomendedProducts);
 
+        $categories = $this->get('menu_creator')->createCategoryMenu();
+        $recomendedProducts = $this->get('menu_creator')->selectRandomProducts();
 
         return array(
             'categories' => $categories,

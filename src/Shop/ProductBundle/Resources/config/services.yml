@@ -1,6 +1,15 @@
 # Services
+parameters:
+    menu_setter.class:      Shop\ProductBundle\Service\CategoryMenu
+    menu_setter.transport:  menuItems
+
 services:
     menu_creator:
         class:      Shop\ProductBundle\Service\CategoryMenu
         arguments:
                 entityManager: "@doctrine.orm.entity_manager"
+                ime: "ivan"
+
+    menu_setter:
+        class: "%menu_setter.class%"
+        arguments: ["%menu_setter.transport%"]

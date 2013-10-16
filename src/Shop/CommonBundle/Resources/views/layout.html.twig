@@ -24,7 +24,7 @@
                 <li><a href="{{ path('category_products', {'categoryName': category.categoryName|lower}) }}">{{ category.categoryName }}</a></li>
                 {% endfor %}
                 <li><a href="{{ path('homepage') }}">Naslovna</a></li>
-                <li><a href="{{ path('cart') }}">Korpa</a></li>
+                <li id="cart"><a href="{{ path('cart') }}">Korpa</a></li>
             </ul>
         </div>
 
