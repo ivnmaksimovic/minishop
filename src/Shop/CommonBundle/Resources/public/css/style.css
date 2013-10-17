@@ -47,7 +47,13 @@ img {
 }
 
 #all {
-    background-color: #3c3c3c;
+    background-color: #ffffff;
+}
+
+@media (min-width: 992px) {
+    #all {
+        background-color: #3c3c3c;
+    }
 }
 
 #header {
@@ -82,7 +88,16 @@ img {
     border-width: 5px 0;
 }
 
+#nav {
+    display: none;
+    background-color: #3c3c3c;
+}
 
+@media (min-width: 992px) {
+    #nav {
+        display: block;
+    }
+}
 
 #nav li {
     text-align: right;

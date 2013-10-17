@@ -71,7 +71,7 @@ class CartController extends Controller
         $userCart = $em->getRepository('ProductBundle:Cart')->findBy(array(
             'sessionId' => $sessionId,
         ));
- 
+
         return array(
             'entities' => $userCart,
         );
