@@ -32,6 +32,10 @@ h3 {
     font-family: archiveregular;
 }
 
+.btn-yellow:hover {
+    background: #ffffff;
+}
+
 img {
     max-width: 100%;
 }

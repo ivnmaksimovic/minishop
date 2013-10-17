@@ -1,10 +1,10 @@
 <?php
 
-namespace Shop\ProductBundle\Service;
+namespace Shop\CommonBundle\Twig;
 
 use Doctrine\ORM\EntityManager;
 
-class CategoryMenu
+class ShopExtension extends \Twig_Extension
 {
     /**
      *
@@ -32,10 +32,17 @@ class CategoryMenu
         return $recomendedProducts;
     }
 
-    public function updateMenuItems($menuItems)
+    public function getGlobals()
     {
-        $categories = 'kategorije';
-
-        return $categories;
+        return array(
+            'categories' => $this->createCategoryMenu(),
+            'recomendedProducts' => $this->selectRandomProducts(),
+        );
     }
+
+    public function getName()
+    {
+        return 'shop_extension';
+    }
+
 }

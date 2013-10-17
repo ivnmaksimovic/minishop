@@ -71,14 +71,9 @@ class CartController extends Controller
         $userCart = $em->getRepository('ProductBundle:Cart')->findBy(array(
             'sessionId' => $sessionId,
         ));
-
-        $categories = $this->get('menu_creator')->createCategoryMenu();
-        $recomendedProducts = $this->get('menu_creator')->selectRandomProducts();
-
+ 
         return array(
             'entities' => $userCart,
-            'categories' => $categories,
-            'recomendedProducts' => $recomendedProducts,
         );
 
     }
@@ -121,13 +116,8 @@ class CartController extends Controller
             'sessionId' => $sessionId,
         ));
 
-        $categories = $this->get('menu_creator')->createCategoryMenu();
-        $recomendedProducts = $this->get('menu_creator')->selectRandomProducts();
-
         return array(
             'entities' => $userCart,
-            'categories' => $categories,
-            'recomendedProducts' => $recomendedProducts,
         );
 
     }
@@ -159,13 +149,8 @@ class CartController extends Controller
             'sessionId' => $sessionId,
         ));
 
-        $categories = $this->get('menu_creator')->createCategoryMenu();
-        $recomendedProducts = $this->get('menu_creator')->selectRandomProducts();
-
         return array(
             'entities' => $userCart,
-            'categories' => $categories,
-            'recomendedProducts' => $recomendedProducts,
         );
     }
 
@@ -186,13 +171,8 @@ class CartController extends Controller
         $em = $this->getDoctrine()->getManager();
         $userCart = $em->getRepository('ProductBundle:Cart')->findBy($criteria);
 
-        $categories = $this->get('menu_creator')->createCategoryMenu();
-        $recomendedProducts = $this->get('menu_creator')->selectRandomProducts();
-
         return array(
             'entities' => $userCart,
-            'categories' => $categories,
-            'recomendedProducts' => $recomendedProducts,
         );
     }
 
@@ -209,12 +189,7 @@ class CartController extends Controller
         $shipping = new Shipping();
         $form = $this->createForm(new ShippingType(), $shipping);
 
-        $categories = $this->get('menu_creator')->createCategoryMenu();
-        $recomendedProducts = $this->get('menu_creator')->selectRandomProducts();
-
         return array(
-            'categories' => $categories,
-            'recomendedProducts' => $recomendedProducts,
             'form' => $form->createView(),
         );
     }
@@ -265,12 +240,7 @@ class CartController extends Controller
             return $this->redirect($this->generateUrl('cart_message'));
         }
 
-        $categories = $this->get('menu_creator')->createCategoryMenu();
-        $recomendedProducts = $this->get('menu_creator')->selectRandomProducts();
-
         return array(
-            'categories' => $categories,
-            'recomendedProducts' => $recomendedProducts,
             'form' => $form->createView(),
         );
     }
@@ -284,13 +254,8 @@ class CartController extends Controller
      */
     public function messageAction()
     {
-        $categories = $this->get('menu_creator')->createCategoryMenu();
-        $recomendedProducts = $this->get('menu_creator')->selectRandomProducts();
 
-        return array(
-            'recomendedProducts' => $recomendedProducts,
-            'categories' => $categories,
-        );
+        return array();
     }
 
 

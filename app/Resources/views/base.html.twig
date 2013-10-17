@@ -57,6 +57,15 @@ $('#mobile-menu').on('click', function(){
 <script>
 var cart = {
     addToCart: function(id){
+
+        $('#cart').animate({
+            opacity:.5
+        }, 200, function() {
+            $('#cart').animate({
+                opacity: 1
+            }, 200);
+        });
+
         var xmlhttp;
 
         xmlhttp = new XMLHttpRequest();

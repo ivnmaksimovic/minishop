@@ -30,13 +30,7 @@ class MainController extends Controller
      */
     public function indexAction()
     {
-        $categories = $this->get('menu_creator')->createCategoryMenu();
-        $recomendedProducts = $this->get('menu_creator')->selectRandomProducts();
-
-        return array(
-            'categories' => $categories,
-            'recomendedProducts' => $recomendedProducts,
-        );
+        return array();
     }
 
     /**
@@ -66,13 +60,8 @@ class MainController extends Controller
         $selectedCategory = $em->getRepository('ProductBundle:Category')->findOneBy($criteria);
         $products = $selectedCategory->getProducts();
 
-        $categories = $this->get('menu_creator')->createCategoryMenu();
-        $recomendedProducts = $this->get('menu_creator')->selectRandomProducts();
-
         return array(
-            'categories' => $categories,
             'products' => $products,
-            'recomendedProducts' => $recomendedProducts,
         );
     }
 
@@ -89,13 +78,8 @@ class MainController extends Controller
 
         $product = $em->getRepository('ProductBundle:Product')->find($id);
 
-        $categories = $this->get('menu_creator')->createCategoryMenu();
-        $recomendedProducts = $this->get('menu_creator')->selectRandomProducts();
-
         return array(
-            'categories' => $categories,
             'product' => $product,
-            'recomendedProducts' => $recomendedProducts,
         );
     }
 
