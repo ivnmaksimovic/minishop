@@ -32,6 +32,12 @@ class CartController extends Controller
      */
     public function addAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
+
+        //Prevents more than 10 products in cart
+        $numberOfCartItems = $em->getRepository('ProductBundle:Cart')->findAll()->count();
+
+
         $selectedProductId = $request->get('productId');
         $sessionId = $request->getSession()->getId();
 
@@ -39,7 +45,7 @@ class CartController extends Controller
             'product' => $selectedProductId,
             'sessionId' => $sessionId,
         );
-        $em = $this->getDoctrine()->getManager();
+
         $existingProduct = $em->getRepository('ProductBundle:Cart')->findOneBy($criteria);
         $selectedProduct = $em->getRepository('ProductBundle:Product')->findOneBy(array(
             'id' => $selectedProductId,

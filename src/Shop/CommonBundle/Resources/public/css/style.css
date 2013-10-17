@@ -95,7 +95,7 @@ img {
 
 @media (min-width: 992px) {
     #nav {
-        display: block;
+        display: block !important;
     }
 }
 
