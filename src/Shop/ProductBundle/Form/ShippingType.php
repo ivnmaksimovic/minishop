@@ -19,7 +19,7 @@ class ShippingType extends AbstractType
             ->add('address')
             ->add('zip')
             ->add('city')
-            ->add('date')
+            ->add('phone')
         ;
     }
     

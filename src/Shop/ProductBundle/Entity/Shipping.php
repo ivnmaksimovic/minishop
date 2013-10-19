@@ -39,6 +39,20 @@ class Shipping
     private $name;
 
     /**
+     * @var string
+     * @ORM\Column(name="phone", type="string", length=255)
+     *
+     * @Assert\NotBlank(message="Obavezno polje")
+     * @Assert\Length(
+     *      min = "8",
+     *      max = "14",
+     *      minMessage = "Telefon mora imati minimum {{ limit }} cifara",
+     *      maxMessage = "Telefon mora imati maksimum {{ limit }} cifara"
+     * )
+     */
+    private $phone;
+
+    /**
      * @Assert\NotBlank(message="Obavezno polje")
      * @var string
      *
@@ -47,16 +61,15 @@ class Shipping
     private $address;
 
     /**
+     * @var string
+     * @ORM\Column(name="zip", type="string", length=255)
+     *
      * @Assert\NotBlank(message="Obavezno polje")
-     * @Assert\Type(type="integer", message="Postanski broj moze sadrzati samo brojeve npr. 36000")
      * @Assert\Length(
      *      min = "5",
      *      max = "5",
      *      exactMessage = "Postanski broj mora imati {{ limit }} cifara"
      * )
-     * @var integer
-     *
-     * @ORM\Column(name="zip", type="integer")
      */
     private $zip;
 
@@ -270,4 +283,22 @@ class Shipping
     {
         return $this->details;
     }
+
+    /**
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * @param string $phone
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+    }
+
+
 }

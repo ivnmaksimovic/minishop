@@ -33,13 +33,30 @@ class CartController extends Controller
     public function addAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-
-        //Prevents more than 10 products in cart
-        $numberOfCartItems = $em->getRepository('ProductBundle:Cart')->findAll()->count();
-
-
         $selectedProductId = $request->get('productId');
         $sessionId = $request->getSession()->getId();
+
+        //Prevents more than 10 products in cart
+        $session_criteria = array(
+            'sessionId' => $sessionId,
+        );
+        $cartItems = $em->getRepository('ProductBundle:Cart')->findBy($session_criteria);
+
+        $itemsQty = array();
+        foreach ($cartItems as $cartItem)
+        {
+            $itemsQty[] = $cartItem->getQuantity();
+        }
+        $cartItemsCount = array_sum($itemsQty);
+
+        if ($cartItemsCount > 5)
+        {
+            return array(
+                'message' => 'Ne mozete dodati vise od 10 proizvoda u korpu. Kontaktirajte nas ukoliko zelite vise proizvoda',
+                'entities' => $cartItems,
+            );
+        }
+        //end prevent more than...
 
         $criteria = array(
             'product' => $selectedProductId,
@@ -50,6 +67,8 @@ class CartController extends Controller
         $selectedProduct = $em->getRepository('ProductBundle:Product')->findOneBy(array(
             'id' => $selectedProductId,
         ));
+
+
 
         if(!$existingProduct)
         {
@@ -221,7 +240,13 @@ class CartController extends Controller
 
         $form = $this->createForm(new ShippingType(), $shipping);
         $form->handleRequest($request);
-        $shipping->setShippingNumber(006);
+
+        $date = new \DateTime("now");
+        $shipping->setDate($date);
+        $dateString = $date->format('Y');
+        $randUnique = 5;
+        $shippingNumber = $dateString . $randUnique;
+        $shipping->setShippingNumber($shippingNumber);
         if ($form->isValid()) {
 
             foreach ($cartProducts as $cartProduct)
