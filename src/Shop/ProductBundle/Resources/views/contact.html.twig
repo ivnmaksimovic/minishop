@@ -1,0 +1,27 @@
+{% extends 'CommonBundle::layout.html.twig' %}
+
+{% block content %}
+
+{% for label, flashes in app.session.flashbag.all %}
+    {% for flash in flashes %}
+        <div class="alert alert-{{ label }}">
+            {{ flash }}
+        </div>
+    {% endfor %}
+{% endfor %}
+
+<p class="separator">Kontaktirajte nas putem forme ispod.</p>
+
+<form action="{{ path('contact') }}" method="post" {{ form_enctype(form) }} novalidate>
+    <div class="form-group">{{ form_row(form.Ime, {'label': 'Ime i Prezime', 'attr': {'class': 'form-control'}}) }}</div>
+    <div class="form-group">{{ form_row(form.Email, {'label': 'Email', 'attr': {'class': 'form-control'}}) }}</div>
+    <div class="form-group">{{ form_row(form.Naslov, {'label': 'Naslov', 'attr': {'class': 'form-control'}}) }}</div>
+    <div class="form-group">{{ form_row(form.Tekst, {'label': 'Tekst', 'attr': {'class': 'form-control'}}) }}</div>
+    {{ form_row(form._token) }}
+
+    <button class="btn btn-yellow" type="submit">Posalji</button>
+
+</form>
+
+{% endblock %}
+

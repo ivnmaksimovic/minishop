@@ -1,3 +1,4 @@
+<p class="separator">Klik ce vas odvesti na stranicu gde cete uneti adresu isporuke i kontakt informacije.</p>
 
 <table class="table-striped">
     <thead>
@@ -49,7 +50,19 @@
         <td>
 
             {% for entity in entities %}
-                {{ entity | length }}
+            {% set productSuma = entity.product.productSalePrice * entity.quantity %}
+
+
+            {% set productsSuma = [productSuma] %}
+
+
+
+                {% for suma in productsSuma %}
+                    {{ suma }}
+                {% endfor %}
+
+
+
             {% endfor %}
 
         </td>
@@ -60,8 +73,6 @@
 
     <a href="{{ path('cart_checkout') }}" class="btn btn-yellow">Zavrsi kupovinu</a>
 
-
-<p>Klik ce vas odvesti na stranicu gde cete uneti zeljeni metod slanja, adresu...</p>
 
 {% if message is defined %}
         {{ message }}

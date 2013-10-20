@@ -31,7 +31,7 @@ class ShippingDetail
     /**
      * @var string
      *
-     * @ORM\OneToOne(targetEntity="Product")
+     * @ORM\ManyToOne(targetEntity="Product")
      * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
      */
     private $productId;

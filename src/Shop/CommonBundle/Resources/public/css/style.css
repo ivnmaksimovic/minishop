@@ -18,7 +18,8 @@ h3 {
 }
 
 #carousel-generic {
-    margin-top: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .glyphicon {
@@ -72,7 +73,7 @@ img {
 
 @media (min-width: 992px) {
     #content {
-        min-height: 220px;
+        min-height: 280px;
     }
 }
 
@@ -208,4 +209,12 @@ img {
 .footer-menu a {
     color: #3c3c3c;
     font-family: archiveregular;
+}
+
+.separator {
+    margin-top: 1em;
+}
+
+#nav>ul {
+    padding-top: 1em;
 }

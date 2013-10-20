@@ -49,7 +49,7 @@ class CartController extends Controller
         }
         $cartItemsCount = array_sum($itemsQty);
 
-        if ($cartItemsCount > 5)
+        if ($cartItemsCount > 9)
         {
             return array(
                 'message' => 'Ne mozete dodati vise od 10 proizvoda u korpu. Kontaktirajte nas ukoliko zelite vise proizvoda',

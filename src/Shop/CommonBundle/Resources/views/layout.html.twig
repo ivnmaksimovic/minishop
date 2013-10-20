@@ -23,8 +23,10 @@
                 {% for category in categories %}
                 <li><a href="{{ path('category_products', {'categoryName': category.categoryName|lower}) }}">{{ category.categoryName }}</a></li>
                 {% endfor %}
-                <li><a href="{{ path('homepage') }}">Naslovna</a></li>
+
+                <li class="separator"><a href="{{ path('homepage') }}">Naslovna</a></li>
                 <li><a id="cart" href="{{ path('cart') }}">Korpa</a></li>
+                <li><a href="{{ path('contact') }}">Kontakt</a></li>
             </ul>
         </div>
 
