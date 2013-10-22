@@ -95,8 +95,9 @@
         </div>
         <div class="footer-menu col-md-3 col-sm-6 col-xs-6">
             <ul class="list-unstyled">
-                <li><a>Prijava</a></li>
-                <li><a>Registracija</a></li>
+                <li><a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a></li>
+                <li><a href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a></li>
+                <li><a href="{{ path('fos_user_profile_show') }}">{{ 'layout.profile'|trans({}, 'FOSUserBundle') }}</a></li>
             </ul>
         </div>
         <div class="footer-menu col-md-6 col-sm-12 col-xs-12">
