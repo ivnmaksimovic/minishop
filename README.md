@@ -13,7 +13,7 @@ need to make all the changes needed by their OS.
 
 1.  Install Composer and run the following command:
 
-        php composer.phar create-project ivnmaksimovic/minishop path/to/install
+        php composer.phar create-project -s dev ivnmaksimovic/minishop path/to/install
 
     `path/to/install` is the path to the folder where "minishop" application will be
     installed; it must not exist because it will be created by Composer.
@@ -45,6 +45,10 @@ need to make all the changes needed by their OS.
     You can enter backend by clicking "magacin" button or by going directly to
 
     http://localhost/minishop/web/app_dev.php/admin/
+
+You might need to check permisions if you experience any problems, and clear cache after you change permisions
+
+See http://symfony.com/doc/current/book/installation.html - Setting up Permissions (method 2) works fine on Ubuntu)
 
 Features
 ============
