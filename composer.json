@@ -3,6 +3,14 @@
     "license": "MIT",
     "type": "project",
     "description": "Working online shop with necessary only features.",
+    "homepage": "http://github.com/Ivnmaksimovic/minishop",
+    "authors": [
+        {
+            "name": "Ivan Maksimovic",
+            "homepage": "http://prefabricatedgoat.com",
+            "role": "Developer"
+        }
+    ],
     "autoload": {
         "psr-0": { "": "src/" }
     },
