@@ -1,31 +1,56 @@
 {% extends '::base.html.twig' %}
 
-{% block body -%}
-<div id="header">
-    <div id="logo"></div>
-    <div id="scroll_text"></div>
-</div>
-
-<div id="all">
-    <div id="admin_menu">
-        <ul>
-            <li><a href="{{ path('homepage') }}">Shop</a></li>
-            <li><a href="{{ path('admin_home') }}">Magacin</a></li>
-            <li><a href="{{ path('product') }}">Artikli</a></li>
-            <li><a href="{{ path('category') }}">Kategorije</a></li>
-            <li><a href="{{ path('brand') }}">Brendovi</a></li>
-        </ul>
+{% block body %}
+    <div id="header" class="col-md-12">
+        <a href="{{ path ('homepage') }}"><img src="{{ asset ('bundles/common/img/logo.png') }}" /></a>
     </div>
 
-    <div id="magacin">
-    {% block content -%}
+    <div id="scroll"></div>
 
-    {% endblock %}
+    <div id="all-admin" class="container">
+        <div id="admin_menu">
+            <ul>
+                <li><a href="{{ path('homepage') }}">Shop</a></li>
+                <li><a href="{{ path('admin_home') }}">Magacin</a></li>
+                <li><a href="{{ path('product') }}">Artikli</a></li>
+                <li><a href="{{ path('category') }}">Kategorije</a></li>
+                <li><a href="{{ path('brand') }}">Brendovi</a></li>
+            </ul>
+        </div>
+
+        <div id="magacin">
+            {% block content %}
+
+            {% endblock %}
+        </div>
     </div>
 
     <div id="footer">
-        <p>copyrights skateshop stance 2013.</p>
+        <div class="container">
+            <div class="footer-menu col-md-3 col-sm-6 col-xs-6">
+                <ul class="list-unstyled">
+                    {% for category in categories %}
+                        <li><a href="{{ path('category_products', {'categoryName': category.categoryName|lower}) }}">{{ category.categoryName }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="footer-menu col-md-3 col-sm-6 col-xs-6">
+                <ul class="list-unstyled">
+                    <li><a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a></li>
+                    <li><a href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a></li>
+                    <li><a href="{{ path('fos_user_profile_show') }}">{{ 'layout.logged_in_as'|trans({}, 'FOSUserBundle') }}</a></li>
+                </ul>
+            </div>
+            <div class="footer-menu col-md-6 col-sm-12 col-xs-12">
+                <ul class="list-unstyled">
+                    <li><a>Kontakt</a></li>
+                    <li><a>060 73 84 097</a></li>
+                    <li><a>facebook.com/skateshopstance</a></li>
+                    <li><a href="{{ path('admin_home') }}">magacin</a></li>
+                    <li><a>copyrights skateshop stance 2013.</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
-</div>
 {% endblock %}
 

@@ -1,22 +1,29 @@
 {% extends 'CommonBundle::admin_layout.html.twig' %}
 
-{% block content -%}
+{% block content %}
+    <div class="col-md-5">
+        <h1>Unos novog artikla</h1>
 
-    <h1>Unos novog artikla</h1>
+        <form action="{{ path('product_create') }}" method="post" {{ form_enctype(form) }}>
 
-    <form action="{{ path('product_create') }}" method="post" {{ form_enctype(form) }}>
-        {{ form_widget(form) }}
-        <p>
-            <button type="submit">Unesi</button>
-        </p>
-    </form>
+            <div class="form-group">{{ form_row(form.productCode, {'label': 'Sifra artikla', 'attr': {'class': 'form-control'}}) }}</div>
+            <div class="checkbox">{{ form_row(form.active, {'label': 'Artikal aktivan'}) }}</div>
+            <div class="form-group">{{ form_row(form.category, {'label': 'Kategorija', 'attr': {'class': 'form-control'}}) }}</div>
+            <div class="form-group">{{ form_row(form.brand, {'label': 'Brend', 'attr': {'class': 'form-control'}}) }}</div>
+            <div class="form-group">{{ form_row(form.productName, {'label': 'Naziv (Model)', 'attr': {'class': 'form-control'}}) }}</div>
+            <div class="form-group">{{ form_row(form.productColor, {'label': 'Boja', 'attr': {'class': 'form-control'}}) }}</div>
+            <div class="form-group">{{ form_row(form.productSize, {'label': 'Velicina', 'attr': {'class': 'form-control'}}) }}</div>
+            <div class="form-group">{{ form_row(form.productDescription, {'label': 'Opis'}) }}</div>
+            <div class="form-group">{{ form_row(form.productPrice, {'label': 'Cena', 'attr': {'class': 'form-control'}}) }}</div>
+            <div class="form-group">{{ form_row(form.productRabat, {'label': 'Popust', 'attr': {'class': 'form-control'}}) }}</div>
+            <div class="form-group">{{ form_row(form.image, {'label': 'Slika', 'attr': {'class': 'form-control'}}) }}</div>
+            {{ form_row(form._token) }}
 
-        <ul class="record_actions">
-    <li class="admin_button">
-        <a href="{{ path('product') }}">
-            Povratak na listu
-        </a>
-    </li>
-</ul>
+            <button class="btn btn-yellow" type="submit">Unesi</button>
 
+        </form>
+
+        <a href="{{ path('product') }}">Povratak na listu</a>
+
+    </div>
 {% endblock %}

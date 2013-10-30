@@ -1,114 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{% block title %}Skate shop STANCE{% endblock %}</title>
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        <link rel="stylesheet" href="{{ asset('bundles/common/bootstrap/css/bootstrap.css') }}">
-        <link rel="stylesheet" href="{{ asset('bundles/common/css/style.css') }}">
-        {% block stylesheets %}{% endblock %}
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Skate shop STANCE{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <link rel="stylesheet" href="{{ asset('bundles/common/bootstrap/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/common/css/style.css') }}">
+    {% block stylesheets %}{% endblock %}
 
-        <script type="text/javascript" src="{{ asset('bundles/common/js/tinymce/tinymce.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('bundles/common/js/jquery-1.10.2.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('bundles/common/bootstrap/js/bootstrap.js') }}"></script>
-    </head>
-    <body>
-        {% block body %}{% endblock %}
+    <script type="text/javascript" src="{{ asset('bundles/common/js/tinymce/tinymce.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/common/js/jquery-1.10.2.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/common/bootstrap/js/bootstrap.js') }}"></script>
+</head>
+<body>
+{% block body %}{% endblock %}
 {% block javascripts %}
-<script type="text/javascript">
-    tinymce.init({
-        selector: "textarea.tinymce",
-        menubar : false,
-        statusbar : false,
-        plugins: "link paste media",
-        toolbar: "paste undo redo | bold italic | link media  | alignleft aligncenter alignright alignjustify | bullist numlist",
-        custom_undo_redo_levels: 10,
-        statusbar: true,
-        theme_advanced_resizing : true,
-        theme_advanced_resize_horizontal : false
-    });
-</script>
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('.carousel').carousel({
-            interval: 3500,
-            cycle: true
+    <script type="text/javascript">
+        tinymce.init({
+            selector: "textarea.tinymce",
+            menubar : false,
+            statusbar : false,
+            plugins: "link paste media",
+            toolbar: "paste undo redo | bold italic | link media  | alignleft alignright | bullist numlist",
+            custom_undo_redo_levels: 10,
+            statusbar: true,
+            theme_advanced_resizing : true,
+            theme_advanced_resize_horizontal : false
         });
-    });
-</script>
+    </script>
 
-<script>
-
-
-
-$('#mobile-menu').on('click', function(){
-    $('#nav').slideToggle(400);
-})
-
-
-</script>
-
-<script>
-var cart = {
-    addToCart: function(id){
-
-        $('#cart').animate({
-            opacity:.5
-        }, 200, function() {
-            $('#cart').animate({
-                opacity: 1
-            }, 200);
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.carousel').carousel({
+                interval: 3500,
+                cycle: true
+            });
         });
+    </script>
 
-        var xmlhttp;
+    <script>
 
-        xmlhttp = new XMLHttpRequest();
 
-        xmlhttp.onreadystatechange = function()
-        {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-            {
-                document.getElementById("cart-product").innerHTML = xmlhttp.response;
+
+        $('#mobile-menu').on('click', function(){
+            $('#nav').slideToggle(400);
+        })
+
+
+    </script>
+
+    <script>
+        var cart = {
+            addToCart: function(id){
+
+                $('#cart').animate({
+                    opacity:.5
+                }, 200, function() {
+                    $('#cart').animate({
+                        opacity: 1
+                    }, 200);
+                });
+
+                var xmlhttp;
+
+                xmlhttp = new XMLHttpRequest();
+
+                xmlhttp.onreadystatechange = function()
+                {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                    {
+                        document.getElementById("cart-product").innerHTML = xmlhttp.response;
+                    }
+                }
+                xmlhttp.open("GET","{{ path('cart_add') }}?productId="+id,true);
+                xmlhttp.send();
+            },
+            removeFromCart: function(id){
+                var xmlhttp;
+
+                xmlhttp = new XMLHttpRequest();
+
+                xmlhttp.onreadystatechange = function()
+                {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                    {
+                        document.getElementById("cart-product").innerHTML = xmlhttp.response;
+                    }
+                }
+                xmlhttp.open("GET","{{ path('cart_remove') }}?productId="+id,true);
+                xmlhttp.send();
+            },
+            deleteFromCart: function(id){
+                var xmlhttp;
+
+                xmlhttp = new XMLHttpRequest();
+
+                xmlhttp.onreadystatechange = function()
+                {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                    {
+                        document.getElementById("cart-product").innerHTML = xmlhttp.response;
+                    }
+                }
+                xmlhttp.open("GET","{{ path('cart_delete') }}?productId="+id,true);
+                xmlhttp.send();
             }
-        }
-        xmlhttp.open("GET","{{ path('cart_add') }}?productId="+id,true);
-        xmlhttp.send();
-    },
-    removeFromCart: function(id){
-        var xmlhttp;
-
-        xmlhttp = new XMLHttpRequest();
-
-        xmlhttp.onreadystatechange = function()
-        {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-            {
-                document.getElementById("cart-product").innerHTML = xmlhttp.response;
-            }
-        }
-        xmlhttp.open("GET","{{ path('cart_remove') }}?productId="+id,true);
-        xmlhttp.send();
-    },
-    deleteFromCart: function(id){
-        var xmlhttp;
-
-        xmlhttp = new XMLHttpRequest();
-
-        xmlhttp.onreadystatechange = function()
-        {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-            {
-                document.getElementById("cart-product").innerHTML = xmlhttp.response;
-            }
-        }
-        xmlhttp.open("GET","{{ path('cart_delete') }}?productId="+id,true);
-        xmlhttp.send();
-    }
-};
-</script>
+        };
+    </script>
 
 {% endblock %}
-    </body>
+</body>
 </html>

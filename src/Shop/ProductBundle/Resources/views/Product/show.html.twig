@@ -1,85 +1,85 @@
 {% extends 'CommonBundle::admin_layout.html.twig' %}
 
-{% block content -%}
+{% block content %}
 
 
     <h1>Artikal</h1>
 
     <table class="record_properties">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Sifra artikla</th>
-                <td>{{ entity.productCode }}</td>
-            </tr>
-            <tr>
-                <th>Aktivan</th>
-                <td>{{ entity.active }}</td>
-            </tr>
-            <tr>
-                <th>Kategorija</th>
-                <td>{{ entity.category }}</td>
-            </tr>
-            <tr>
-                <th>Brend</th>
-                <td>{{ entity.brand }}</td>
-            </tr>
-            <tr>
-                <th>Naziv modela</th>
-                <td>{{ entity.productName }}</td>
-            </tr>
-            <tr>
-                <th>Boja</th>
-                <td>{{ entity.productColor }}</td>
-            </tr>
-            <tr>
-                <th>Velicina</th>
-                <td>{{ entity.productSize }}</td>
-            </tr>
-            <tr>
-                <th>Opis</th>
-                <td>{{ entity.productDescription | raw }}</td>
-            </tr>
-            <tr>
-                <th>Cena</th>
-                <td>{{ entity.productPrice }}</td>
-            </tr>
-            <tr>
-                <th>Popust u %</th>
-                <td>{{ entity.productRabat }}</td>
-            </tr>
-            <tr>
-                <th>Cena sa popustom</th>
-                <td>{{ entity.productSalePrice }}</td>
-            </tr>
-            <tr>
-                <th>Slika</th>
-                <td><a href="{{ asset ('uploads/documents/') }}{{ entity.imgPath }}" target="_blank">{{ entity.imgPath }}</a></td>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Sifra artikla</th>
+            <td>{{ entity.productCode }}</td>
+        </tr>
+        <tr>
+            <th>Aktivan</th>
+            <td>{{ entity.active }}</td>
+        </tr>
+        <tr>
+            <th>Kategorija</th>
+            <td>{{ entity.category }}</td>
+        </tr>
+        <tr>
+            <th>Brend</th>
+            <td>{{ entity.brand }}</td>
+        </tr>
+        <tr>
+            <th>Naziv modela</th>
+            <td>{{ entity.productName }}</td>
+        </tr>
+        <tr>
+            <th>Boja</th>
+            <td>{{ entity.productColor }}</td>
+        </tr>
+        <tr>
+            <th>Velicina</th>
+            <td>{{ entity.productSize }}</td>
+        </tr>
+        <tr>
+            <th>Opis</th>
+            <td>{{ entity.productDescription | raw }}</td>
+        </tr>
+        <tr>
+            <th>Cena</th>
+            <td>{{ entity.productPrice }}</td>
+        </tr>
+        <tr>
+            <th>Popust u %</th>
+            <td>{{ entity.productRabat }}</td>
+        </tr>
+        <tr>
+            <th>Cena sa popustom</th>
+            <td>{{ entity.productSalePrice }}</td>
+        </tr>
+        <tr>
+            <th>Slika</th>
+            <td><a href="{{ asset ('uploads/documents/') }}{{ entity.imgPath }}" target="_blank"><img src="{{ asset ('uploads/documents/') }}{{ entity.imgPath }}" /></a></td>
+        </tr>
         </tbody>
     </table>
 
-        <ul class="record_actions">
-    <li class="admin_button">
-        <a href="{{ path('product') }}">
-            Povratak na listu
-        </a>
-    </li>
-    <li class="admin_button">
-        <a href="{{ path('product_edit', { 'id': entity.id }) }}">
-            Izmeni
-        </a>
-    </li>
-    <li>
-        <form action="{{ path('product_delete', { 'id': entity.id }) }}" method="post">
-            <input type="hidden" name="_method" value="DELETE" />
-            {{ form_widget(delete_form) }}
-            <button type="submit">Izbrisi artikal</button>
-        </form>
-    </li>
-</ul>
+    <ul class="record_actions">
+        <li class="admin_button">
+            <a href="{{ path('product') }}">
+                Povratak na listu
+            </a>
+        </li>
+        <li class="admin_button">
+            <a href="{{ path('product_edit', { 'id': entity.id }) }}">
+                Izmeni
+            </a>
+        </li>
+        <li>
+            <form action="{{ path('product_delete', { 'id': entity.id }) }}" method="post">
+                <input type="hidden" name="_method" value="DELETE" />
+                {{ form_widget(delete_form) }}
+                <button class="btn btn-yellow" type="submit">Izbrisi artikal</button>
+            </form>
+        </li>
+    </ul>
 
 {% endblock %}

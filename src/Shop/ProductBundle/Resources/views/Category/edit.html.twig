@@ -1,30 +1,27 @@
 {% extends 'CommonBundle::admin_layout.html.twig' %}
 
-{% block content -%}
+{% block content %}
 
-    <h1>Category edit</h1>
+    <h1>Izmena kategorije</h1>
 
     <form action="{{ path('category_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
         <input type="hidden" name="_method" value="PUT" />
-        {{ form_widget(edit_form) }}
-        <p>
-            <button type="submit">Edit</button>
-        </p>
+        <div class="form-group">{{ form_row(edit_form.categoryName, {'label': 'Naziv kategorije', 'attr': {'class': 'form-control'}}) }}</div>
+        {{ form_row(edit_form._token) }}
+
+        <button class="btn btn-yellow" type="submit">Izmeni</button>
+
     </form>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('category') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <form action="{{ path('category_delete', { 'id': entity.id }) }}" method="post">
-            <input type="hidden" name="_method" value="DELETE" />
-            {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
-        </form>
-    </li>
-</ul>
+    <ul class="record_actions">
+        <li><a href="{{ path('category') }}">Back to the list</a></li>
+        <li>
+            <form action="{{ path('category_delete', { 'id': entity.id }) }}" method="post">
+                <input type="hidden" name="_method" value="DELETE" />
+                {{ form_widget(delete_form) }}
+                <button class="btn btn-yellow" type="submit">Izbrisi kategoriju</button>
+            </form>
+        </li>
+    </ul>
 
 {% endblock %}

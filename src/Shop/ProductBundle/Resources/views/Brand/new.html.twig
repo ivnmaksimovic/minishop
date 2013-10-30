@@ -1,23 +1,19 @@
 {% extends 'CommonBundle::admin_layout.html.twig' %}
 
-{% block content -%}
+{% block content %}
 
+    <div class="col-md-5">
+        <h1>Unos novog artikla</h1>
 
-    <h1>Unos novog artikla</h1>
+        <form action="{{ path('brand_create') }}" method="post" {{ form_enctype(form) }}>
+            {{ form_widget(form) }}
 
-    <form action="{{ path('brand_create') }}" method="post" {{ form_enctype(form) }}>
-        {{ form_widget(form) }}
-        <p>
-            <button type="submit">Unesi</button>
-        </p>
-    </form>
+            <button class="btn btn-yellow" type="submit">Unesi</button>
 
-        <ul class="record_actions">
-    <li class="admin_button">
-        <a href="{{ path('brand') }}">
-            Povratak na listu
-        </a>
-    </li>
-</ul>
+        </form>
 
+        <ul>
+            <li><a href="{{ path('brand') }}">Povratak na listu</a></li>
+        </ul>
+    </div>
 {% endblock %}

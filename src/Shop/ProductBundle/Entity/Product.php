@@ -87,7 +87,7 @@ class Product
     /**
      * @var string
      *
-     * @ORM\Column(name="product_color", type="string")
+     * @ORM\Column(name="product_color", type="string", length=255)
      */
     private $productColor;
 
@@ -101,7 +101,7 @@ class Product
     /**
      * Path of uploaded image
      *
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(name="img_path", type="string", length=255, nullable=true)
      */
     public $imgPath;
 

@@ -1,49 +1,49 @@
 {% extends 'CommonBundle::admin_layout.html.twig' %}
 
-{% block content -%}
+{% block content %}
 
 
     <h1>Brand</h1>
 
     <table class="record_properties">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Naziv brenda</th>
-                <td>{{ entity.brandName }}</td>
-            </tr>
-            <tr>
-                <th>Opis</th>
-                <td>{{ entity.brandDescription }}</td>
-            </tr>
-            <tr>
-                <th>Slika</th>
-                <td><a href="{{ asset ('uploads/documents/') }}{{ entity.imgPath }}" target="_blank">{{ entity.imgPath }}</a></td>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Naziv brenda</th>
+            <td>{{ entity.brandName }}</td>
+        </tr>
+        <tr>
+            <th>Opis</th>
+            <td>{{ entity.brandDescription }}</td>
+        </tr>
+        <tr>
+            <th>Slika</th>
+            <td><a href="{{ asset ('uploads/documents/') }}{{ entity.imgPath }}" target="_blank">{{ entity.imgPath }}</a></td>
+        </tr>
         </tbody>
     </table>
 
-        <ul class="record_actions">
-    <li class="admin_button">
-        <a href="{{ path('brand') }}">
-            Povratak na listu
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('brand_edit', { 'id': entity.id }) }}">
-            Izmeni
-        </a>
-    </li>
-    <li>
-        <form action="{{ path('brand_delete', { 'id': entity.id }) }}" method="post">
-            <input type="hidden" name="_method" value="DELETE" />
-            {{ form_widget(delete_form) }}
-            <button type="submit">Izbrisi brend</button>
-        </form>
-    </li>
-</ul>
+    <ul class="record_actions">
+        <li class="admin_button">
+            <a href="{{ path('brand') }}">
+                Povratak na listu
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('brand_edit', { 'id': entity.id }) }}">
+                Izmeni
+            </a>
+        </li>
+        <li>
+            <form action="{{ path('brand_delete', { 'id': entity.id }) }}" method="post">
+                <input type="hidden" name="_method" value="DELETE" />
+                {{ form_widget(delete_form) }}
+                <button type="submit">Izbrisi brend</button>
+            </form>
+        </li>
+    </ul>
 
 {% endblock %}

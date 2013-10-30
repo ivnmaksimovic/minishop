@@ -1,11 +1,12 @@
 {% extends 'CommonBundle::admin_layout.html.twig' %}
 
-{% block content -%}
+{% block content %}
 
     <h1>Lista brendova</h1>
 
-    <table class="records_list">
-        <thead>
+    <div id="table">
+        <table class="table">
+            <thead>
             <tr>
                 <th>Id</th>
                 <th>Akcije</th>
@@ -13,36 +14,31 @@
                 <th>Opis</th>
                 <th>Slika</th>
             </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('brand_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('brand_show', { 'id': entity.id }) }}">prikazi</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('brand_edit', { 'id': entity.id }) }}">izmeni</a>
-                        </li>
-                    </ul>
-                </td>
-                <td>{{ entity.brandName }}</td>
-                <td>{{ entity.brandDescription }}</td>
-                <td><a href="{{ asset ('uploads/documents/') }}{{ entity.imgPath }}" target="_blank">{{ entity.imgPath }}</a></td>
+            </thead>
+            <tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td><a href="{{ path('brand_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('brand_show', { 'id': entity.id }) }}">prikazi</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('brand_edit', { 'id': entity.id }) }}">izmeni</a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td>{{ entity.brandName }}</td>
+                    <td><div class="td-height">{{ entity.brandDescription }}</div></td>
+                    <td><div class="td-height"><a href="{{ asset ('uploads/documents/') }}{{ entity.imgPath }}" target="_blank"><img src="{{ asset ('uploads/documents/') }}{{ entity.imgPath }}" /></a></div></td>
 
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
-        <ul>
-        <li class="admin_button">
-            <a href="{{ path('brand_new') }}">
-                Dodaj novi brend
-            </a>
-        </li>
-    </ul>
+    <a class="btn btn-yellow" href="{{ path('brand_new') }}">Dodaj novi brend</a>
 
-    {% endblock %}
+{% endblock %}

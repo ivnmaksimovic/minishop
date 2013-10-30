@@ -177,9 +177,9 @@ img {
     color: #c40000;
 }
 
-.table-striped > tbody > tr:nth-child(odd) > td, .table-striped > tbody > tr:nth-child(odd) > th {
-    background-color: #e8e8e8;
-}
+/*.table-striped > tbody > tr:nth-child(odd) > td, .table-striped > tbody > tr:nth-child(odd) > th {*/
+/*background-color: #e8e8e8;*/
+/*}*/
 
 .image-cart {
     height: 100px;
@@ -190,17 +190,17 @@ img {
 
 /* ADMIN */
 
+#all-admin {
+    background-color: #3c3c3c;
+}
+
 #magacin {
     color: #ffdd00;
 }
 
-#magacin .table-striped > tbody > tr:nth-child(odd) > td, #magacin .table-striped > tbody > tr:nth-child(odd) > th {
-    background-color: #888;
-}
-
-#magacin label {
-    width: 200px;
-}
+/*#magacin .table-striped > tbody > tr:nth-child(odd) > td, #magacin .table-striped > tbody > tr:nth-child(odd) > th {*/
+/*background-color: #888;*/
+/*}*/
 
 .footer-menu {
     min-height: 10em;
@@ -217,4 +217,21 @@ img {
 
 #nav>ul {
     padding-top: 1em;
+}
+
+#table {
+    overflow: scroll;
+}
+
+.td-height {
+    height: 50px;
+    overflow: hidden;
+}
+
+#magacin .td-height img {
+    height: 100%;
+}
+
+#magacin td {
+    max-width: 100px;
 }

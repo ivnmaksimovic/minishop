@@ -24,8 +24,8 @@ class ProductType extends AbstractType
                 'attr' => array('class' => 'tinymce'),
                 'required' => false,
             ))
-            ->add('productPrice')
-            ->add('productRabat')
+            ->add('productPrice', 'text')
+            ->add('productRabat', 'text')
             ->add('image', 'file')
         ;
     }

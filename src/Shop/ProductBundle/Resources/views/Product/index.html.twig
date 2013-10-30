@@ -1,11 +1,11 @@
 {% extends 'CommonBundle::admin_layout.html.twig' %}
 
-{% block content -%}
+{% block content %}
 
-<h1>Lista artikala</h1>
-<div class="table-responsive">
-    <table class="table table-condensed">
-        <thead>
+    <h1>Lista artikala</h1>
+    <div id="table">
+        <table class="table">
+            <thead>
             <tr>
                 <th>Id</th>
                 <th>Akcije</th>
@@ -22,45 +22,39 @@
                 <th>Cena sa popustom</th>
                 <th>Slika</th>
             </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('product_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="{{ path('product_show', { 'id': entity.id }) }}">prikazi</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('product_edit', { 'id': entity.id }) }}">izmeni</a>
-                        </li>
-                    </ul>
-                </td>
-                <td>{{ entity.productCode }}</td>
-                <td>{{ entity.active }}</td>
-                <td>{{ entity.category }}</td>
-                <td>{{ entity.brand }}</td>
-                <td>{{ entity.productName }}</td>
-                <td>{{ entity.productColor }}</td>
-                <td>{{ entity.productSize }}</td>
-                <td>{{ entity.productDescription }}</td>
-                <td>{{ entity.productPrice }}</td>
-                <td>{{ entity.productRabat }}</td>
-                <td>{{ entity.productSalePrice }}</td>
-                <td><a href="{{ asset ('uploads/documents/') }}{{ entity.imgPath }}" target="_blank">{{ entity.imgPath }}</a></td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-</div>
+            </thead>
+            <tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td><a href="{{ path('product_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                    <td>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="{{ path('product_show', { 'id': entity.id }) }}">prikazi</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('product_edit', { 'id': entity.id }) }}">izmeni</a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td>{{ entity.productCode }}</td>
+                    <td>{{ entity.active }}</td>
+                    <td>{{ entity.category }}</td>
+                    <td>{{ entity.brand }}</td>
+                    <td>{{ entity.productName }}</td>
+                    <td>{{ entity.productColor }}</td>
+                    <td>{{ entity.productSize }}</td>
+                    <td><div class="td-height">{{ entity.productDescription }}</div></td>
+                    <td>{{ entity.productPrice }}</td>
+                    <td>{{ entity.productRabat }}</td>
+                    <td>{{ entity.productSalePrice }}</td>
+                    <td><a href="{{ asset ('uploads/documents/') }}{{ entity.imgPath }}" target="_blank"><img src="{{ asset ('uploads/documents/') }}{{ entity.imgPath }}" /></a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
-        <ul>
-        <li class="admin_button">
-            <a href="{{ path('product_new') }}">
-                Dodaj novi artikal
-            </a>
-        </li>
-    </ul>
+    <a class="btn btn-yellow" href="{{ path('product_new') }}">Dodaj novi artikal</a>
 
-    {% endblock %}
+{% endblock %}

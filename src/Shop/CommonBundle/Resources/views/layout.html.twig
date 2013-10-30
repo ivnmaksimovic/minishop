@@ -1,16 +1,16 @@
 {% extends '::base.html.twig' %}
 
-{% block body -%}
+{% block body %}
 
-<div id="header" class="col-md-12">
-    <a href="{{ path ('homepage') }}"><img src="{{ asset ('bundles/common/img/logo.png') }}" /></a>
-</div>
+    <div id="header" class="col-md-12">
+        <a href="{{ path ('homepage') }}"><img src="{{ asset ('bundles/common/img/logo.png') }}" /></a>
+    </div>
 
-<div id="scroll"></div>
+    <div id="scroll"></div>
 
-<div id="all" class="container">
+    <div id="all" class="container">
 
-    <div class="row">
+        <div class="row">
 
             <button id="mobile-menu" type="button" class="btn btn-block btn-custom hidden-md hidden-lg">
                 <span class="glyphicon glyphicon-th-list"></span>
@@ -18,97 +18,97 @@
 
 
 
-        <div id="nav" class="col-md-2">
-            <ul class="list-unstyled">
-                {% for category in categories %}
-                <li><a href="{{ path('category_products', {'categoryName': category.categoryName|lower}) }}">{{ category.categoryName }}</a></li>
-                {% endfor %}
+            <div id="nav" class="col-md-2">
+                <ul class="list-unstyled">
+                    {% for category in categories %}
+                        <li><a href="{{ path('category_products', {'categoryName': category.categoryName|lower}) }}">{{ category.categoryName }}</a></li>
+                    {% endfor %}
 
-                <li class="separator"><a href="{{ path('homepage') }}">Naslovna</a></li>
-                <li><a id="cart" href="{{ path('cart') }}">Korpa</a></li>
-                <li><a href="{{ path('contact') }}">Kontakt</a></li>
-            </ul>
-        </div>
+                    <li class="separator"><a href="{{ path('homepage') }}">Naslovna</a></li>
+                    <li><a id="cart" href="{{ path('cart') }}">Korpa</a></li>
+                    <li><a href="{{ path('contact') }}">Kontakt</a></li>
+                </ul>
+            </div>
 
-        <div id="content" class="col-md-10">
-            {% block content -%}
-            {% endblock %}
-        </div>
+            <div id="content" class="col-md-10">
+                {% block content -%}
+                {% endblock %}
+            </div>
         </div>
         <div class="row">
-        <div id="content-extra" class="col-md-10 col-md-offset-2">
-            <h3>Možda će Vas interesovati sledeći proizvodi</h3>
+            <div id="content-extra" class="col-md-10 col-md-offset-2">
+                <h3>Možda će Vas interesovati sledeći proizvodi</h3>
 
-            <div class="row">
-                {% for recomendedProduct in recomendedProducts|slice(0, 4) %}
-                    <div class="product col-md-3 col-sm-4 col-sm-6">
-                        <div class="row">
-                            <div class="image_small col-md-12 col-xs-5">
-                                <a href="{{ path('selected_product', { 'categoryName': recomendedProduct.category|lower, 'id': recomendedProduct.id }) }}"><img src="{{ asset ('uploads/documents/') }}{{ recomendedProduct.imgPath }}" /></a>
-                            </div>
+                <div class="row">
+                    {% for recomendedProduct in recomendedProducts|slice(0, 4) %}
+                        <div class="product col-md-3 col-sm-4 col-sm-6">
+                            <div class="row">
+                                <div class="image_small col-md-12 col-xs-5">
+                                    <a href="{{ path('selected_product', { 'categoryName': recomendedProduct.category|lower, 'id': recomendedProduct.id }) }}"><img src="{{ asset ('uploads/documents/') }}{{ recomendedProduct.imgPath }}" /></a>
+                                </div>
 
-                            <div class="product-properties col-md-12 col-xs-7">
-                                <ul class="list-unstyled">
-                                    <li class="product-info"><a href="{{ path('selected_product', { 'categoryName': recomendedProduct.category|lower, 'id': recomendedProduct.id }) }}">{{ recomendedProduct.brand.brandName }} {{ recomendedProduct.productName }}</a></li>
-                                    <li class="product-info">velicina {{ recomendedProduct.productSize }}</li>
+                                <div class="product-properties col-md-12 col-xs-7">
+                                    <ul class="list-unstyled">
+                                        <li class="product-info"><a href="{{ path('selected_product', { 'categoryName': recomendedProduct.category|lower, 'id': recomendedProduct.id }) }}">{{ recomendedProduct.brand.brandName }} {{ recomendedProduct.productName }}</a></li>
+                                        <li class="product-info">velicina {{ recomendedProduct.productSize }}</li>
+                                        {% if recomendedProduct.productRabat > 0 %}
+                                            <li class="product-info price-old">{{ recomendedProduct.productPrice }},00 din</li>
+                                            <li class="product-info">{{ recomendedProduct.productSalePrice }},00 din</li>
+                                        {% else %}
+                                            <li class="product-info">cena</li>
+                                            <li class="product-info">{{ recomendedProduct.productPrice }},00 din</li>
+                                        {% endif %}
+                                    </ul>
+
                                     {% if recomendedProduct.productRabat > 0 %}
-                                        <li class="product-info price-old">{{ recomendedProduct.productPrice }},00 din</li>
-                                        <li class="product-info">{{ recomendedProduct.productSalePrice }},00 din</li>
-                                    {% else %}
-                                        <li class="product-info">cena</li>
-                                        <li class="product-info">{{ recomendedProduct.productPrice }},00 din</li>
+                                        <div class="product-rabat">{{ recomendedProduct.productRabat }}%</div>
                                     {% endif %}
-                                </ul>
-
-                                {% if recomendedProduct.productRabat > 0 %}
-                                    <div class="product-rabat">{{ recomendedProduct.productRabat }}%</div>
-                                {% endif %}
+                                </div>
                             </div>
-                        </div>
 
 
                             <a class="btn btn-block btn-yellow" onclick="cart.addToCart({{ recomendedProduct.id }})">Dodaj u korpu</a>
 
 
-                    </div>
+                        </div>
 
-                {% endfor %}
+                    {% endfor %}
+                </div>
+
             </div>
-
         </div>
+
+
+
+
+
     </div>
-
-
-
-
-
-</div>
 
     <div id="footer">
         <div class="container">
-        <div class="footer-menu col-md-3 col-sm-6 col-xs-6">
-            <ul class="list-unstyled">
-                {% for category in categories %}
-                    <li><a href="{{ path('category_products', {'categoryName': category.categoryName|lower}) }}">{{ category.categoryName }}</a></li>
-                {% endfor %}
-            </ul>
-        </div>
-        <div class="footer-menu col-md-3 col-sm-6 col-xs-6">
-            <ul class="list-unstyled">
-                <li><a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a></li>
-                <li><a href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a></li>
-                <li><a href="{{ path('fos_user_profile_show') }}">{{ 'layout.profile'|trans({}, 'FOSUserBundle') }}</a></li>
-            </ul>
-        </div>
-        <div class="footer-menu col-md-6 col-sm-12 col-xs-12">
-            <ul class="list-unstyled">
-                <li><a>Kontakt</a></li>
-                <li><a>060 73 84 097</a></li>
-                <li><a>facebook.com/skateshopstance</a></li>
-                <li><a href="{{ path('admin_home') }}">magacin</a></li>
-                <li><a>copyrights skateshop stance 2013.</a></li>
-            </ul>
-        </div>
+            <div class="footer-menu col-md-3 col-sm-6 col-xs-6">
+                <ul class="list-unstyled">
+                    {% for category in categories %}
+                        <li><a href="{{ path('category_products', {'categoryName': category.categoryName|lower}) }}">{{ category.categoryName }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="footer-menu col-md-3 col-sm-6 col-xs-6">
+                <ul class="list-unstyled">
+                    <li><a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a></li>
+                    <li><a href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a></li>
+                    <li><a href="{{ path('fos_user_profile_show') }}">Moj profil</a></li>
+                </ul>
+            </div>
+            <div class="footer-menu col-md-6 col-sm-12 col-xs-12">
+                <ul class="list-unstyled">
+                    <li><a>Kontakt</a></li>
+                    <li><a>060 73 84 097</a></li>
+                    <li><a>facebook.com/skateshopstance</a></li>
+                    <li><a href="{{ path('admin_home') }}">magacin</a></li>
+                    <li><a>copyrights skateshop stance 2013.</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 
