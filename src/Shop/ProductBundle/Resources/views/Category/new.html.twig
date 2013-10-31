@@ -1,7 +1,7 @@
 {% extends 'CommonBundle::admin_layout.html.twig' %}
 
 {% block content %}
-
+<div class="col-md-5">
     <h1>Unos nove kategorije</h1>
 
     <form action="{{ path('category_create') }}" method="post" {{ form_enctype(form) }}>
@@ -13,5 +13,5 @@
     </form>
 
     <a href="{{ path('category') }}">Back to the list</a>
-
+</div>
 {% endblock %}

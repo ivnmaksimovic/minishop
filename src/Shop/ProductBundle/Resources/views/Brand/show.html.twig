@@ -27,21 +27,13 @@
     </table>
 
     <ul class="record_actions">
-        <li class="admin_button">
-            <a href="{{ path('brand') }}">
-                Povratak na listu
-            </a>
-        </li>
-        <li>
-            <a href="{{ path('brand_edit', { 'id': entity.id }) }}">
-                Izmeni
-            </a>
-        </li>
+        <li><a href="{{ path('brand') }}">Povratak na listu</a></li>
+        <li><a href="{{ path('brand_edit', { 'id': entity.id }) }}">Izmeni</a></li>
         <li>
             <form action="{{ path('brand_delete', { 'id': entity.id }) }}" method="post">
                 <input type="hidden" name="_method" value="DELETE" />
                 {{ form_widget(delete_form) }}
-                <button type="submit">Izbrisi brend</button>
+                <button class="btn btn-yellow" type="submit">Izbrisi brend</button>
             </form>
         </li>
     </ul>
