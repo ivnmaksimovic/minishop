@@ -109,6 +109,27 @@
         };
     </script>
 
+<script>
+    $(function(){
+        var suma = $('.suma').text(),
+            sumaArray = suma.split(',');
+
+        sumaArray = $.map( sumaArray, function( e ) {
+            return parseInt(e);
+        });
+
+        var total = 0;
+        for (var i = 0; i < sumaArray.length; i++) {
+            total += sumaArray[i] << 0;
+        }
+
+
+        console.log(total);
+
+    });
+
+</script>
+
 {% endblock %}
 </body>
 </html>
