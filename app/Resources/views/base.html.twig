@@ -111,6 +111,7 @@
 
 <script>
     $(function(){
+
         var suma = $('.suma').text(),
             sumaArray = suma.split(',');
 
@@ -118,11 +119,12 @@
             return parseInt(e);
         });
 
-        var total = 0;
-        for (var i = 0; i < sumaArray.length; i++) {
-            total += sumaArray[i] << 0;
-        }
+        sumaArray.pop();
 
+        var total = 0;
+        $.each(sumaArray, function( index ) {
+            total += sumaArray[index];
+        });
 
         console.log(total);
 
