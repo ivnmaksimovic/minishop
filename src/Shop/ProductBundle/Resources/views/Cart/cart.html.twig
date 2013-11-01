@@ -11,6 +11,7 @@
     {#</tr>#}
     {#</thead>#}
     <tbody>
+    {% set total = 0 %}
     {% for entity in entities %}
         <tr>
             <td><img class="image-cart" src="{{ asset ('uploads/documents/') }}{{ entity.product.imgPath }}" /></td>
@@ -29,7 +30,7 @@
 
             </td>
             {% set productSuma = entity.product.productSalePrice * entity.quantity %}
-            <td class='suma'>{{ productSuma }},</td>
+            <td>{{ productSuma }},00 din</td>
             <td>
                 <ul class="list-unstyled">
                     <li>
@@ -44,28 +45,14 @@
                 </ul>
             </td>
         </tr>
+        {% set total = total + productSuma %}
     {% endfor %}
     <tr>
+        <td></td>
+        <td></td>
+        <td></td>
         <td>Ukupno za placanje:</td>
-        <td>
-
-            {% for entity in entities %}
-            {% set productSuma = entity.product.productSalePrice * entity.quantity %}
-
-
-            {% set productsSuma = [productSuma] %}
-
-
-
-                {% for suma in productsSuma %}
-                    {{ suma }}
-                {% endfor %}
-
-
-
-            {% endfor %}
-
-        </td>
+        <td>{{ total }},00 din</td>
     </tr>
     </tbody>
 </table>

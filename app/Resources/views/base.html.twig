@@ -109,29 +109,6 @@
         };
     </script>
 
-<script>
-    $(function(){
-
-        var suma = $('.suma').text(),
-            sumaArray = suma.split(',');
-
-        sumaArray = $.map( sumaArray, function( e ) {
-            return parseInt(e);
-        });
-
-        sumaArray.pop();
-
-        var total = 0;
-        $.each(sumaArray, function( index ) {
-            total += sumaArray[index];
-        });
-
-        console.log(total);
-
-    });
-
-</script>
-
 {% endblock %}
 </body>
 </html>
