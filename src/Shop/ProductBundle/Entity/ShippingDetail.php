@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * ShippingDetail
  *
- * @ORM\Table()
+ * @ORM\Table(name="shipping_detail")
  * @ORM\Entity(repositoryClass="Shop\ProductBundle\Entity\ShippingDetailRepository")
  */
 class ShippingDetail

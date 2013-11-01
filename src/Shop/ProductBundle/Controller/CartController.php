@@ -263,7 +263,15 @@ class CartController extends Controller
                 $shippingDetail->setShippingId($shipping);
 
                 $em->persist($shippingDetail);
+
+                //Izbrisi cart table data nakon potvrde kupovine
+                $em->remove($cartProduct);
+
+
+//                var_dump($cartProduct);
             }
+
+
 
             $em->persist($shipping);
             $em->flush();
