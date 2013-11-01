@@ -16,25 +16,25 @@ class ContactType extends AbstractType
     {
         $builder
             ->add('Ime', 'text', array(
-                'constraints' => new Length(array('min' => 3)),
+                'constraints' => new NotBlank(),
                 'attr' => array(
                     'placeholder' => 'Vase ime'
                 )
             ))
             ->add('Email', 'email', array(
-                'constraints' => new Email(array('message' => 'Nije validna email adresa.')),
+                'constraints' => new NotBlank(),
                 'attr' => array(
                     'placeholder' => 'Kako bismo vas kontaktirali'
                 )
             ))
             ->add('Naslov', 'text', array(
-                'constraints' => new Length(array('min' => 3)),
+                'constraints' => new NotBlank(),
                 'attr' => array(
                     'placeholder' => 'Naslov vase poruke'
                 )
             ))
             ->add('Tekst', 'textarea', array(
-                'constraints' => new Length(array('min' => 3)),
+                'constraints' => new NotBlank(),
                 'attr' => array(
                     'cols' => 90,
                     'rows' => 10,
