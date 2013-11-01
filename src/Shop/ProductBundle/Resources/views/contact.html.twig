@@ -1,6 +1,7 @@
 {% extends 'CommonBundle::layout.html.twig' %}
 
 {% block content %}
+<div class="col-md-6">
 
 {% for label, flashes in app.session.flashbag.all %}
     {% for flash in flashes %}
@@ -9,8 +10,6 @@
         </div>
     {% endfor %}
 {% endfor %}
-
-<p class="separator">Kontaktirajte nas putem forme ispod.</p>
 
 <form action="{{ path('contact') }}" method="post" {{ form_enctype(form) }} novalidate>
     <div class="form-group">{{ form_row(form.Ime, {'label': 'Ime i Prezime', 'attr': {'class': 'form-control'}}) }}</div>
@@ -22,6 +21,11 @@
     <button class="btn btn-yellow" type="submit">Posalji</button>
 
 </form>
+</div>
+
+<div class="col-md-6">
+<p>Kontaktirajte nas putem forme</p>
+</div>
 
 {% endblock %}
 

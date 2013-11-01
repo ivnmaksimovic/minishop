@@ -7,7 +7,7 @@
     <div>{{ error|trans }}</div>
 {% endif %}
 
-<form action="{{ path("fos_user_security_check") }}" method="post">
+<form action="{{ path("fos_user_security_check") }}" method="post" novalidate>
     <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
     <div class="form-group">
@@ -30,6 +30,11 @@
 </form>
 
 {% endblock fos_user_content %}
+
+{% block poruka %}
+<p>Ukoliko nemate nalog, mozete se registrovati</p>
+<a class="btn btn-yellow" href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
+{% endblock %}
 
 
 
