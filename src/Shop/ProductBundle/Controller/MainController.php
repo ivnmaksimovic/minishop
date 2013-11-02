@@ -63,37 +63,32 @@ class MainController extends Controller
         {
             $form->handleRequest($request);
 
-
-
-
-
             if ($form->isValid())
             {
                 $data = $form->getData();
+
+
+                $message = \Swift_Message::newInstance()
+                    ->setSubject($form->get('Naslov')->getData())
+                    ->setFrom($form->get('Email')->getData())
+                    ->setTo('poslatiivanu@yahoo.com')
+                    ->setBody(
+                        $this->renderView(
+                            'ProductBundle:Mail:mail.html.twig',
+                            array(
+                                'ip' => $request->getClientIp(),
+                                'name' => $form->get('Ime')->getData(),
+                                'message' => $form->get('Tekst')->getData()
+                                )
+                            )
+                    );
+
+                $this->get('mailer')->send($message);
+
+                $request->getSession()->getFlashBag()->add('success', 'Your email has been sent! Thanks!');
                 return $this->redirect($this->generateUrl('homepage'));
 
-//                $message = \Swift_Message::newInstance()
-//                    ->setSubject($form->get('subject')->getData())
-//                    ->setFrom($form->get('email')->getData())
-//                    ->setTo('poslatiivanu@yahoo.com')
-//                    ->setBody(
-//                        $this->renderView(
-//                            'CommonBundle:Mail:mail.html.twig',
-//                            array(
-//                                'ip' => $request->getClientIp(),
-//                                'name' => $form->get('name')->getData(),
-//                                'message' => $form->get('message')->getData()
-//                                )
-//                            )
-//                    );
-//
-//                $this->get('mailer')->send($message);
-//
-//                $request->getSession()->getFlashBag()->add('success', 'Your email has been sent! Thanks!');
-
-
                 }
-            return $this->redirect($this->generateUrl('admin_home'));
 
         }
 
