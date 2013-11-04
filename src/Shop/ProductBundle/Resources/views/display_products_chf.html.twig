@@ -13,12 +13,12 @@
                 <div class="product-properties col-md-12 col-xs-7">
                     <ul class="list-unstyled">
                         <li class="product-info product-title"><a href="{{ path('selected_product', { 'categoryName': product.category|lower, 'id': product.id }) }}">{{ product.brand.brandName }} {{ product.productName }}</a></li>
-                        <li class="product-info">velicina {{ product.productSize }}</li>
+                        <li class="product-info">size {{ product.productSize }}</li>
                         {% if product.productRabat > 0 %}
                             <li class="product-info price-old">{{ (product.productPrice / 91) |number_format(2, ',', '.') }} CHF</li>
                             <li class="product-info product-price">{{ (product.productSalePrice / 91) |number_format(2, ',', '.') }} CHF</li>
                         {% else %}
-                            <li class="product-info">cena</li>
+                            <li class="product-info">price</li>
                             <li class="product-info product-price">{{ (product.productPrice / 91) |number_format(2, ',', '.') }} CHF</li>
                         {% endif %}
                     </ul>
@@ -29,7 +29,7 @@
                 </div>
                 </div>
 
-                    <a class="btn btn-block btn-yellow" onclick="cart.addToCart({{ product.id }})">Dodaj u korpu</a>
+                    {#<a class="btn btn-block btn-yellow" onclick="cart.addToCart({{ product.id }})">Dodaj u korpu</a>#}
 
             </div>
 
