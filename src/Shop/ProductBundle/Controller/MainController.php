@@ -145,5 +145,26 @@ class MainController extends Controller
         );
     }
 
+    /**
+     * Finds and display all products from selected category
+     * prices in CHF for print
+     *
+     * @Route("/chf/products/{categoryName}/", name="category_products_chf")
+     * @Method("GET")
+     * @Template("ProductBundle::display_products_chf.html.twig")
+     */
+    public function productsPrintAction($categoryName)
+    {
+        $criteria = array('categoryName' => $categoryName);
+        $em = $this->getDoctrine()->getManager();
+
+        $selectedCategory = $em->getRepository('ProductBundle:Category')->findOneBy($criteria);
+        $products = $selectedCategory->getProducts();
+
+        return array(
+            'products' => $products,
+        );
+    }
+
 
 }

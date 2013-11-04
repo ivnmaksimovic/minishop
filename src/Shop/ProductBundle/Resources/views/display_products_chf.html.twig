@@ -1,0 +1,48 @@
+{% extends 'CommonBundle::layout.html.twig' %}
+
+{% block content %}
+
+        <div class="row">
+        {% for product in products %}
+            <div class="product col-md-3 col-sm-4 col-sm-6">
+                <div class="row">
+                <div class="image_small col-md-12 col-xs-5">
+                    <a href="{{ path('selected_product', { 'categoryName': product.category|lower, 'id': product.id }) }}"><img src="{{ asset ('uploads/documents/') }}{{ product.imgPath }}" /></a>
+                </div>
+
+                <div class="product-properties col-md-12 col-xs-7">
+                    <ul class="list-unstyled">
+                        <li class="product-info product-title"><a href="{{ path('selected_product', { 'categoryName': product.category|lower, 'id': product.id }) }}">{{ product.brand.brandName }} {{ product.productName }}</a></li>
+                        <li class="product-info">velicina {{ product.productSize }}</li>
+                        {% if product.productRabat > 0 %}
+                            <li class="product-info price-old">{{ (product.productPrice / 91) |number_format(2, ',', '.') }} CHF</li>
+                            <li class="product-info product-price">{{ (product.productSalePrice / 91) |number_format(2, ',', '.') }} CHF</li>
+                        {% else %}
+                            <li class="product-info">cena</li>
+                            <li class="product-info product-price">{{ (product.productPrice / 91) |number_format(2, ',', '.') }} CHF</li>
+                        {% endif %}
+                    </ul>
+
+                    {% if product.productRabat > 0 %}
+                        <div class="product-rabat">{{ product.productRabat }}%</div>
+                    {% endif %}
+                </div>
+                </div>
+
+                    <a class="btn btn-block btn-yellow" onclick="cart.addToCart({{ product.id }})">Dodaj u korpu</a>
+
+            </div>
+
+        {% endfor %}
+        </div>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
