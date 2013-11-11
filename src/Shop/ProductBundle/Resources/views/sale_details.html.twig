@@ -1,0 +1,39 @@
+{% extends 'CommonBundle::admin_layout.html.twig' %}
+
+{% block content %}
+
+    <h1>Detalji porudzbine</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Artikal</th>
+                <th>Cena</th>
+                <th>Kolicina</th>
+                <th>Suma</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for saleDetail in saleDetails %}
+            <tr>
+                <td>{{ saleDetail.shippingId.id }}</td>
+                <td><a href="{{ path('product_show', { 'id': saleDetail.productId.id }) }}">{{ saleDetail.productId.productName }}</a></td>
+                <td>{{ saleDetail.price }}</td>
+                <td>{{ saleDetail.qty }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+

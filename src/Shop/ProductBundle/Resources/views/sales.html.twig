@@ -1,0 +1,46 @@
+{% extends 'CommonBundle::admin_layout.html.twig' %}
+
+{% block content %}
+
+    <h1>Sve prodaje</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Broj posiljke</th>
+                <th>Ime i prezime</th>
+                <th>Datum</th>
+                <th>Adresa</th>
+                <th>Zip</th>
+                <th>Grad</th>
+                <th>Telefon</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sale in sales %}
+            <tr>
+                <td><a href="{{ path('sale_details', {'id': sale.id}) }}">{{ sale.id }}</a></td>
+                <td>{{ sale.shippingNumber }}</td>
+                <td>{{ sale.date | date('d-m-Y') }}</td>
+                <td>{{ sale.name }}</td>
+                <td>{{ sale.address }}</td>
+                <td>{{ sale.zip }}</td>
+                <td>{{ sale.city }}</td>
+                <td>{{ sale.phone }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+

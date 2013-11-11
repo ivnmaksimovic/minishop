@@ -34,19 +34,6 @@ class MainController extends Controller
         return array();
     }
 
-//    /**
-//     * Displays a form to send Contact message.
-//     *
-//     * @Route("/contact", name="contact")
-//     * @Template("ProductBundle::contact.html.twig")
-//     */
-//    public function ContactAction()
-//    {
-//        $form = $this->createForm(new ContactType());
-//
-//        return array('form' => $form->createView());
-//    }
-
     /**
      * Displays Contact form so user can contact admin
      *
@@ -93,18 +80,6 @@ class MainController extends Controller
         }
 
         return array('form' => $form->createView());
-    }
-
-    /**
-     * Displays Administration page with Admin Menu. Superuser permission required.
-     *
-     * @Route("/admin/", name="admin_home")
-     * @Method("GET")
-     * @Template("ProductBundle::admin_home.html.twig")
-     */
-    public function adminAction()
-    {
-        return array();
     }
 
     /**
@@ -165,6 +140,5 @@ class MainController extends Controller
             'products' => $products,
         );
     }
-
 
 }
