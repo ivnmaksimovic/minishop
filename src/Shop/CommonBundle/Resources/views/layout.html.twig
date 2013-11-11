@@ -9,7 +9,6 @@
     <div id="scroll"></div>
 
     <div id="all" class="container">
-
         <div class="row">
 
             <button id="mobile-menu" type="button" class="btn btn-block btn-custom hidden-md hidden-lg">
@@ -47,7 +46,7 @@
 
                                 <div class="product-properties col-md-12 col-xs-7">
                                     <ul class="list-unstyled">
-                                        <li class="product-info"><a href="{{ path('selected_product', { 'categoryName': recomendedProduct.category|lower, 'id': recomendedProduct.id }) }}">{{ recomendedProduct.brand.brandName }} {{ recomendedProduct.productName }}</a></li>
+                                        <li class="product-info product-title"><a href="{{ path('selected_product', { 'categoryName': recomendedProduct.category|lower, 'id': recomendedProduct.id }) }}">{{ recomendedProduct.brand.brandName }} {{ recomendedProduct.productName }}</a></li>
                                         <li class="product-info">velicina {{ recomendedProduct.productSize }}</li>
                                         {% if recomendedProduct.productRabat > 0 %}
                                             <li class="product-info price-old">{{ recomendedProduct.productPrice }},00 din</li>
@@ -64,48 +63,41 @@
                                 </div>
                             </div>
 
-
                             <a class="btn btn-block btn-yellow" onclick="cart.addToCart({{ recomendedProduct.id }})">Dodaj u korpu</a>
 
-
                         </div>
-
                     {% endfor %}
                 </div>
-
             </div>
         </div>
-
-
-
-
-
     </div>
 
     <div id="footer">
         <div class="container">
-            <div class="footer-menu col-md-3 col-sm-6 col-xs-6">
-                <ul class="list-unstyled">
-                    {% for category in categories %}
-                        <li><a href="{{ path('category_products', {'categoryName': category.categoryName|lower}) }}">{{ category.categoryName }}</a></li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="footer-menu col-md-3 col-sm-6 col-xs-6">
-                <ul class="list-unstyled">
-                    <li><a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a></li>
-                    <li><a href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a></li>
-                    <li><a href="{{ path('fos_user_profile_show') }}">Moj profil</a></li>
-                </ul>
-            </div>
-            <div class="footer-menu col-md-6 col-sm-12 col-xs-12">
-                <ul class="list-unstyled">
-                    <li><a>Kontakt</a></li>
-                    <li><a>060 73 84 097</a></li>
-                    <li><a>facebook.com/skateshopstance</a></li>
-                    <li><a href="{{ path('admin_home') }}">magacin</a></li>
-                    <li><a>copyrights skateshop stance 2013.</a></li>
-                </ul>
+            <div class="row">
+                <div class="footer-menu col-md-3 col-sm-6 col-xs-6">
+                    <ul class="list-unstyled">
+                        {% for category in categories %}
+                            <li><a href="{{ path('category_products', {'categoryName': category.categoryName|lower}) }}">{{ category.categoryName }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="footer-menu col-md-3 col-sm-6 col-xs-6">
+                    <ul class="list-unstyled">
+                        <li><a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a></li>
+                        <li><a href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a></li>
+                        <li><a href="{{ path('fos_user_profile_show') }}">Moj profil</a></li>
+                    </ul>
+                </div>
+                <div class="footer-menu col-md-6 col-sm-12 col-xs-12">
+                    <ul class="list-unstyled">
+                        <li><a>Kontakt</a></li>
+                        <li><a>060 73 84 097</a></li>
+                        <li><a>facebook.com/skateshopstance</a></li>
+                        <li><a href="{{ path('admin_home') }}">magacin</a></li>
+                        <li><a>copyrights skateshop stance 2013.</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

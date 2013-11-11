@@ -43,38 +43,6 @@ class ContactType extends AbstractType
             ));
     }
 
-//    public function setDefaultOptions(OptionsResolverInterface $resolver)
-//    {
-//        $resolver->setDefaults(array(
-//            'data_class' => 'Shop\ProductBundle\Entity\Contact'
-//        ));
-//    }
-
-//    public function setDefaultOptions(OptionsResolverInterface $resolver)
-//    {
-////        $collectionConstraint = new Collection(array(
-////            'name' => array(
-////                new NotBlank(array('message' => 'Ime je obavezno.')),
-////                new Length(array('min' => 2))
-////            ),
-////            'email' => array(
-////                new NotBlank(array('message' => 'Email je obavezan.')),
-////                new Email(array('message' => 'Nije validna email adresa.'))
-////            ),
-////            'subject' => array(
-////                new NotBlank(array('message' => 'Poruka mora imati naslov.')),
-////                new Length(array('min' => 3))
-////            ),
-////            'message' => array(
-////                new NotBlank(array('message' => 'Tekst poruke ne moze biti prazan.')),
-////                new Length(array('min' => 5))
-////            )
-////        ));
-//
-//        $resolver->setDefaults(array(
-//            'constraints' => $collectionConstraint
-//        ));
-//    }
 
     public function getName()
     {

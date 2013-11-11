@@ -4,6 +4,7 @@ namespace Shop\ProductBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Product
@@ -39,13 +40,14 @@ class Product
      * @var string
      *
      * @ORM\Column(name="product_name", type="string", length=255)
+     * @Assert\NotBlank(message="Obavezno polje")
      */
     private $productName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="product_size", type="string", length=255)
+     * @ORM\Column(name="product_size", type="string", length=255, nullable=true)
      */
     private $productSize;
 
@@ -53,6 +55,7 @@ class Product
      * @var integer
      *
      * @ORM\Column(name="product_price", type="integer")
+     * @Assert\NotBlank(message="Obavezno polje")
      */
     private $productPrice;
 
@@ -60,6 +63,12 @@ class Product
      * @var integer
      *
      * @ORM\Column(name="product_rabat", type="integer")
+     * @Assert\Range(
+     *      min = 0,
+     *      max = 90,
+     *      minMessage = "Popust ne moze biti negativan broj",
+     *      maxMessage = "Popust ne moze biti veci od 90%"
+     * )
      */
     private $productRabat;
 

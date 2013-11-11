@@ -4,7 +4,7 @@
     <div class="col-md-5">
         <h1>Unos novog artikla</h1>
 
-        <form action="{{ path('product_create') }}" method="post" {{ form_enctype(form) }}>
+        <form action="{{ path('product_create') }}" method="post" {{ form_enctype(form) }} novalidate>
 
             <div class="form-group">{{ form_row(form.productCode, {'label': 'Sifra artikla', 'attr': {'class': 'form-control'}}) }}</div>
             <div class="checkbox">{{ form_row(form.active, {'label': 'Artikal aktivan'}) }}</div>

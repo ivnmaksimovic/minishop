@@ -14,12 +14,15 @@ class ProductType extends AbstractType
             ->add('productCode')
             ->add('active', 'checkbox', array(
                 'label' => 'Artikal aktivan?',
+                'required' => false,
             ))
             ->add('category')
             ->add('brand')
             ->add('productName')
             ->add('productColor')
-            ->add('productSize')
+            ->add('productSize', 'text', array(
+                'required' => false,
+            ))
             ->add('productDescription', 'textarea', array(
                 'attr' => array('class' => 'tinymce'),
                 'required' => false,

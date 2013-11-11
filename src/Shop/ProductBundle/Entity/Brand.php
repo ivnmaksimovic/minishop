@@ -54,7 +54,7 @@ class Brand
     /**
      * Path of uploaded image
      *
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(name="img_path", type="string", length=255, nullable=true)
      */
     public $imgPath;
 
