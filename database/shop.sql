@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 30, 2013 at 10:54 AM
+-- Generation Time: Nov 11, 2013 at 07:09 PM
 -- Server version: 5.5.32
--- PHP Version: 5.5.3-1+debphp.org~precise+2
+-- PHP Version: 5.5.5-1+debphp.org~precise+2
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -30,15 +30,15 @@ CREATE TABLE IF NOT EXISTS `brand` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `brand_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `brand_description` longtext COLLATE utf8_unicode_ci NOT NULL,
-  `imgPath` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `img_path` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `brand`
 --
 
-INSERT INTO `brand` (`id`, `brand_name`, `brand_description`, `imgPath`) VALUES
+INSERT INTO `brand` (`id`, `brand_name`, `brand_description`, `img_path`) VALUES
 (1, 'Etnies', '<p><strong>Etnies</strong>&nbsp;is a footwear brand based in&nbsp;<a title="Lake Forest, California" href="http://en.wikipedia.org/wiki/Lake_Forest,_California">Lake Forest, California</a>, United States (US), and is owned by&nbsp;<a title="Sole Technology" href="http://en.wikipedia.org/wiki/Sole_Technology">Sole Technology, Inc.</a><sup id="cite_ref-Our_1-0" class="reference"><a href="http://en.wikipedia.org/wiki/Etnies#cite_note-Our-1">[1]</a></sup>&nbsp;As of 2013, the company sponsors professional skateboarders and releases signature shoe models.</p>\r\n<p>The company was launched in 1986 and following the end of his professional skateboarding career, current owner, Pierre Andr&eacute; S&eacute;nizergues, commenced design work at etnies shortly after the company''s formation. Etnies was an emerging European brand at the time that S&eacute;nizergues joined the company and he was responsible for designing the "Senix", "Lo-Cut", "Low-Top Rap", "Intercity" and "Scam" shoe models. S&eacute;nizergues subsequently introduced the brand to the US and proceeded to build Sole Technology, with the addition of the Emerica, &eacute;S (on indefinite hiatus as of 2012), and ThirtyTwo (snowboarding brand created in 1995) brands</p>', 'brand_5923cd1f4de3280a418ce9f763d20aa8c2842fe8.jpg'),
 (2, 'Fallen', '<p><strong>Fallen Footwear</strong>&nbsp;is a skateboarding footwear brand started by professional skateboarder Jamie Thomas.&nbsp;</p>\r\n<p>In 2003, it was announced that Fallen Footwear would be manufactured and distributed by&nbsp;<a title="DC Shoes" href="http://en.wikipedia.org/wiki/DC_Shoes">DC Shoes</a>&nbsp;under license from Thomas.<sup id="cite_ref-1" class="reference"><a href="http://en.wikipedia.org/wiki/Fallen_Footwear#cite_note-1">[1]</a></sup>&nbsp;The agreement was canceled in 2005 after DC was acquired by&nbsp;<a title="Quiksilver" href="http://en.wikipedia.org/wiki/Quiksilver">Quiksilver</a>. It was an amicable separation, and DC President Ken Block said that Fallen was "recognized as the top new emerging footwear brand in the skateboard industry."The shoes are sold and distributed through Thomas''&nbsp;<a title="Black Box Distribution" href="http://en.wikipedia.org/wiki/Black_Box_Distribution">Black Box Distribution</a>.</p>', 'brand_2d65a25aff8525a12fc2735664ef81f8c713441e.jpg'),
 (3, 'Emerica', '<p>Emerica was launched in 1996,&nbsp;sponsors a team of skateboarders, and has produced the following videos:&nbsp;<em>Yellow</em>&nbsp;(1997),&nbsp;<em>This Is Skateboarding</em>&nbsp;(2003),&nbsp;<em>Stay Gold</em>&nbsp;(2010), and&nbsp;<em>MADE: Chapter One</em>&nbsp;(2013).&nbsp;The 2013 video,&nbsp;<em>MADE: Chapter One</em>, was offered to consumers at a price of their choosing, with a minimum price of US$1.00 established.<sup id="cite_ref-12" class="reference"><a href="http://en.wikipedia.org/wiki/Sole_Technology#cite_note-12"><br /></a></sup></p>\r\n<p>In July 2013, the brand released its "Workwear" line with the&nbsp;<a title="Andrew Reynolds (skateboarder)" href="http://en.wikipedia.org/wiki/Andrew_Reynolds_(skateboarder)">Andrew Reynolds</a>&nbsp;"signature workwear denim capsule."&nbsp;Reynolds explained in a promotional video for the product:&nbsp;I''d say I''ve been with Emerica since ... 12, 15 years, something like that. It''s never really gone, like, "Oh, now we''re doing this! Now we''re trying to chase that fad. Now we''re doing that." It''s just stayed true to skateboarding. It''s just simple.</p>', 'brand_449ee7445fb9f4b102b152fa799fc0351eab5c58.jpg'),
@@ -48,7 +48,8 @@ INSERT INTO `brand` (`id`, `brand_name`, `brand_description`, `imgPath`) VALUES
 (7, 'O''Neill', '<p><strong>O''Neill&reg;</strong>&nbsp;has been around for over half a century. Constantly raising the bar, O''Neill morphed from a small surf shop selling surfboards and custom made wetsuits to dominating the world''s surf industry. O''Neill continues to produce quality footwear,<a class="zph" href="http://www.zappos.com/bags">bags</a>, apparel, wetsuits, and<a class="zph" href="http://www.zappos.com/accessories">accessories</a>&nbsp;with the surf rider and beach enthusiast in mind.<br /><br />O''Neill has continued to expand their business by integrating beach culture and surf lifestyle. Signature footwear and&nbsp;<a class="zph" href="http://www.zappos.com/d/sandals">sandals</a>, to&nbsp;<a class="zph" href="http://www.zappos.com/d/shirts">shirts</a>,&nbsp;<a class="zph" href="http://www.zappos.com/hoodies-sweatshirts">hoodies</a>,&nbsp;<a class="zph" href="http://www.zappos.com/d/pants">pants</a>,<a class="zph" href="http://www.zappos.com/jeans">jeans</a>,&nbsp;<a class="zph" href="http://www.zappos.com/bags">bags</a>, you name it, for both men, women, and kids, continue to prove that O''Neill is on top. Backed by various professional surfers, watermen, and other athletes, O''Neill will continue to break tradition with technical features and ground-breaking designs through their footwear,&nbsp;<a class="zph" href="http://www.zappos.com/d/sandals">sandals</a>, apparel,&nbsp;<a class="zph" href="http://www.zappos.com/bags">bags</a>,<a class="zph" href="http://www.zappos.com/accessories">accessories</a>, and especially their wetsuits, rash guards, and&nbsp;<a class="zph" href="http://www.zappos.com/boardshorts">boardshorts</a>.<br /><br />O''Neill continues to mix up their entire apparel, footwear,&nbsp;<a class="zph" href="http://www.zappos.com/bags">bags</a>,&nbsp;<a class="zph" href="http://www.zappos.com/accessories">accessories</a>, wetsuits, rash guards, and&nbsp;<a class="zph" href="http://www.zappos.com/boardshorts">boardshorts</a>&nbsp;with style, music and the environment. With team rider feedback from Cory Lopez, Rochelle Ballard, Trent&nbsp;<a class="zph" href="http://www.zappos.com/munro">Munro</a>, Melanie Bartels and others, it''s no wonder why surfers and beach enthusiasts look to O''Neill for all of their needs. This fusion and dynamic forces influences the vision of all signature O''Neill products.</p>', 'brand_0c2d57573b9f732d5954ab1b65b33a2c79cc6444.jpg'),
 (8, 'ES', '<p>&eacute;S Footwear officially launches to fill the need for a new type of skate shoe, a brand that pushes the limits of advanced footwear design and caters to the demands of the core, technical skateboarder.</p>\r\n<p>&eacute;S head Don Brown starts to work on building a team, as future members Eric Koston and Tom Penny rack up some serious magazine and video coverage. Although Koston continues to blaze a path into the limelight, Penny--at the height of his powers--notoriously disappears into the haze of the French countryside for a few years, which only serves to strengthen his legendary status.</p>', 'brand_f04ca94a47036666bdf859718172918f63387f16.jpg'),
 (9, 'DC', '<p>Founded by Ken Block and Damon Way in 1993, DC quickly grew to become a leader in performance skateboarding shoes and a renowned action sports brand. Today DC stands as a global brand whose product line has expanded to include men&rsquo;s, women&rsquo;s and kids&rsquo; skateboarding and lifestyle shoes, apparel, snowboards, snowboard boots, outerwear, and accessories.</p>\r\n<p>As one of the cornerstones of its marketing strategy, DC has built a world-class team of professional skateboarding, snowboarding, surfing, BMX,motocross and rally athletes that exemplify and enhance DC&rsquo;s brand, develop its signature products, and support its promotional efforts. DC is a subsidiary of Quiksilver, Inc</p>', 'brand_272d89d85d0fc54e236a5436a523f6389d20772b.jpg'),
-(10, 'GoPro', '<p>GoPro is the world''s leading activity image capture company.&nbsp;GoPro produces arguably the most versatile cameras in the world, the famous HD HERO&reg; line of wearable and gear-mountable cameras and accessories. GoPro&rsquo;s products are sold through leading specialty retailers in more than 50 countries.</p>\r\n<p>We dream. We have passionate ideas about what&rsquo;s possible in this world. Our passions lead us to create experiences and realities that expand our world and inspire those around us.</p>\r\n<p>GoPro helps people capture and share their lives&rsquo; most meaningful experiences with others&mdash;to celebrate them together. Like how a day on the mountain with friends is more meaningful than one spent alone, the sharing of our collective experiences makes our lives more fun.</p>\r\n<p>The world&rsquo;s most versatile cameras are what we make.</p>\r\n<p>Enabling you to share your life through incredible photos and video is what we do.</p>\r\n<p>This is your life...GoPro.</p>\r\n<p>&nbsp;</p>', 'brand_39e7ed4b34a375dd7a670f79bec2c859085642a6.jpg');
+(10, 'GoPro', '<p>GoPro is the world''s leading activity image capture company.&nbsp;GoPro produces arguably the most versatile cameras in the world, the famous HD HERO&reg; line of wearable and gear-mountable cameras and accessories. GoPro&rsquo;s products are sold through leading specialty retailers in more than 50 countries.</p>\r\n<p>We dream. We have passionate ideas about what&rsquo;s possible in this world. Our passions lead us to create experiences and realities that expand our world and inspire those around us.</p>\r\n<p>GoPro helps people capture and share their lives&rsquo; most meaningful experiences with others&mdash;to celebrate them together. Like how a day on the mountain with friends is more meaningful than one spent alone, the sharing of our collective experiences makes our lives more fun.</p>\r\n<p>The world&rsquo;s most versatile cameras are what we make.</p>\r\n<p>Enabling you to share your life through incredible photos and video is what we do.</p>\r\n<p>This is your life...GoPro.</p>\r\n<p>&nbsp;</p>', 'brand_39e7ed4b34a375dd7a670f79bec2c859085642a6.jpg'),
+(11, 'sdfasfd', '<p>sdffdf asdf &nbsp;sfd f&nbsp;</p>', 'brand_7c27d26d8ea9c088a45d152b199b29e319a9edbb.jpg');
 
 -- --------------------------------------------------------
 
@@ -63,22 +64,7 @@ CREATE TABLE IF NOT EXISTS `cart` (
   `product` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_BA388B7D34A04AD` (`product`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=58 ;
-
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`id`, `session_id`, `quantity`, `product`) VALUES
-(11, 'j7um6usc5b3ea4du147bhskip3', 3, 75),
-(12, 'j7um6usc5b3ea4du147bhskip3', 3, 42),
-(13, 'j7um6usc5b3ea4du147bhskip3', 2, 78),
-(15, 'j7um6usc5b3ea4du147bhskip3', 2, 88),
-(16, '1f77m8tbv2gg8osgart10cmgm3', 1, 34),
-(17, 'qd27l6v4skbg4e07d8fp3iefc4', 4, 93),
-(19, '5c64de9a359f48aaf03308b8acab4134', 1, 126),
-(56, 'btul7bq0d6pjjicon4dt19qcb1', 2, 113),
-(57, 'btul7bq0d6pjjicon4dt19qcb1', 1, 44);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -117,7 +103,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `product_description` longtext COLLATE utf8_unicode_ci NOT NULL,
   `product_price` int(11) NOT NULL,
   `product_rabat` int(11) NOT NULL,
-  `product_size` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `product_size` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `img_path` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `active` tinyint(1) NOT NULL,
   `product_code` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -125,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   PRIMARY KEY (`id`),
   KEY `IDX_1CF73D3112469DE2` (`category_id`),
   KEY `IDX_1CF73D3144F5D008` (`brand_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=128 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=130 ;
 
 --
 -- Dumping data for table `product`
@@ -220,7 +206,8 @@ INSERT INTO `product` (`id`, `category_id`, `brand_id`, `product_name`, `product
 (124, 7, 6, 'Rope boxerice', '<p>Rope boxerice.</p>', 800, 0, '0', 'product_f227f558e38381a3a12998e4b5de52695f7116a6.jpg', 1, '002009', 'bela'),
 (125, 7, 6, 'Rope boxerice', '<p>Rope boxerice.</p>', 800, 0, '0', 'product_0938f06400d91e6da89996f106649acf5c2738d4.jpg', 1, '002010', 'zuta'),
 (126, 7, 10, 'Nosac za HD Hero za montazu na grudima', '<div class="row-fluid">Fully adjustable to fit all sizes, the Chesty makes it easy to capture immersive video and photos from, well&hellip; your chest. It''s perfect for skiing, mountain biking, motocross, paddle sports or any activity where you want to get a lower-than-the-helmet view of the action. You''ll capture more of your arms, knees, poles and skis while skiing&mdash;and more of your arms and handlebars while biking or riding your motorcycle. The Chesty delivers a more immersive view than filming from your helmet.<br />\r\n<ul class="large-top-margin">\r\n<li class="small-top-margin">Provides an ultra-immersive perspective</li>\r\n<li class="small-top-margin">Perfect for skiing, cycling, motocross or paddle sports</li>\r\n<li class="small-top-margin">Fully adjustable to fit all sizes</li>\r\n</ul>\r\n</div>', 4490, 20, '0', 'product_a217b1ed394098061d49f05a1b1b737c81d90b96.jpg', 1, '002011', 'crna'),
-(127, 7, 10, 'Nosac za HD Hero za montazu na Bicikle i Motocikle', '<div class="row-fluid">\r\n<div class="span12 tablet-col12 mobile-col12">Attach your GoPro to handlebars, seatposts, ski poles, kitesurfing control bars or virtually any 0.43" - 0.7" (11mm &ndash;18mm) diameter tube. You can also clamp this mount to chainstays, small-diameter roll bars and bolt heads, or secure it to a length of pipe to create a handheld boom. The included 3-Way Pivot Arm makes aiming easy, so you can achieve the perfect angle for every shot.<br />\r\n<ul class="gray-font large-top-margin">\r\n<li class="small-top-margin"></li>\r\n<li class="small-top-margin">Fits 0.43" - 0.7" (11mm &ndash;18mm) diameter tubes with additional adaptor (included)</li>\r\n<li class="small-top-margin">Ideal for bicycle seatposts, handlebars, ski poles and more</li>\r\n<li class="small-top-margin">Can be used to create a handheld boom</li>\r\n<li class="small-top-margin">3-Way Pivot Arm allows for easy aiming</li>\r\n</ul>\r\n</div>\r\n</div>', 2790, 20, '0', 'product_7f31286d5b18dace0cd6efc6c337566300997538.jpg', 1, '002012', 'crna');
+(127, 7, 10, 'Nosac za HD Hero za montazu na Bicikle i Motocikle', '<div class="row-fluid">\r\n<div class="span12 tablet-col12 mobile-col12">Attach your GoPro to handlebars, seatposts, ski poles, kitesurfing control bars or virtually any 0.43" - 0.7" (11mm &ndash;18mm) diameter tube. You can also clamp this mount to chainstays, small-diameter roll bars and bolt heads, or secure it to a length of pipe to create a handheld boom. The included 3-Way Pivot Arm makes aiming easy, so you can achieve the perfect angle for every shot.<br />\r\n<ul class="gray-font large-top-margin">\r\n<li class="small-top-margin"></li>\r\n<li class="small-top-margin">Fits 0.43" - 0.7" (11mm &ndash;18mm) diameter tubes with additional adaptor (included)</li>\r\n<li class="small-top-margin">Ideal for bicycle seatposts, handlebars, ski poles and more</li>\r\n<li class="small-top-margin">Can be used to create a handheld boom</li>\r\n<li class="small-top-margin">3-Way Pivot Arm allows for easy aiming</li>\r\n</ul>\r\n</div>\r\n</div>', 2790, 20, '0', 'product_7f31286d5b18dace0cd6efc6c337566300997538.jpg', 1, '002012', 'crna'),
+(129, 7, 4, 'sssssssss', '<p>lkmjlj</p>', 20100, 0, NULL, 'product_326a5c95ef57ee4898bc5ebe137e601aff25b7d8.jpg', 0, '6445445645xczc', 'crna');
 
 -- --------------------------------------------------------
 
@@ -238,70 +225,49 @@ CREATE TABLE IF NOT EXISTS `shipping` (
   `zip` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `city` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=53 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=63 ;
 
 --
 -- Dumping data for table `shipping`
 --
 
 INSERT INTO `shipping` (`id`, `name`, `address`, `date`, `shipping_number`, `phone`, `zip`, `city`) VALUES
-(29, 'Ivan Maksimovic', 'Sremska 7', '2013-10-19 11:37:40', 6, '0607384097', '36000', 'Kraljevo'),
-(30, 'Danica Gilic', 'Sremska 7', '2013-10-19 11:47:03', 2013, '0607384097', '36000', 'Kraljevo'),
-(32, 'Ivan Maksimovic', 'Cara Lazara 30/4', '2013-10-19 11:49:15', 2013, '0607384097', '36000', 'Kraljevo'),
-(33, 'Danica Gilic', 'Sremska 7', '2013-10-19 11:52:52', 2013, '0607384097', '36000', 'Kraljevo'),
-(34, 'Danica Gilic', 'Cara Lazara 30/4', '2013-10-19 11:54:29', 10, '0607384097', '36000', 'Kraljevo'),
-(35, 'Ivan Maksimovic', 'Sremska 7', '2013-10-19 11:56:04', 10, '0607384097', '36000', 'Kraljevo'),
-(36, 'Danica Gilic', 'Cara Lazara 30/4', '2013-10-19 11:57:09', 10, '0607384097', '36000', 'Kraljevo'),
-(37, 'Danica Gilic', 'Sremska 7', '2013-10-19 12:01:15', 2013, '0607384097', '36000', 'Kraljevo'),
-(38, 'Ivan Maksimovic', 'Sremska 7', '2013-10-19 12:02:50', 20135, '0607384097', '36000', 'Kraljevo'),
-(41, 'Danica Gilic', 'Sremska 7', '2013-10-20 20:25:51', 20135, '0607384097', '36000', 'Kraljevo'),
-(43, 'Danica Gilic', 'Sremska 7', '2013-10-20 20:26:57', 20135, '0607384097', '36000', 'Kraljevo'),
-(48, 'Danica Gilic', 'Sremska 7', '2013-10-20 20:50:25', 20135, '0607384097', '36000', 'Kraljevo'),
-(49, 'Natalija Dursun', 'Cara Lazara 30/4', '2013-10-20 20:51:35', 20135, '0607384097', '36000', 'Kraljevo'),
-(50, 'Ivan Maksimovic', 'Sremska 7', '2013-10-23 11:12:41', 20135, '0607384097', '36000', 'Kraljevo'),
-(51, 'Milan Dugalic', 'Jarcujak bb', '2013-10-26 18:23:29', 20135, '02565656565', '36000', 'Kraljevo'),
-(52, 'Ivan Maksimovic', 'Sremska 7', '2013-10-30 10:53:29', 20135, '0607384097', '36000', 'Kraljevo');
+(59, 'Ivan Maksimovic', 'Sremska 7', '2013-11-01 13:26:43', 20135, '0607384097', '36000', 'Kraljevo'),
+(60, 'Danica Gilic', 'Cara Lazara 30/4', '2013-11-01 13:28:14', 20135, '0607384097', '36000', 'Kraljevo'),
+(61, 'Ivan Maksimovic', 'Cara Lazara 30/4', '2013-11-10 23:47:43', 20135, '0607384097', '36000', 'Kraljevo'),
+(62, 'Marina', 'Ulica neka 45', '2013-11-11 02:08:13', 20135, '0643126377', '58000', 'Stockholm');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ShippingDetail`
+-- Table structure for table `shipping_detail`
 --
 
-CREATE TABLE IF NOT EXISTS `ShippingDetail` (
+CREATE TABLE IF NOT EXISTS `shipping_detail` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `shipping_id` int(11) DEFAULT NULL,
   `product_id` int(11) DEFAULT NULL,
   `price` int(11) NOT NULL,
   `qty` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `IDX_8069335B4887F3F8` (`shipping_id`),
-  KEY `IDX_8069335B4584665A` (`product_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=72 ;
+  KEY `IDX_55CBADC4887F3F8` (`shipping_id`),
+  KEY `IDX_55CBADC4584665A` (`product_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
 
 --
--- Dumping data for table `ShippingDetail`
+-- Dumping data for table `shipping_detail`
 --
 
-INSERT INTO `ShippingDetail` (`id`, `shipping_id`, `product_id`, `price`, `qty`) VALUES
-(42, 29, 58, 9490, 1),
-(43, 30, 47, 8490, 2),
-(44, 30, 73, 9690, 1),
-(46, 32, 43, 5990, 1),
-(47, 33, 102, 2290, 1),
-(48, 34, 63, 8390, 1),
-(50, 36, 39, 6990, 1),
-(51, 37, 82, 8190, 1),
-(52, 38, 44, 10990, 1),
-(59, 43, 75, 10890, 1),
-(60, 43, 65, 8990, 1),
-(65, 48, 99, 2890, 1),
-(66, 49, 75, 10890, 1),
-(67, 50, 34, 9990, 1),
-(68, 51, 35, 9990, 1),
-(69, 51, 37, 7990, 1),
-(70, 52, 113, 1390, 2),
-(71, 52, 44, 10990, 1);
+INSERT INTO `shipping_detail` (`id`, `shipping_id`, `product_id`, `price`, `qty`) VALUES
+(1, 59, 35, 9990, 1),
+(2, 59, 106, 2750, 2),
+(3, 60, 112, 1390, 3),
+(4, 60, 102, 2290, 1),
+(5, 61, 45, 10990, 1),
+(6, 61, 102, 2290, 2),
+(7, 62, 101, 3690, 1),
+(8, 62, 127, 2790, 1),
+(9, 62, 125, 800, 2);
 
 -- --------------------------------------------------------
 
@@ -332,17 +298,18 @@ CREATE TABLE IF NOT EXISTS `shop_user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_4C61303292FC23A8` (`username_canonical`),
   UNIQUE KEY `UNIQ_4C613032A0D96FBF` (`email_canonical`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `shop_user`
 --
 
 INSERT INTO `shop_user` (`id`, `username`, `username_canonical`, `email`, `email_canonical`, `enabled`, `salt`, `password`, `last_login`, `locked`, `expired`, `expires_at`, `confirmation_token`, `password_requested_at`, `roles`, `credentials_expired`, `credentials_expire_at`, `ime`, `prezime`) VALUES
-(1, 'ivan', 'ivan', 'poslatiivanu@yahoo.com', 'poslatiivanu@yahoo.com', 1, 'ncfywl36tg08gowgkow4owgkss4go8c', '/jJbP7xiqMIseZg2umc1eDPs5wk4w6vPL5ThSktI+0rQ71eaePy28aXNGhUFY40I3rwBngLL5+eTKSKCkTdtOQ==', '2013-10-29 23:01:26', 0, 0, NULL, 'tstFff19ioTlvpuKCbV8bp_78cFObYBZIH9m1MMOsoc', '2013-10-24 14:24:57', 'a:1:{i:0;s:10:"ROLE_ADMIN";}', 0, NULL, 'ivan', 'maksimovic'),
+(1, 'ivan', 'ivan', 'poslatiivanu@yahoo.com', 'poslatiivanu@yahoo.com', 1, 'ncfywl36tg08gowgkow4owgkss4go8c', 'i+EYTPf8g23eCbAR7/T+8xfwaw82rpICiqSmm+zVKtVm+QDgeu36WhChUpQlePwYeLVTxG8j2Q7Wm2ewBdQD6g==', '2013-11-11 01:01:04', 0, 0, NULL, 'tstFff19ioTlvpuKCbV8bp_78cFObYBZIH9m1MMOsoc', '2013-10-24 14:24:57', 'a:1:{i:0;s:10:"ROLE_ADMIN";}', 0, NULL, 'ivan', 'maksimovic'),
 (2, 'kupac', 'kupac', 'kupac@kupac.com', 'kupac@kupac.com', 1, '3i7urrrhwgqo48o4gg4gssc4coswwkw', '79JMWbj+NFnSkPS7btl58LaQpDJK1nDU07W9yPvXjDkkIMBrFG2bJQhYi8IljH40+jJLLMDEwyFNwZA1cfqyXw==', '2013-08-11 00:22:13', 0, 0, NULL, NULL, NULL, 'a:0:{}', 0, NULL, 'Danica', 'Gilic'),
 (3, 'danica', 'danica', 'daca@daca.com', 'daca@daca.com', 1, '7pi09a5n7f4s8gk0koo80k8s0048kcc', 'wGYL6f0PMT3ZMms+I5VDXmt5iU3ta9y+A1Teh7alSP6oBJJu/LfmY6bu0XyV8o+ecHxkY5qrHrKzp6AQFEVVgg==', '2013-10-23 01:26:48', 0, 0, NULL, NULL, NULL, 'a:0:{}', 0, NULL, 'Danica', 'Gilic'),
-(4, 'pero', 'pero', 'pero@pero.com', 'pero@pero.com', 1, '64yljui4y1s0cckkg404s4kg04o044o', 'xNUjBpSwPIaQMdT5+S4bb9dI3kLjhU3GaZecNiZG3CqnRwGhh9psY4zQAkI1wZ0zHfLPG0dn9cRMur1YNyv5MA==', '2013-10-24 14:25:55', 0, 0, NULL, NULL, NULL, 'a:0:{}', 0, NULL, 'pero', 'pero');
+(4, 'pero', 'pero', 'pero@pero.com', 'pero@pero.com', 1, '64yljui4y1s0cckkg404s4kg04o044o', 'xNUjBpSwPIaQMdT5+S4bb9dI3kLjhU3GaZecNiZG3CqnRwGhh9psY4zQAkI1wZ0zHfLPG0dn9cRMur1YNyv5MA==', '2013-10-24 14:25:55', 0, 0, NULL, NULL, NULL, 'a:0:{}', 0, NULL, 'pero', 'pero'),
+(5, 'daca', 'daca', 'danicagilic@yahoo.com', 'danicagilic@yahoo.com', 1, 'f1glnan4tk8oskcwwgcssg4w4co8o8s', 'D7Osw/Dmfw6VwtWl6S1lteqNs8RUaEKpq33iKOOF5mhtnEjUKYE8WU8kzh63q9boaXuPiJrwg3dpP70PjfhDWw==', '2013-11-01 12:06:19', 0, 0, NULL, NULL, NULL, 'a:0:{}', 0, NULL, 'Danica', 'Gilic');
 
 --
 -- Constraints for dumped tables
@@ -362,11 +329,11 @@ ALTER TABLE `product`
   ADD CONSTRAINT `FK_1CF73D3144F5D008` FOREIGN KEY (`brand_id`) REFERENCES `brand` (`id`);
 
 --
--- Constraints for table `ShippingDetail`
+-- Constraints for table `shipping_detail`
 --
-ALTER TABLE `ShippingDetail`
-  ADD CONSTRAINT `FK_8069335B4584665A` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`),
-  ADD CONSTRAINT `FK_8069335B4887F3F8` FOREIGN KEY (`shipping_id`) REFERENCES `shipping` (`id`);
+ALTER TABLE `shipping_detail`
+  ADD CONSTRAINT `FK_55CBADC4584665A` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`),
+  ADD CONSTRAINT `FK_55CBADC4887F3F8` FOREIGN KEY (`shipping_id`) REFERENCES `shipping` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
