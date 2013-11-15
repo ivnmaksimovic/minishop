@@ -2,8 +2,10 @@ minishop
 ========
 
 Online shop application developed with Symfony2 and Doctrine2.
-Under development, it can be installed for testing/preview but not on
-production sites.
+Still under development. It can be installed for testing/preview but not on
+production sites. Although there is live examle on skateshopstance.com
+but admin area can't be accessed (only shop administrator has permisions).
+Only FOS User Bundle is used.
 
 Installation
 ============
@@ -53,6 +55,9 @@ See http://symfony.com/doc/current/book/installation.html - Setting up Permissio
 Features
 ============
 
-- Dynamicly created menu from created categories
+- Dynamicly created menu from created categories (like in CMS)
 - Calculation of Sale price when editing Artical rabat
-- Responsive design
+- Cart functionality
+- Responsive design (desktop, tablet, phone)
+- Orders reports on http://localhost/minishop/web/app_dev.php/admin/sales
+(Access order detail by clicking order id link)
