@@ -12,14 +12,14 @@
 
                 <div class="product-properties col-md-12 col-xs-7">
                     <ul class="list-unstyled">
-                        <li class="product-info product-title"><a href="{{ path('selected_product', { 'categoryName': product.category|lower, 'id': product.id }) }}">{{ product.brand.brandName }} {{ product.productName }}</a></li>
+                        <li class="product-info product-title"><a href="{{ path('selected_product', { 'categoryName': product.category|lower, 'id': product.id }) }}">{{ product.brand.brandName }} {{ product.productName | slice(0, 17) }}</a></li>
                         <li class="product-info">velicina {{ product.productSize }}</li>
                         {% if product.productRabat > 0 %}
-                            <li class="product-info price-old">{{ product.productPrice }},00 din</li>
-                            <li class="product-info product-price">{{ product.productSalePrice }},00 din</li>
+                            <li class="product-info price-old">{{ product.productPrice | number_format(2, ',', '.') }} din</li>
+                            <li class="product-info product-price">{{ product.productSalePrice | number_format(2, ',', '.') }} din</li>
                         {% else %}
                             <li class="product-info">cena</li>
-                            <li class="product-info product-price">{{ product.productPrice }},00 din</li>
+                            <li class="product-info product-price">{{ product.productPrice | number_format(2, ',', '.') }} din</li>
                         {% endif %}
                     </ul>
 

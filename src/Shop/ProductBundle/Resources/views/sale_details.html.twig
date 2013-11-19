@@ -18,7 +18,7 @@
             <tr>
                 <td>{{ saleDetail.shippingId.id }}</td>
                 <td><a href="{{ path('product_show', { 'id': saleDetail.productId.id }) }}">{{ saleDetail.productId.productName }}</a></td>
-                <td>{{ saleDetail.price }}</td>
+                <td>{{ saleDetail.price | number_format(2, ',', '.') }}</td>
                 <td>{{ saleDetail.qty }}</td>
             </tr>
         {% endfor %}

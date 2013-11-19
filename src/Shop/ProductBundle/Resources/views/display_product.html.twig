@@ -16,10 +16,10 @@
                 <li class="product-property">velicina {{ product.productSize }}</li>
                 <li class="product-property product-title"><img class="brand-logo" src="{{ asset ('uploads/documents/') }}{{ product.brand.imgPath }}" /></li>
                 {% if product.productRabat > 0 %}
-                    <li class="product-property product-title price-old">{{ product.productPrice }},00 din</li>
-                    <li class="product-property product-price">{{ product.productSalePrice }},00 din</li>
+                    <li class="product-property product-title price-old">{{ product.productPrice | number_format(2, ',', '.') }} din</li>
+                    <li class="product-property product-price">{{ product.productSalePrice | number_format(2, ',', '.') }} din</li>
                 {% else %}
-                    <li class="product-property product-price">{{ product.productSalePrice }},00 din</li>
+                    <li class="product-property product-price">{{ product.productSalePrice | number_format(2, ',', '.') }} din</li>
                 {% endif %}
             </ul>
 
