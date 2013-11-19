@@ -28,45 +28,46 @@
             </div>
 
             <div id="content" class="col-md-10">
-                {% block content -%}
-                {% endblock %}
-            </div>
-        </div>
-        <div class="row">
-            <div id="content-extra" class="col-md-10 col-md-offset-2">
-                <h3>Možda će Vas interesovati sledeći proizvodi</h3>
+                <div id="content-main" class="row">
+                    {% block content %}
+                    {% endblock %}
+                </div>
 
-                <div class="row">
-                    {% for recomendedProduct in recomendedProducts|slice(0, 4) %}
-                        <div class="product col-md-3 col-sm-4 col-sm-6">
-                            <div class="row">
-                                <div class="image_small col-md-12 col-xs-5">
-                                    <a href="{{ path('selected_product', { 'categoryName': recomendedProduct.category|lower, 'id': recomendedProduct.id }) }}"><img src="{{ asset ('uploads/documents/') }}{{ recomendedProduct.imgPath }}" /></a>
-                                </div>
+                <div id="content-extra" class="row">
+                    <h3>Možda će Vas interesovati sledeći proizvodi</h3>
 
-                                <div class="product-properties col-md-12 col-xs-7">
-                                    <ul class="list-unstyled">
-                                        <li class="product-info product-title"><a href="{{ path('selected_product', { 'categoryName': recomendedProduct.category|lower, 'id': recomendedProduct.id }) }}">{{ recomendedProduct.brand.brandName }} {{ recomendedProduct.productName }}</a></li>
-                                        <li class="product-info">velicina {{ recomendedProduct.productSize }}</li>
+
+                        {% for recomendedProduct in recomendedProducts|slice(0, 4) %}
+                            <div class="product col-md-3 col-sm-4 col-sm-6">
+                                <div class="row">
+                                    <div class="image_small col-md-12 col-xs-5">
+                                        <a href="{{ path('selected_product', { 'categoryName': recomendedProduct.category|lower, 'id': recomendedProduct.id }) }}"><img src="{{ asset ('uploads/documents/') }}{{ recomendedProduct.imgPath }}" /></a>
+                                    </div>
+
+                                    <div class="product-properties col-md-12 col-xs-7">
+                                        <ul class="list-unstyled">
+                                            <li class="product-info product-title"><a href="{{ path('selected_product', { 'categoryName': recomendedProduct.category|lower, 'id': recomendedProduct.id }) }}">{{ recomendedProduct.brand.brandName }} {{ recomendedProduct.productName }}</a></li>
+                                            <li class="product-info">velicina {{ recomendedProduct.productSize }}</li>
+                                            {% if recomendedProduct.productRabat > 0 %}
+                                                <li class="product-info price-old">{{ recomendedProduct.productPrice }},00 din</li>
+                                                <li class="product-info">{{ recomendedProduct.productSalePrice }},00 din</li>
+                                            {% else %}
+                                                <li class="product-info">cena</li>
+                                                <li class="product-info">{{ recomendedProduct.productPrice }},00 din</li>
+                                            {% endif %}
+                                        </ul>
+
                                         {% if recomendedProduct.productRabat > 0 %}
-                                            <li class="product-info price-old">{{ recomendedProduct.productPrice }},00 din</li>
-                                            <li class="product-info">{{ recomendedProduct.productSalePrice }},00 din</li>
-                                        {% else %}
-                                            <li class="product-info">cena</li>
-                                            <li class="product-info">{{ recomendedProduct.productPrice }},00 din</li>
+                                            <div class="product-rabat">{{ recomendedProduct.productRabat }}%</div>
                                         {% endif %}
-                                    </ul>
-
-                                    {% if recomendedProduct.productRabat > 0 %}
-                                        <div class="product-rabat">{{ recomendedProduct.productRabat }}%</div>
-                                    {% endif %}
+                                    </div>
                                 </div>
+
+                                <a class="btn btn-block btn-yellow" onclick="cart.addToCart({{ recomendedProduct.id }})">Dodaj u korpu</a>
+
                             </div>
+                        {% endfor %}
 
-                            <a class="btn btn-block btn-yellow" onclick="cart.addToCart({{ recomendedProduct.id }})">Dodaj u korpu</a>
-
-                        </div>
-                    {% endfor %}
                 </div>
             </div>
         </div>

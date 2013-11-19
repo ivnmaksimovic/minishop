@@ -19,10 +19,13 @@ h3,h4 {
 
 h3 {
     font-size: 22px;
+    padding-left: 15px;
 }
 
 #carousel-generic {
     margin-bottom: 20px;
+    margin-left:15px;
+    margin-right:15px;
 }
 
 .glyphicon {
