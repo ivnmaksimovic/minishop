@@ -29,6 +29,14 @@
 
             <div id="content" class="col-md-10">
                 <div id="content-main" class="row">
+                    {% for label, flashes in app.session.flashbag.all %}
+                        {% for flash in flashes %}
+                            <div class="alert alert-{{ label }}">
+                                {{ flash }}
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+
                     {% block content %}
                     {% endblock %}
                 </div>
