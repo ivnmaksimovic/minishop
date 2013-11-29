@@ -244,12 +244,19 @@ img {
     padding-top: 1em;
 }
 
+/* Magacin tables */
+
 #table {
     overflow: scroll;
 }
 
-.td-height {
-    height: 50px;
+#magacin table {
+    font-size: 12px;
+    color: #282828;
+}
+
+.description {
+    height: 34px;
     overflow: hidden;
 }
 
@@ -257,6 +264,25 @@ img {
     height: 100%;
 }
 
-#magacin td {
-    max-width: 100px;
+#magacin th {
+    background-color: #8dbf1b;
+    color: #ffffff;
 }
+
+#magacin td {
+    background-color: #ffffff;
+}
+
+#table tr:nth-child(odd) > td{
+    background-color: #efefef;
+}
+
+#magacin tr:hover {
+    color: #8dbf1b;
+}
+
+#magacin td, #magacin th {
+    padding: 0 5px 0 5px;
+}
+
+

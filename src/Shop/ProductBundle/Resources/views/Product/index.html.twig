@@ -4,10 +4,9 @@
 
     <h1>Lista artikala</h1>
     <div id="table">
-        <table class="table">
+        <table>
             <thead>
             <tr>
-                <th>Id</th>
                 <th>Akcije</th>
                 <th>Sifra artikla</th>
                 <th>Aktivan</th>
@@ -26,17 +25,7 @@
             <tbody>
             {% for entity in entities %}
                 <tr>
-                    <td><a href="{{ path('product_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                    <td>
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="{{ path('product_show', { 'id': entity.id }) }}">prikazi</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('product_edit', { 'id': entity.id }) }}">izmeni</a>
-                            </li>
-                        </ul>
-                    </td>
+                    <td><a href="{{ path('product_show', { 'id': entity.id }) }}">prikazi</a></td>
                     <td>{{ entity.productCode }}</td>
                     <td>{{ entity.active }}</td>
                     <td>{{ entity.category }}</td>
@@ -44,7 +33,7 @@
                     <td>{{ entity.productName }}</td>
                     <td>{{ entity.productColor }}</td>
                     <td>{{ entity.productSize }}</td>
-                    <td><div class="td-height">{{ entity.productDescription }}</div></td>
+                    <td><div class="description">{{ entity.productDescription | raw }}</div></td>
                     <td>{{ entity.productPrice }}</td>
                     <td>{{ entity.productRabat }}</td>
                     <td>{{ entity.productSalePrice }}</td>
