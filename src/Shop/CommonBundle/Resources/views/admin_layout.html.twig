@@ -8,15 +8,25 @@
     <div id="scroll"></div>
 
     <div id="all-admin" class="container">
-        <div id="admin_menu">
-            <ul>
-                <li><a href="{{ path('homepage') }}">Shop</a></li>
-                <li><a href="{{ path('admin_home') }}">Magacin</a></li>
-                <li class="separator"><a href="{{ path('product') }}">Artikli</a></li>
-                <li><a href="{{ path('category') }}">Kategorije</a></li>
-                <li><a href="{{ path('brand') }}">Brendovi</a></li>
-                <li class="separator"><a href="{{ path('sales') }}">Porudzbine</a></li>
-            </ul>
+        <div id="admin-menu" class="row">
+            <div class="col-md-4">
+                <ul>
+                    <li><a href="{{ path('homepage') }}">Shop</a></li>
+                    <li><a href="{{ path('admin_home') }}">Magacin</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul>
+                    <li><a href="{{ path('product') }}">Artikli</a></li>
+                    <li><a href="{{ path('category') }}">Kategorije</a></li>
+                    <li><a href="{{ path('brand') }}">Brendovi</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul>
+                    <li><a href="{{ path('sales') }}">Porudzbine</a></li>
+                </ul>
+            </div>
         </div>
 
         <div id="magacin">

@@ -30,8 +30,8 @@
                         </ul>
                     </td>
                     <td>{{ entity.brandName }}</td>
-                    <td><div class="td-height">{{ entity.brandDescription }}</div></td>
-                    <td><div class="td-height"><a href="{{ asset ('uploads/documents/') }}{{ entity.imgPath }}" target="_blank"><img src="{{ asset ('uploads/documents/') }}{{ entity.imgPath }}" /></a></div></td>
+                    <td><div class="description">{{ entity.brandDescription | raw }}</div></td>
+                    <td><div class="description"><a href="{{ asset ('uploads/documents/') }}{{ entity.imgPath }}" target="_blank"><img src="{{ asset ('uploads/documents/') }}{{ entity.imgPath }}" /></a></div></td>
 
                 </tr>
             {% endfor %}

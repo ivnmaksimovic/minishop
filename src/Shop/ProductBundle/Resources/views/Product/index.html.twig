@@ -37,7 +37,7 @@
                     <td>{{ entity.productPrice }}</td>
                     <td>{{ entity.productRabat }}</td>
                     <td>{{ entity.productSalePrice }}</td>
-                    <td><a href="{{ asset ('uploads/documents/') }}{{ entity.imgPath }}" target="_blank"><img src="{{ asset ('uploads/documents/') }}{{ entity.imgPath }}" /></a></td>
+                    <td><div class="description"><a href="{{ asset ('uploads/documents/') }}{{ entity.imgPath }}" target="_blank"><img src="{{ asset ('uploads/documents/') }}{{ entity.imgPath }}" /></a></div></td>
                 </tr>
             {% endfor %}
             </tbody>
