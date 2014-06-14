@@ -6,6 +6,6 @@ php:
   - 5.4
   - 5.5
 
-before_script:
-  - travis-lint
-  - composer install -n
+script: travis-lint
+
+before_script: composer install -n
