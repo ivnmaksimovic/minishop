@@ -1,10 +1,10 @@
-{% extends 'CommonBundle::layout.html.twig' %}
+{% extends 'CommonBundle::print_layout.html.twig' %}
 
 {% block content %}
 
         <div class="row">
         {% for product in products %}
-            <div class="product col-md-3 col-sm-4 col-sm-6">
+            <div class="product col-md-2 col-sm-4 col-sm-6">
                 <div class="row">
                 <div class="image_small col-md-12 col-xs-5">
                     <a href="{{ path('selected_product', { 'categoryName': product.category | lower, 'id': product.id }) }}"><img src="{{ asset ('uploads/documents/') }}{{ product.imgPath }}" /></a>
