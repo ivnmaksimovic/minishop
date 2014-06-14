@@ -9,5 +9,3 @@ php:
 before_script:
   - travis-lint
   - composer install -n
-
-script: phpunit -c app
